@@ -38,7 +38,7 @@ export default function InAction() {
               poster="/videos/reel-betty-1-poster.jpg"
               className="absolute inset-0 w-full h-full object-cover group-hover:scale-[1.02] transition-transform duration-700"
             />
-            <div className="absolute bottom-0 left-0 right-0 p-5 bg-gradient-to-t from-charcoal/70 via-charcoal/20 to-transparent">
+            <div className="absolute bottom-0 left-0 right-0 p-5 bg-gradient-to-t from-charcoal/70 via-charcoal/20 to-transparent pointer-events-none">
               <p className="text-white text-[13px] font-light tracking-wide">Behind the Chair</p>
               <p className="text-white/50 text-[11px] font-light mt-0.5">Betty V.</p>
             </div>
@@ -56,7 +56,7 @@ export default function InAction() {
               poster="/videos/reel-salon-poster.jpg"
               className="absolute inset-0 w-full h-full object-cover group-hover:scale-[1.02] transition-transform duration-700"
             />
-            <div className="absolute bottom-0 left-0 right-0 p-5 bg-gradient-to-t from-charcoal/70 via-charcoal/20 to-transparent">
+            <div className="absolute bottom-0 left-0 right-0 p-5 bg-gradient-to-t from-charcoal/70 via-charcoal/20 to-transparent pointer-events-none">
               <p className="text-white text-[13px] font-light tracking-wide">Salon Life</p>
               <p className="text-white/50 text-[11px] font-light mt-0.5">Rose & Stone</p>
             </div>

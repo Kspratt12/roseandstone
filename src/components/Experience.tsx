@@ -63,7 +63,7 @@ export default function Experience() {
               poster="/videos/reel-betty-2-poster.jpg"
               className="absolute inset-0 w-full h-full object-cover"
             />
-            <div className="absolute inset-0 bg-gradient-to-t from-charcoal/10 via-transparent to-transparent" />
+            <div className="absolute inset-0 bg-gradient-to-t from-charcoal/10 via-transparent to-transparent pointer-events-none" />
           </motion.div>
         </div>
       </div>
