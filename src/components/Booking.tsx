@@ -1,17 +1,23 @@
 "use client";
 
 import { motion } from "framer-motion";
+import Image from "next/image";
+
+interface BookingProps {
+  onBookClick: () => void;
+}
 
 const bookingOptions = [
   {
     name: "Betty Vandivier",
     title: "Blonding Specialist",
-    known: "Blonding, balayage, Brazilian Blowout",
+    known: "Blonding, balayage, Brazilian Blowout, extensions",
     phone: "(919) 651-0004",
     email: "betty@roseandstonesalon.com",
     url: "https://book.squareup.com/appointments/lq9qhwhra4o0tn/location/LVTJWVE2XE4QF?buttonTextColor=000000&color=bd959f&locale=en&referrer=so",
     buttonText: "Book with Betty",
     note: "Books through Square",
+    image: "/images/betty.jpg",
   },
   {
     name: "Bree Szalkowski",
@@ -22,10 +28,11 @@ const bookingOptions = [
     url: "https://www.colourmebree.com/",
     buttonText: "Book with Bree",
     note: "Books through ColourMeBree.com",
+    image: "/images/bree.jpg",
   },
 ];
 
-export default function Booking() {
+export default function Booking({ onBookClick }: BookingProps) {
   return (
     <section id="booking" className="py-20 md:py-28 bg-white">
       <div className="max-w-4xl mx-auto px-6">
@@ -58,11 +65,15 @@ export default function Booking() {
               className="group relative bg-cream rounded-2xl p-7 md:p-8 border border-beige hover:border-blush-light/60 transition-all duration-500"
             >
               <div className="relative z-10">
-                {/* Avatar */}
-                <div className="w-16 h-16 rounded-full bg-beige/80 mx-auto mb-5 flex items-center justify-center">
-                  <span className="font-serif text-2xl text-blush/30">
-                    {option.name.charAt(0)}
-                  </span>
+                {/* Photo */}
+                <div className="w-20 h-20 rounded-full overflow-hidden mx-auto mb-5 ring-2 ring-beige">
+                  <Image
+                    src={option.image}
+                    alt={option.name}
+                    width={80}
+                    height={80}
+                    className="w-full h-full object-cover"
+                  />
                 </div>
 
                 <h3 className="font-serif text-2xl text-charcoal text-center mb-0.5">
@@ -108,23 +119,36 @@ export default function Booking() {
           ))}
         </div>
 
-        {/* Help */}
-        <motion.p
+        {/* Calendar popup CTA */}
+        <motion.div
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
           viewport={{ once: true }}
           transition={{ delay: 0.4 }}
-          className="text-center mt-10 text-stone text-sm font-light"
+          className="text-center mt-10 space-y-3"
         >
-          Not sure who&apos;s right for you?{" "}
-          <a
-            href="#contact"
-            className="text-blush hover:text-blush-dark underline underline-offset-4 decoration-blush/30 transition-colors"
+          <button
+            onClick={onBookClick}
+            className="inline-flex items-center gap-2 px-8 py-3 bg-charcoal text-white text-sm tracking-wider uppercase rounded-full hover:bg-soft-black transition-colors active:scale-[0.97] cursor-pointer"
           >
-            Tell us what you&apos;re looking for
-          </a>{" "}
-          — we&apos;ll point you in the right direction.
-        </motion.p>
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
+              <rect x="3" y="4" width="18" height="18" rx="2" ry="2" />
+              <line x1="16" y1="2" x2="16" y2="6" />
+              <line x1="8" y1="2" x2="8" y2="6" />
+              <line x1="3" y1="10" x2="21" y2="10" />
+            </svg>
+            Open Booking Calendar
+          </button>
+          <p className="text-stone text-sm font-light">
+            Not sure who&apos;s right for you?{" "}
+            <a
+              href="#contact"
+              className="text-blush hover:text-blush-dark underline underline-offset-4 decoration-blush/30 transition-colors"
+            >
+              Tell us what you&apos;re looking for
+            </a>
+          </p>
+        </motion.div>
       </div>
     </section>
   );

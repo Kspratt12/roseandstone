@@ -3,7 +3,11 @@
 import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 
-export default function MobileBookButton() {
+interface MobileBookButtonProps {
+  onBookClick: () => void;
+}
+
+export default function MobileBookButton({ onBookClick }: MobileBookButtonProps) {
   const [visible, setVisible] = useState(false);
 
   useEffect(() => {
@@ -23,12 +27,12 @@ export default function MobileBookButton() {
           className="fixed bottom-0 left-0 right-0 z-40 lg:hidden"
         >
           <div className="bg-white/95 backdrop-blur-md border-t border-beige/40 px-4 py-3 safe-area-pb">
-            <a
-              href="#booking"
-              className="block w-full py-3.5 bg-blush text-white text-center text-sm tracking-[0.15em] uppercase rounded-full hover:bg-blush-dark transition-all duration-300 active:scale-[0.97] shadow-sm shadow-blush/15"
+            <button
+              onClick={onBookClick}
+              className="block w-full py-3.5 bg-blush text-white text-center text-sm tracking-[0.15em] uppercase rounded-full hover:bg-blush-dark transition-all duration-300 active:scale-[0.97] shadow-sm shadow-blush/15 cursor-pointer"
             >
               Book Your Appointment
-            </a>
+            </button>
           </div>
         </motion.div>
       )}

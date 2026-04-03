@@ -193,7 +193,11 @@ const serviceCategories = [
   },
 ];
 
-export default function Services() {
+interface ServicesProps {
+  onBookClick: () => void;
+}
+
+export default function Services({ onBookClick }: ServicesProps) {
   const [activeCategory, setActiveCategory] = useState(0);
 
   return (
@@ -302,12 +306,12 @@ export default function Services() {
           transition={{ duration: 0.6, delay: 0.3 }}
           className="text-center mt-12"
         >
-          <a
-            href="#booking"
-            className="inline-flex items-center px-8 py-3.5 bg-blush text-white text-sm tracking-wider uppercase rounded-full hover:bg-blush-dark transition-all duration-300 active:scale-[0.97]"
+          <button
+            onClick={onBookClick}
+            className="inline-flex items-center px-8 py-3.5 bg-blush text-white text-sm tracking-wider uppercase rounded-full hover:bg-blush-dark transition-all duration-300 active:scale-[0.97] cursor-pointer"
           >
             Book Your Appointment
-          </a>
+          </button>
         </motion.div>
       </div>
     </section>

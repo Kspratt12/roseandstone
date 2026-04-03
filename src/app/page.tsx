@@ -1,3 +1,6 @@
+"use client";
+
+import { useState } from "react";
 import Navbar from "@/components/Navbar";
 import Hero from "@/components/Hero";
 import TrustStrip from "@/components/TrustStrip";
@@ -15,27 +18,31 @@ import FinalCTA from "@/components/FinalCTA";
 import Footer from "@/components/Footer";
 import ChatBox from "@/components/ChatBox";
 import MobileBookButton from "@/components/MobileBookButton";
+import BookingModal from "@/components/BookingModal";
 
 export default function Home() {
+  const [bookingOpen, setBookingOpen] = useState(false);
+
   return (
     <main>
-      <Navbar />
-      <Hero />
+      <Navbar onBookClick={() => setBookingOpen(true)} />
+      <Hero onBookClick={() => setBookingOpen(true)} />
       <TrustStrip />
       <Experience />
       <Story />
       <Stylists />
-      <Services />
+      <Services onBookClick={() => setBookingOpen(true)} />
       <Policies />
       <Transformations />
       <Testimonials />
-      <Booking />
+      <Booking onBookClick={() => setBookingOpen(true)} />
       <InstagramFeed />
       <Contact />
-      <FinalCTA />
+      <FinalCTA onBookClick={() => setBookingOpen(true)} />
       <Footer />
       <ChatBox />
-      <MobileBookButton />
+      <MobileBookButton onBookClick={() => setBookingOpen(true)} />
+      <BookingModal isOpen={bookingOpen} onClose={() => setBookingOpen(false)} />
     </main>
   );
 }

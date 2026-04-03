@@ -1,6 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
+import Image from "next/image";
 
 const stylists = [
   {
@@ -9,7 +10,9 @@ const stylists = [
     specialties: ["Blonding", "Balayage", "Brazilian Blowout", "Extensions"],
     description:
       "I'm Betty & I'm the owner of Rose & Stone Salon! I was born & raised in North Carolina and couldn't imagine living anywhere else. I'm a boy mom and love everything that comes along with that! After years of working as a receptionist in a hair salon, I decided I wanted to be the one behind the chair. Over the last 10+ years of my career, I've spent countless hours continuing my education & perfecting my craft. Whether it be highlights or balayage, my passion & specialty is all things BLONDING! I love helping clients achieve natural lived-in color. I'm certified in Brazilian Blowout as well as various methods of extensions that can be customized to suit your individual needs.",
+    image: "/images/betty.jpg",
     instagram: "@bettywiththegoodhair_",
+    instagramUrl: "https://www.instagram.com/bettywiththegoodhair_/",
     bookingUrl:
       "https://book.squareup.com/appointments/lq9qhwhra4o0tn/location/LVTJWVE2XE4QF?buttonTextColor=000000&color=bd959f&locale=en&referrer=so",
     bookingLabel: "Book with Betty",
@@ -20,7 +23,9 @@ const stylists = [
     specialties: ["Color Transformations", "Highlights", "Dry Cutting", "Hair Loss Care"],
     description:
       "My name is Bree and I am the owner of Rose & Stone Salon. Throughout my 12 years in the beauty industry, I have diligently trained in many different areas. From studying in NYC, where I mastered the drycut and became a L'Oréal color expert, to learning how to care for clients who suffer from different forms of hair loss — I've taken cues from all aspects of my career to fine-tune my techniques. When I'm not at the salon, I enjoy getting lost in a good book or soaking up some sunshine. Weekend trips to the beach and spending time with my daughter bring me happiness. I'm also an avid animal lover, with 4 pets of my own that keep life interesting in the best way possible.",
+    image: "/images/bree.jpg",
     instagram: "@colourmebree",
+    instagramUrl: "https://www.instagram.com/colourmebree/",
     bookingUrl: "https://www.colourmebree.com/",
     bookingLabel: "Book with Bree",
   },
@@ -55,19 +60,19 @@ export default function Stylists() {
               transition={{ duration: 0.8, delay: i * 0.15, ease: "easeOut" }}
               className="group"
             >
-              {/* Portrait Area */}
+              {/* Portrait */}
               <div className="relative mb-6 overflow-hidden rounded-2xl">
-                <div className="aspect-[3/4] bg-beige relative overflow-hidden">
-                  <div className="absolute inset-0 bg-gradient-to-br from-blush/8 to-rose-gold/8" />
-                  <div className="absolute inset-0 flex items-center justify-center">
-                    <span className="font-serif text-8xl text-blush/15 group-hover:text-blush/25 transition-colors duration-700">
-                      {stylist.name.charAt(0)}
-                    </span>
-                  </div>
-                  <div className="absolute inset-0 bg-charcoal/0 group-hover:bg-charcoal/5 transition-all duration-700" />
+                <div className="aspect-[3/4] relative overflow-hidden bg-beige">
+                  <Image
+                    src={stylist.image}
+                    alt={stylist.name}
+                    fill
+                    sizes="(max-width: 1024px) 100vw, 50vw"
+                    className="object-cover group-hover:scale-[1.02] transition-transform duration-700"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-charcoal/20 via-transparent to-transparent" />
                 </div>
 
-                {/* Floating specialties */}
                 <motion.div
                   initial={{ opacity: 0 }}
                   whileInView={{ opacity: 1 }}
@@ -86,7 +91,6 @@ export default function Stylists() {
                 </motion.div>
               </div>
 
-              {/* Info */}
               <h3 className="font-serif text-2xl md:text-3xl text-charcoal mb-1">
                 {stylist.name}
               </h3>
@@ -107,7 +111,7 @@ export default function Stylists() {
                   {stylist.bookingLabel}
                 </a>
                 <a
-                  href={`https://instagram.com/${stylist.instagram.replace("@", "")}`}
+                  href={stylist.instagramUrl}
                   target="_blank"
                   rel="noopener noreferrer"
                   className="inline-flex items-center justify-center px-7 py-3 border border-beige text-stone text-sm tracking-wider rounded-full hover:border-blush-light hover:text-blush-dark transition-all duration-300"
