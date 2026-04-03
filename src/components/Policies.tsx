@@ -23,7 +23,7 @@ const policies = [
 
 export default function Policies() {
   return (
-    <section className="py-12 md:py-16 lg:py-20 bg-cream">
+    <section className="py-16 md:py-24 bg-cream">
       <div className="w-full max-w-[1280px] mx-auto px-6">
         <div className="max-w-[720px] mx-auto">
           <motion.div

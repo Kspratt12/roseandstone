@@ -155,7 +155,7 @@ function TransformationCard({ t, i }: { t: typeof transformations[0]; i: number 
 
 export default function Transformations() {
   return (
-    <section id="transformations" className="py-16 md:py-20 lg:py-28 bg-beige/20">
+    <section id="transformations" className="py-16 md:py-24 bg-beige/20">
       <div className="w-full max-w-[1280px] mx-auto px-6">
         <motion.div
           initial={{ opacity: 0, y: 16 }}

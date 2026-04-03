@@ -11,7 +11,7 @@ import Image from "next/image";
 
 export default function Story() {
   return (
-    <section id="story" className="py-16 md:py-20 lg:py-28 bg-white">
+    <section id="story" className="py-16 md:py-24 bg-white">
       <div className="w-full max-w-[1280px] mx-auto px-6">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 md:gap-20 items-center">
           {/* Image Side - Two stacked images for variety */}

@@ -20,7 +20,7 @@ export default function Experience() {
     <motion.section
       ref={ref}
       style={{ backgroundColor: bgColor }}
-      className="py-16 md:py-20 lg:py-28 overflow-hidden"
+      className="py-16 md:py-24 overflow-hidden"
     >
       <div className="w-full max-w-[1280px] mx-auto px-6 text-center">
         <motion.h2

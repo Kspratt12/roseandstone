@@ -4,7 +4,7 @@ import Image from "next/image";
 
 export default function Footer() {
   return (
-    <footer className="bg-soft-black py-16 md:py-20">
+    <footer className="bg-soft-black py-16 md:py-24">
       <div className="w-full max-w-[1280px] mx-auto px-6">
         {/* Top row: Logo centered */}
         <div className="text-center mb-12">

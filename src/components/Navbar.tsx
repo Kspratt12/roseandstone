@@ -36,8 +36,8 @@ export default function Navbar({ onBookClick }: NavbarProps) {
       <nav
         className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
           scrolled
-            ? "bg-cream/95 backdrop-blur-md shadow-[0_1px_0_rgba(0,0,0,0.04)] py-2.5"
-            : "bg-transparent py-4"
+            ? "bg-cream/95 backdrop-blur-md shadow-[0_1px_0_rgba(0,0,0,0.04)] py-3"
+            : "bg-transparent py-3"
         }`}
       >
         <div className="w-full max-w-[1280px] mx-auto px-6 flex items-center justify-between">

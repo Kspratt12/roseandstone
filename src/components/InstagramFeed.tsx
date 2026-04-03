@@ -15,7 +15,7 @@ const feedItems = [
 
 export default function InstagramFeed() {
   return (
-    <section className="py-16 md:py-20 lg:py-28 bg-beige/20">
+    <section className="py-16 md:py-24 bg-beige/20">
       <div className="w-full max-w-[1280px] mx-auto px-6">
         <motion.div
           initial={{ opacity: 0, y: 16 }}

@@ -59,7 +59,7 @@ export default function Services({ onBookClick }: ServicesProps) {
   const [activeCategory, setActiveCategory] = useState(0);
 
   return (
-    <section id="services" className="py-16 md:py-20 lg:py-28 bg-white">
+    <section id="services" className="py-16 md:py-24 bg-white">
       <div className="w-full max-w-[1280px] mx-auto px-6">
         <motion.div
           initial={{ opacity: 0, y: 16 }}

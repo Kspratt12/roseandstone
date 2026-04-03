@@ -1,7 +1,6 @@
 "use client";
 
 import { motion } from "framer-motion";
-import Image from "next/image";
 
 interface FinalCTAProps {
   onBookClick: () => void;
@@ -9,18 +8,9 @@ interface FinalCTAProps {
 
 export default function FinalCTA({ onBookClick }: FinalCTAProps) {
   return (
-    <section className="relative py-28 md:py-36 lg:py-44 overflow-hidden">
-      {/* Background image with dark overlay for cinematic feel */}
-      <Image
-        src="/images/hero-bg.jpg"
-        alt=""
-        fill
-        quality={80}
-        sizes="100vw"
-        className="object-cover"
-        aria-hidden="true"
-      />
-      <div className="absolute inset-0 bg-gradient-to-b from-soft-black/80 via-charcoal/85 to-soft-black/90" />
+    <section className="relative py-16 md:py-24 bg-charcoal overflow-hidden">
+      {/* Gradient background — no image (avoids duplicating hero-bg.jpg) */}
+      <div className="absolute inset-0 bg-gradient-to-br from-charcoal via-soft-black/95 to-charcoal" />
       <div className="absolute top-0 left-1/4 w-96 h-96 bg-blush/4 rounded-full blur-[120px]" />
       <div className="absolute bottom-0 right-1/4 w-72 h-72 bg-gold/4 rounded-full blur-[100px]" />
 

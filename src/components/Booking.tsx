@@ -34,7 +34,7 @@ const bookingOptions = [
 
 export default function Booking({ onBookClick }: BookingProps) {
   return (
-    <section id="booking" className="py-16 md:py-20 lg:py-28 bg-white">
+    <section id="booking" className="py-16 md:py-24 bg-white">
       <div className="w-full max-w-[1280px] mx-auto px-6">
         <motion.div
           initial={{ opacity: 0, y: 16 }}
