@@ -10,8 +10,9 @@ import Stylists from "@/components/Stylists";
 import Services from "@/components/Services";
 import Policies from "@/components/Policies";
 import Transformations from "@/components/Transformations";
+import Products from "@/components/Products";
 import Testimonials from "@/components/Testimonials";
-import Booking from "@/components/Booking";
+import BookNow from "@/components/BookNow";
 import InstagramFeed from "@/components/InstagramFeed";
 import Contact from "@/components/Contact";
 import FinalCTA from "@/components/FinalCTA";
@@ -34,8 +35,9 @@ export default function Home() {
       <Services onBookClick={() => setBookingOpen(true)} />
       <Policies />
       <Transformations />
+      <Products />
       <Testimonials />
-      <Booking onBookClick={() => setBookingOpen(true)} />
+      <BookNow />
       <InstagramFeed />
       <Contact />
       <FinalCTA onBookClick={() => setBookingOpen(true)} />
