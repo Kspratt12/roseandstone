@@ -15,16 +15,16 @@ const feedItems = [
 
 export default function InstagramFeed() {
   return (
-    <section className="py-20 md:py-28 bg-beige/25">
-      <div className="max-w-6xl mx-auto px-6">
+    <section className="py-20 md:py-28 bg-beige/20">
+      <div className="max-w-5xl mx-auto px-6">
         <motion.div
-          initial={{ opacity: 0, y: 20 }}
+          initial={{ opacity: 0, y: 16 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.8 }}
           className="text-center mb-12"
         >
-          <p className="text-blush text-xs tracking-[0.3em] uppercase mb-4">
+          <p className="text-gold text-[11px] tracking-[0.3em] uppercase mb-4 font-light">
             Follow Along
           </p>
           <h2 className="font-serif text-3xl md:text-4xl font-light text-charcoal">
@@ -42,13 +42,14 @@ export default function InstagramFeed() {
               transition={{ duration: 0.4, delay: i * 0.04 }}
               className="group cursor-pointer"
             >
-              <div className="relative aspect-square rounded-lg overflow-hidden bg-beige/50">
+              {/* Replace with real Instagram photos from @bettywiththegoodhair_ and @colourmebree */}
+              <div className="relative aspect-square rounded-lg overflow-hidden bg-beige/40">
                 <div className="absolute inset-0 flex items-center justify-center">
-                  <span className="font-serif text-sm md:text-base text-blush/25 group-hover:text-blush/40 transition-colors duration-500 text-center px-2">
+                  <span className="font-serif text-sm text-blush/20 group-hover:text-blush/35 transition-colors duration-500 text-center px-2">
                     {item}
                   </span>
                 </div>
-                <div className="absolute inset-0 bg-charcoal/0 group-hover:bg-charcoal/10 transition-all duration-500" />
+                <div className="absolute inset-0 bg-charcoal/0 group-hover:bg-charcoal/8 transition-all duration-500" />
               </div>
             </motion.div>
           ))}
@@ -70,7 +71,7 @@ export default function InstagramFeed() {
             >
               @bettywiththegoodhair_
             </a>
-            <span className="text-beige hidden sm:inline">|</span>
+            <span className="text-beige hidden sm:inline">·</span>
             <a
               href="https://www.instagram.com/colourmebree/"
               target="_blank"

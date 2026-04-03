@@ -3,214 +3,73 @@
 import { motion } from "framer-motion";
 import { useState } from "react";
 
+interface ServicesProps {
+  onBookClick: () => void;
+}
+
 const serviceCategories = [
   {
     name: "Blonding & Color",
     services: [
-      {
-        title: "Full Custom Blonding",
-        price: "$245+",
-        time: "3 hrs 30 mins",
-        description:
-          "Multiple blonding techniques — baby lights, balayage, foilyage, tipping out — for all-over blonde transformation & maximum brightness. Consultation required for new clients.",
-      },
-      {
-        title: "Partial Custom Blonding",
-        price: "$185+",
-        time: "2 hrs 30 mins",
-        description:
-          "Various blonding techniques with coverage including the sides and top of the head. When a typical partial highlight just isn't enough.",
-      },
-      {
-        title: "Balayage",
-        price: "$210+",
-        time: "1 hr 30 mins+",
-        description:
-          "Hand-painted highlighting technique — price varies based on length and amount of product needed. Short, mid-length, and long hair pricing available.",
-      },
-      {
-        title: "Full Highlight",
-        price: "Price varies",
-        time: "2 hrs 30 mins+",
-        description: "Full head foil highlights for maximum dimension and brightness.",
-      },
-      {
-        title: "Partial Highlight",
-        price: "Price varies",
-        time: "2 hrs+",
-        description: "Partial foil highlights for natural-looking dimension.",
-      },
-      {
-        title: "Mini Highlight",
-        price: "$120",
-        time: "1 hr 30 mins",
-        description:
-          "12 foils or less — add brightness around the face or create very subtle dimension. Toner included.",
-      },
-      {
-        title: "Bleach & Tone",
-        price: "$180+",
-        time: "2 hrs",
-        description:
-          "Blonding technique used primarily for achieving all-over platinum results. Toner included.",
-      },
-      {
-        title: "Full Color",
-        price: "Price varies",
-        time: "1 hr 45 mins+",
-        description: "Single process color roots to ends.",
-      },
-      {
-        title: "Color Retouch",
-        price: "Price varies",
-        time: "1 hr 30 mins+",
-        description:
-          "Single process color applied to regrowth for gray coverage. Blow dry included.",
-      },
-      {
-        title: "Reverse Balayage",
-        price: "$190+",
-        time: "2 hrs",
-        description:
-          "Reintroduces depth to previously lightened hair — transition traditional highlights into low-maintenance lived-in blondes.",
-      },
-      {
-        title: "Fashion Color + Lightening",
-        price: "$180+",
-        time: "2 hrs 30 mins",
-        description: "Creative color work. Consultation required prior to service.",
-      },
+      { title: "Full Custom Blonding", price: "$245+", time: "3 hrs 30 mins", description: "Multiple blonding techniques including baby lights, balayage, foilyage, and tipping out for all-over blonde transformation. Consultation required for new clients." },
+      { title: "Partial Custom Blonding", price: "$185+", time: "2 hrs 30 mins", description: "Various blonding techniques with coverage including the sides and top of the head. For when a typical partial highlight just isn't enough." },
+      { title: "Balayage", price: "$210+", time: "1 hr 30 mins+", description: "Hand-painted highlighting technique. Price varies based on length and amount of product needed." },
+      { title: "Full Highlight", price: "Price varies", time: "2 hrs 30 mins+", description: "Full head foil highlights for maximum dimension and brightness." },
+      { title: "Partial Highlight", price: "Price varies", time: "2 hrs+", description: "Partial foil highlights for natural-looking dimension." },
+      { title: "Mini Highlight", price: "$120", time: "1 hr 30 mins", description: "12 foils or less to add brightness around the face or create very subtle dimension. Toner included." },
+      { title: "Bleach & Tone", price: "$180+", time: "2 hrs", description: "Primarily for achieving all-over or one-dimensional platinum results. Toner included." },
+      { title: "Full Color", price: "Price varies", time: "1 hr 45 mins+", description: "Single process color from roots to ends." },
+      { title: "Color Retouch", price: "Price varies", time: "1 hr 30 mins+", description: "Single process color applied to regrowth for gray coverage. Blow dry included." },
+      { title: "Reverse Balayage", price: "$190+", time: "2 hrs", description: "Reintroduces depth to previously lightened hair. Perfect for transitioning traditional highlights into low-maintenance, lived-in blondes." },
+      { title: "Fashion Color + Lightening", price: "$180+", time: "2 hrs 30 mins", description: "Creative color work. Consultation required prior to service." },
     ],
   },
   {
     name: "Add-Ons",
     services: [
-      {
-        title: "Toner with Color Service",
-        price: "$30",
-        time: "15 mins",
-        description: "Booked only with highlights or balayage service.",
-      },
-      {
-        title: "Toner Only",
-        price: "Price varies",
-        time: "30 mins+",
-        description: "Standalone toner refresh.",
-      },
-      {
-        title: "Root Shade",
-        price: "$55",
-        time: "30 mins",
-        description:
-          "Creates a softer grow out while still maintaining brightness. Lived-in look.",
-      },
-      {
-        title: "Lowlight",
-        price: "$45",
-        time: "30 mins",
-        description: "Booked only with highlight service for added depth.",
-      },
-      {
-        title: "Brow Tint",
-        price: "$15",
-        time: "10 mins",
-        description:
-          "Semi-permanent dye to enhance, darken, and define your brows.",
-      },
+      { title: "Toner with Color Service", price: "$30", time: "15 mins", description: "Booked only with highlights or balayage service." },
+      { title: "Toner Only", price: "Price varies", time: "30 mins+", description: "Standalone toner refresh." },
+      { title: "Root Shade", price: "$55", time: "30 mins", description: "Creates a softer grow-out while still maintaining brightness for a lived-in look." },
+      { title: "Lowlight", price: "$45", time: "30 mins", description: "Booked only with a highlight service for added depth." },
+      { title: "Brow Tint", price: "$15", time: "10 mins", description: "Semi-permanent dye to enhance, darken, and define your brows." },
     ],
   },
   {
     name: "Cuts & Styling",
     services: [
-      {
-        title: "Women's Haircut",
-        price: "Price varies",
-        time: "1 hr",
-        description: "Precision cut tailored to your face shape, texture, and lifestyle.",
-      },
-      {
-        title: "Men's Haircut",
-        price: "$42",
-        time: "45 mins",
-        description: "Clean, detailed men's cut.",
-      },
-      {
-        title: "Teen Girl's Haircut",
-        price: "Price varies",
-        time: "1 hr+",
-        description: "",
-      },
-      {
-        title: "Teen Boy's Haircut",
-        price: "$40",
-        time: "45 mins",
-        description: "",
-      },
-      {
-        title: "Girl's Haircut (12 & under)",
-        price: "Price varies",
-        time: "45 mins+",
-        description: "",
-      },
-      {
-        title: "Boy's Haircut (12 & under)",
-        price: "$35",
-        time: "45 mins",
-        description: "",
-      },
-      {
-        title: "Bang Trim",
-        price: "Free",
-        time: "10 mins",
-        description: "Complimentary for existing clients.",
-      },
-      {
-        title: "Shampoo + Style",
-        price: "$50+",
-        time: "45 mins",
-        description: "",
-      },
+      { title: "Women's Haircut", price: "Price varies", time: "1 hr", description: "Precision cut tailored to your face shape, texture, and lifestyle." },
+      { title: "Men's Haircut", price: "$42", time: "45 mins", description: "Clean, detailed men's cut." },
+      { title: "Teen Girl's Haircut", price: "Price varies", time: "1 hr+", description: "" },
+      { title: "Teen Boy's Haircut", price: "$40", time: "45 mins", description: "" },
+      { title: "Girl's Haircut (12 & under)", price: "Price varies", time: "45 mins+", description: "" },
+      { title: "Boy's Haircut (12 & under)", price: "$35", time: "45 mins", description: "" },
+      { title: "Bang Trim", price: "Free", time: "10 mins", description: "Complimentary for existing clients." },
+      { title: "Shampoo + Style", price: "$50+", time: "45 mins", description: "" },
     ],
   },
   {
     name: "Smoothing & Extensions",
     services: [
-      {
-        title: "Brazilian Blowout",
-        price: "$250+",
-        time: "2 hrs 30 mins",
-        description:
-          "Eliminates frizz, reduces blow dry and styling time, and makes hair more manageable. Does not include haircut.",
-      },
-      {
-        title: "Consultation",
-        price: "Free",
-        time: "15 mins",
-        description:
-          "Required prior to any new client extension installation & color correction.",
-      },
+      { title: "Brazilian Blowout", price: "$250+", time: "2 hrs 30 mins", description: "Eliminates frizz, reduces blow dry and styling time, and makes hair more manageable. Haircut not included." },
+      { title: "Consultation", price: "Free", time: "15 mins", description: "Required prior to any new client extension installation or color correction." },
     ],
   },
 ];
-
-interface ServicesProps {
-  onBookClick: () => void;
-}
 
 export default function Services({ onBookClick }: ServicesProps) {
   const [activeCategory, setActiveCategory] = useState(0);
 
   return (
     <section id="services" className="py-20 md:py-28 bg-white">
-      <div className="max-w-5xl mx-auto px-6">
+      <div className="max-w-4xl mx-auto px-6">
         <motion.div
-          initial={{ opacity: 0, y: 20 }}
+          initial={{ opacity: 0, y: 16 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.8 }}
           className="text-center mb-10"
         >
-          <p className="text-blush text-xs tracking-[0.3em] uppercase mb-4">
+          <p className="text-gold text-[11px] tracking-[0.3em] uppercase mb-4 font-light">
             Service Menu
           </p>
           <h2 className="font-serif text-3xl md:text-5xl font-light text-charcoal">
@@ -228,7 +87,7 @@ export default function Services({ onBookClick }: ServicesProps) {
             <button
               key={cat.name}
               onClick={() => setActiveCategory(i)}
-              className={`px-5 py-2 text-xs tracking-wider uppercase rounded-full border transition-all duration-300 active:scale-[0.97] ${
+              className={`px-5 py-2 text-[11px] tracking-wider uppercase rounded-full border transition-all duration-300 active:scale-[0.97] cursor-pointer ${
                 i === activeCategory
                   ? "bg-blush text-white border-blush"
                   : "bg-transparent text-stone border-beige hover:border-blush-light hover:text-blush-dark"
@@ -242,10 +101,10 @@ export default function Services({ onBookClick }: ServicesProps) {
         {/* Service List */}
         <motion.div
           key={activeCategory}
-          initial={{ opacity: 0, y: 12 }}
+          initial={{ opacity: 0, y: 10 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.4 }}
-          className="space-y-1"
+          transition={{ duration: 0.35 }}
+          className="space-y-0"
         >
           {serviceCategories[activeCategory].services.map((service, i) => (
             <motion.div
@@ -253,14 +112,14 @@ export default function Services({ onBookClick }: ServicesProps) {
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               transition={{ delay: i * 0.03 }}
-              className="group flex items-start justify-between gap-4 py-4 border-b border-beige/40 last:border-0"
+              className="flex items-start justify-between gap-4 py-4 border-b border-beige/30 last:border-0"
             >
               <div className="flex-1 min-w-0">
                 <div className="flex items-baseline gap-3 flex-wrap">
                   <h3 className="font-serif text-lg text-charcoal">
                     {service.title}
                   </h3>
-                  <span className="text-stone-light text-xs font-light">
+                  <span className="text-stone-light text-[11px] font-light">
                     {service.time}
                   </span>
                 </div>
@@ -277,11 +136,11 @@ export default function Services({ onBookClick }: ServicesProps) {
           ))}
         </motion.div>
 
-        {/* Note */}
-        <div className="mt-8 p-4 bg-cream/60 rounded-xl space-y-2">
-          <p className="text-stone text-xs font-light leading-relaxed text-center">
+        {/* Pricing Note */}
+        <div className="mt-8 p-5 bg-cream/80 rounded-xl text-center space-y-2">
+          <p className="text-stone text-xs font-light leading-relaxed">
             Prices shown are Betty&apos;s menu. Bree&apos;s pricing may differ
-            — her services include toner and blowout. For Bree&apos;s full
+            as her services include toner and blowout. For Bree&apos;s full
             menu and pricing, visit{" "}
             <a
               href="https://www.colourmebree.com/"
@@ -291,11 +150,10 @@ export default function Services({ onBookClick }: ServicesProps) {
             >
               ColourMeBree.com
             </a>
-            .
           </p>
-          <p className="text-stone text-xs font-light leading-relaxed text-center">
+          <p className="text-stone text-xs font-light leading-relaxed">
             Prices may vary based on hair length, density, and desired result.
-            Additional bowls of color/lightener are $20 each.
+            Additional bowls of color or lightener are $20 each.
           </p>
         </div>
 
@@ -303,7 +161,7 @@ export default function Services({ onBookClick }: ServicesProps) {
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
           viewport={{ once: true }}
-          transition={{ duration: 0.6, delay: 0.3 }}
+          transition={{ duration: 0.6, delay: 0.2 }}
           className="text-center mt-12"
         >
           <button

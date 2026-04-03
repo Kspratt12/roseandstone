@@ -43,38 +43,38 @@ export default function Navbar({ onBookClick }: NavbarProps) {
             : "bg-transparent py-4"
         }`}
       >
-        <div className="max-w-7xl mx-auto px-6 flex items-center justify-between">
+        <div className="max-w-6xl mx-auto px-6 flex items-center justify-between">
           <a href="#" className="flex items-center gap-3">
             <Image
               src="/images/logo.jpeg"
               alt="Rose & Stone Salon"
               width={120}
               height={48}
-              className={`h-10 md:h-12 w-auto transition-opacity duration-500 ${
+              className={`h-9 md:h-11 w-auto transition-opacity duration-500 ${
                 scrolled ? "opacity-100" : "opacity-0"
               }`}
               priority
             />
             <span
-              className={`font-serif text-2xl md:text-[1.7rem] font-light tracking-wide transition-all duration-500 ${
+              className={`font-serif text-xl md:text-2xl font-light tracking-wide transition-all duration-500 leading-none ${
                 scrolled ? "opacity-0 absolute" : "text-white opacity-100"
               }`}
             >
               Rose & Stone
-              <span className="block text-[9px] md:text-[10px] tracking-[0.3em] uppercase font-light mt-0.5 text-white/50">
+              <span className="block text-[9px] tracking-[0.3em] uppercase font-light mt-0.5 text-white/40">
                 Salon
               </span>
             </span>
           </a>
 
-          {/* Desktop Nav */}
+          {/* Desktop */}
           <div className="hidden lg:flex items-center gap-7">
             {navLinks.map((link) => (
               <a
                 key={link.label}
                 href={link.href}
-                className={`text-[13px] tracking-wider uppercase font-light transition-colors duration-300 hover:text-blush ${
-                  scrolled ? "text-charcoal/80" : "text-white/80"
+                className={`text-[12px] tracking-wider uppercase font-light transition-colors duration-300 hover:text-blush ${
+                  scrolled ? "text-charcoal/70" : "text-white/70"
                 }`}
               >
                 {link.label}
@@ -82,7 +82,7 @@ export default function Navbar({ onBookClick }: NavbarProps) {
             ))}
             <button
               onClick={onBookClick}
-              className="ml-3 px-6 py-2.5 bg-blush text-white text-[13px] tracking-wider uppercase rounded-full hover:bg-blush-dark transition-all duration-300 active:scale-[0.97] cursor-pointer"
+              className="ml-3 px-6 py-2.5 bg-blush text-white text-[12px] tracking-wider uppercase rounded-full hover:bg-blush-dark transition-all duration-300 active:scale-[0.97] cursor-pointer"
             >
               Book Now
             </button>
@@ -95,25 +95,9 @@ export default function Navbar({ onBookClick }: NavbarProps) {
             aria-label="Toggle menu"
           >
             <div className="w-6 h-5 relative flex flex-col justify-between">
-              <span
-                className={`block w-6 h-[1.5px] transition-all duration-300 origin-center ${
-                  mobileOpen
-                    ? "rotate-45 translate-y-[9px] bg-charcoal"
-                    : scrolled ? "bg-charcoal" : "bg-white"
-                }`}
-              />
-              <span
-                className={`block w-6 h-[1.5px] transition-all duration-200 ${
-                  mobileOpen ? "opacity-0" : scrolled ? "bg-charcoal" : "bg-white"
-                }`}
-              />
-              <span
-                className={`block w-6 h-[1.5px] transition-all duration-300 origin-center ${
-                  mobileOpen
-                    ? "-rotate-45 -translate-y-[9px] bg-charcoal"
-                    : scrolled ? "bg-charcoal" : "bg-white"
-                }`}
-              />
+              <span className={`block w-6 h-[1.5px] transition-all duration-300 origin-center ${mobileOpen ? "rotate-45 translate-y-[9px] bg-charcoal" : scrolled ? "bg-charcoal" : "bg-white"}`} />
+              <span className={`block w-6 h-[1.5px] transition-all duration-200 ${mobileOpen ? "opacity-0" : scrolled ? "bg-charcoal" : "bg-white"}`} />
+              <span className={`block w-6 h-[1.5px] transition-all duration-300 origin-center ${mobileOpen ? "-rotate-45 -translate-y-[9px] bg-charcoal" : scrolled ? "bg-charcoal" : "bg-white"}`} />
             </div>
           </button>
         </div>
@@ -129,21 +113,15 @@ export default function Navbar({ onBookClick }: NavbarProps) {
             transition={{ duration: 0.25 }}
             className="fixed inset-0 z-40 bg-cream flex flex-col items-center justify-center gap-7 lg:hidden"
           >
-            <Image
-              src="/images/logo.jpeg"
-              alt="Rose & Stone Salon"
-              width={140}
-              height={56}
-              className="h-14 w-auto mb-4"
-            />
+            <Image src="/images/logo.jpeg" alt="Rose & Stone Salon" width={130} height={52} className="h-12 w-auto mb-4" />
             {navLinks.map((link, i) => (
               <motion.a
                 key={link.label}
                 href={link.href}
                 onClick={() => setMobileOpen(false)}
-                initial={{ opacity: 0, y: 16 }}
+                initial={{ opacity: 0, y: 14 }}
                 animate={{ opacity: 1, y: 0 }}
-                transition={{ delay: 0.05 + i * 0.06, duration: 0.3 }}
+                transition={{ delay: 0.05 + i * 0.05, duration: 0.3 }}
                 className="text-2xl font-serif text-charcoal tracking-wider hover:text-blush transition-colors"
               >
                 {link.label}
@@ -151,10 +129,10 @@ export default function Navbar({ onBookClick }: NavbarProps) {
             ))}
             <motion.button
               onClick={() => { setMobileOpen(false); onBookClick(); }}
-              initial={{ opacity: 0, y: 16 }}
+              initial={{ opacity: 0, y: 14 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.35, duration: 0.3 }}
-              className="mt-2 px-8 py-3.5 bg-blush text-white text-base tracking-wider rounded-full hover:bg-blush-dark transition-colors active:scale-[0.97]"
+              transition={{ delay: 0.3, duration: 0.3 }}
+              className="mt-2 px-8 py-3.5 bg-blush text-white text-base tracking-wider rounded-full hover:bg-blush-dark transition-colors active:scale-[0.97] cursor-pointer"
             >
               Book Now
             </motion.button>

@@ -37,20 +37,20 @@ export default function Booking({ onBookClick }: BookingProps) {
     <section id="booking" className="py-20 md:py-28 bg-white">
       <div className="max-w-4xl mx-auto px-6">
         <motion.div
-          initial={{ opacity: 0, y: 20 }}
+          initial={{ opacity: 0, y: 16 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.8 }}
           className="text-center mb-12"
         >
-          <p className="text-blush text-xs tracking-[0.3em] uppercase mb-4">
-            Let&apos;s Do This
+          <p className="text-gold text-[11px] tracking-[0.3em] uppercase mb-4 font-light">
+            Ready to Book?
           </p>
           <h2 className="font-serif text-3xl md:text-5xl font-light text-charcoal">
             Choose your stylist
           </h2>
           <p className="mt-3 text-stone font-light text-[15px]">
-            Pick who feels right — you can&apos;t go wrong either way.
+            Pick who feels right. You can&apos;t go wrong either way.
           </p>
         </motion.div>
 
@@ -58,15 +58,15 @@ export default function Booking({ onBookClick }: BookingProps) {
           {bookingOptions.map((option, i) => (
             <motion.div
               key={option.name}
-              initial={{ opacity: 0, y: 24 }}
+              initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              transition={{ duration: 0.6, delay: i * 0.12, ease: "easeOut" }}
-              className="group relative bg-cream rounded-2xl p-7 md:p-8 border border-beige hover:border-blush-light/60 transition-all duration-500"
+              transition={{ duration: 0.6, delay: i * 0.1, ease: "easeOut" }}
+              className="group relative bg-cream rounded-2xl p-7 md:p-8 border border-beige hover:border-blush-light/50 transition-all duration-500"
             >
-              <div className="relative z-10">
+              <div className="relative z-10 flex flex-col items-center text-center">
                 {/* Photo */}
-                <div className="w-20 h-20 rounded-full overflow-hidden mx-auto mb-5 ring-2 ring-beige">
+                <div className="w-20 h-20 rounded-full overflow-hidden mb-5 ring-2 ring-beige group-hover:ring-blush-light/50 transition-colors duration-500">
                   <Image
                     src={option.image}
                     alt={option.name}
@@ -77,14 +77,14 @@ export default function Booking({ onBookClick }: BookingProps) {
                   />
                 </div>
 
-                <h3 className="font-serif text-2xl text-charcoal text-center mb-0.5">
+                <h3 className="font-serif text-2xl text-charcoal mb-0.5">
                   {option.name}
                 </h3>
-                <p className="text-blush text-xs tracking-[0.15em] text-center uppercase mb-4">
+                <p className="text-gold text-[11px] tracking-[0.15em] uppercase mb-4 font-light">
                   {option.title}
                 </p>
 
-                <p className="text-stone text-sm text-center mb-5 font-light">
+                <p className="text-stone text-sm mb-5 font-light">
                   {option.known}
                 </p>
 
@@ -92,26 +92,20 @@ export default function Booking({ onBookClick }: BookingProps) {
                   href={option.url}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="block w-full py-3.5 bg-blush text-white text-center text-sm tracking-wider uppercase rounded-full hover:bg-blush-dark transition-all duration-300 active:scale-[0.97] shadow-sm shadow-blush/15"
+                  className="block w-full py-3.5 bg-blush text-white text-center text-sm tracking-wider uppercase rounded-full hover:bg-blush-dark transition-all duration-300 active:scale-[0.97] shadow-sm shadow-blush/10"
                 >
                   {option.buttonText}
                 </a>
 
-                <p className="text-center text-[11px] text-stone-light mt-2.5 font-light">
+                <p className="text-[11px] text-stone-light mt-2.5 font-light">
                   {option.note}
                 </p>
 
-                <div className="mt-5 pt-4 border-t border-beige/60 flex flex-col items-center gap-1 text-xs text-stone font-light">
-                  <a
-                    href={`tel:${option.phone.replace(/\D/g, "")}`}
-                    className="hover:text-blush transition-colors"
-                  >
+                <div className="mt-4 pt-4 border-t border-beige/50 w-full flex flex-col items-center gap-1 text-xs text-stone font-light">
+                  <a href={`tel:${option.phone.replace(/\D/g, "")}`} className="hover:text-blush transition-colors">
                     {option.phone}
                   </a>
-                  <a
-                    href={`mailto:${option.email}`}
-                    className="hover:text-blush transition-colors"
-                  >
+                  <a href={`mailto:${option.email}`} className="hover:text-blush transition-colors">
                     {option.email}
                   </a>
                 </div>
@@ -120,12 +114,12 @@ export default function Booking({ onBookClick }: BookingProps) {
           ))}
         </div>
 
-        {/* Calendar popup CTA */}
+        {/* Calendar + Help */}
         <motion.div
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
           viewport={{ once: true }}
-          transition={{ delay: 0.4 }}
+          transition={{ delay: 0.3 }}
           className="text-center mt-10 space-y-3"
         >
           <button
@@ -141,10 +135,10 @@ export default function Booking({ onBookClick }: BookingProps) {
             Open Booking Calendar
           </button>
           <p className="text-stone text-sm font-light">
-            Not sure who&apos;s right for you?{" "}
+            Not sure who to choose?{" "}
             <a
               href="#contact"
-              className="text-blush hover:text-blush-dark underline underline-offset-4 decoration-blush/30 transition-colors"
+              className="text-blush hover:text-blush-dark underline underline-offset-4 decoration-blush/25 transition-colors"
             >
               Tell us what you&apos;re looking for
             </a>

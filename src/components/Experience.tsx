@@ -22,9 +22,9 @@ export default function Experience() {
       style={{ backgroundColor: bgColor }}
       className="py-20 md:py-28 overflow-hidden"
     >
-      <div className="max-w-3xl mx-auto px-6 text-center">
+      <div className="max-w-4xl mx-auto px-6 text-center">
         <motion.h2
-          initial={{ opacity: 0, y: 24 }}
+          initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: "-50px" }}
           transition={{ duration: 0.9, ease: "easeOut" }}
@@ -37,7 +37,7 @@ export default function Experience() {
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
           viewport={{ once: true, margin: "-50px" }}
-          transition={{ duration: 0.9, delay: 0.25 }}
+          transition={{ duration: 0.9, delay: 0.2 }}
           className="mt-4 font-serif text-2xl md:text-3xl italic text-blush-dark/80 font-light"
         >
           It&apos;s the best part of your week.
@@ -47,7 +47,7 @@ export default function Experience() {
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
           viewport={{ once: true, margin: "-50px" }}
-          transition={{ duration: 0.9, delay: 0.45 }}
+          transition={{ duration: 0.9, delay: 0.4 }}
           className="mt-8 text-stone text-base md:text-lg max-w-xl mx-auto font-light leading-[1.8]"
         >
           The moment you walk in, everything slows down. Warm light, quiet
@@ -59,11 +59,11 @@ export default function Experience() {
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
           viewport={{ once: true }}
-          transition={{ duration: 0.8, delay: 0.6 }}
-          className="mt-12 mx-auto w-16 h-[1px] bg-blush-light/60"
+          transition={{ duration: 0.8, delay: 0.5 }}
+          className="mt-12 mx-auto w-16 h-[1px] bg-gold/30"
         />
 
-        <div className="mt-12 grid grid-cols-1 md:grid-cols-3 gap-10">
+        <div className="mt-12 grid grid-cols-1 md:grid-cols-3 gap-10 max-w-3xl mx-auto">
           {[
             {
               title: "Personalized",
@@ -71,7 +71,7 @@ export default function Experience() {
             },
             {
               title: "Unhurried",
-              text: "We never double-book. Your time slot is yours — no rushing, no shortcuts.",
+              text: "We never double-book. Your time slot is yours, with no rushing and no shortcuts.",
             },
             {
               title: "Intentional",
@@ -80,10 +80,10 @@ export default function Experience() {
           ].map((item, i) => (
             <motion.div
               key={item.title}
-              initial={{ opacity: 0, y: 20 }}
+              initial={{ opacity: 0, y: 16 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              transition={{ duration: 0.6, delay: 0.2 + i * 0.12 }}
+              transition={{ duration: 0.6, delay: 0.15 + i * 0.1 }}
               className="text-center"
             >
               <h3 className="font-serif text-lg text-charcoal mb-2">

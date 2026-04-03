@@ -11,9 +11,9 @@ const trustItems = [
 
 export default function TrustStrip() {
   return (
-    <section className="bg-white py-6 md:py-8 border-b border-beige/60">
-      <div className="max-w-5xl mx-auto px-6">
-        <div className="flex flex-wrap justify-center gap-x-8 gap-y-3 md:gap-x-12">
+    <section className="bg-white py-5 md:py-6 border-b border-beige/50">
+      <div className="max-w-4xl mx-auto px-6">
+        <div className="flex flex-wrap items-center justify-center gap-x-6 gap-y-2 md:gap-x-10">
           {trustItems.map((item, i) => (
             <motion.span
               key={item}
@@ -21,9 +21,9 @@ export default function TrustStrip() {
               whileInView={{ opacity: 1 }}
               viewport={{ once: true }}
               transition={{ duration: 0.5, delay: i * 0.08 }}
-              className="text-stone text-xs md:text-sm font-light tracking-wide flex items-center gap-2"
+              className="text-stone text-[11px] md:text-xs font-light tracking-wider flex items-center gap-2"
             >
-              <span className="text-blush/60 text-[10px]">&#10022;</span>
+              <span className="text-gold/50 text-[9px]">&#10022;</span>
               {item}
             </motion.span>
           ))}
