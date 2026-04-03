@@ -53,6 +53,8 @@ export default function Footer() {
               <p>
                 1340 SE Maynard Rd, Suite 101
                 <br />
+                <span className="text-white/20">(around the back of building)</span>
+                <br />
                 Cary, NC 27511
               </p>
               <p>

@@ -36,6 +36,8 @@ export default function Contact() {
               <p className="text-stone font-light text-[15px] leading-relaxed">
                 1340 SE Maynard Rd, Suite 101
                 <br />
+                <span className="text-stone-light text-xs">(around the back of building)</span>
+                <br />
                 Cary, NC 27511
               </p>
             </div>

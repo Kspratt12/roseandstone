@@ -274,11 +274,24 @@ export default function Services() {
         </motion.div>
 
         {/* Note */}
-        <div className="mt-8 p-4 bg-cream/60 rounded-xl">
+        <div className="mt-8 p-4 bg-cream/60 rounded-xl space-y-2">
+          <p className="text-stone text-xs font-light leading-relaxed text-center">
+            Prices shown are Betty&apos;s menu. Bree&apos;s pricing may differ
+            — her services include toner and blowout. For Bree&apos;s full
+            menu and pricing, visit{" "}
+            <a
+              href="https://www.colourmebree.com/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-blush underline underline-offset-2"
+            >
+              ColourMeBree.com
+            </a>
+            .
+          </p>
           <p className="text-stone text-xs font-light leading-relaxed text-center">
             Prices may vary based on hair length, density, and desired result.
-            Additional bowls of color/lightener are $20 each. Toner is not
-            included with highlight or balayage services unless noted.
+            Additional bowls of color/lightener are $20 each.
           </p>
         </div>
 
