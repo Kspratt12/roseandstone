@@ -2,6 +2,7 @@
 
 import { motion } from "framer-motion";
 import Image from "next/image";
+import AutoPlayVideo from "@/components/AutoPlayVideo";
 
 export default function Products() {
   return (
@@ -16,17 +17,11 @@ export default function Products() {
             transition={{ duration: 0.8 }}
             className="relative rounded-2xl overflow-hidden bg-[#c4b0e0]/20 mx-auto w-full max-w-lg aspect-[9/16] max-h-[640px]"
           >
-            <video
-              autoPlay
-              muted
-              loop
-              playsInline
-              preload="auto"
+            <AutoPlayVideo
+              src="/videos/reel-product-1.mp4"
               poster="/videos/reel-product-1-poster.jpg"
               className="absolute inset-0 w-full h-full object-cover"
-            >
-              <source src="/videos/reel-product-1.mp4" type="video/mp4" />
-            </video>
+            />
           </motion.div>
 
           {/* Right — info + lineup */}

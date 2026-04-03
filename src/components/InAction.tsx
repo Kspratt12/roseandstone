@@ -1,6 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
+import AutoPlayVideo from "@/components/AutoPlayVideo";
 
 export default function InAction() {
   return (
@@ -32,17 +33,11 @@ export default function InAction() {
             transition={{ duration: 0.6 }}
             className="relative rounded-2xl overflow-hidden aspect-[9/16] max-h-[580px] bg-charcoal group"
           >
-            <video
-              autoPlay
-              muted
-              loop
-              playsInline
-              preload="auto"
+            <AutoPlayVideo
+              src="/videos/reel-betty-1.mp4"
               poster="/videos/reel-betty-1-poster.jpg"
               className="absolute inset-0 w-full h-full object-cover group-hover:scale-[1.02] transition-transform duration-700"
-            >
-              <source src="/videos/reel-betty-1.mp4" type="video/mp4" />
-            </video>
+            />
             <div className="absolute bottom-0 left-0 right-0 p-5 bg-gradient-to-t from-charcoal/70 via-charcoal/20 to-transparent">
               <p className="text-white text-[13px] font-light tracking-wide">Behind the Chair</p>
               <p className="text-white/50 text-[11px] font-light mt-0.5">Betty V.</p>
@@ -56,17 +51,11 @@ export default function InAction() {
             transition={{ duration: 0.6, delay: 0.1 }}
             className="relative rounded-2xl overflow-hidden aspect-[9/16] max-h-[580px] bg-charcoal group"
           >
-            <video
-              autoPlay
-              muted
-              loop
-              playsInline
-              preload="auto"
+            <AutoPlayVideo
+              src="/videos/reel-salon.mp4"
               poster="/videos/reel-salon-poster.jpg"
               className="absolute inset-0 w-full h-full object-cover group-hover:scale-[1.02] transition-transform duration-700"
-            >
-              <source src="/videos/reel-salon.mp4" type="video/mp4" />
-            </video>
+            />
             <div className="absolute bottom-0 left-0 right-0 p-5 bg-gradient-to-t from-charcoal/70 via-charcoal/20 to-transparent">
               <p className="text-white text-[13px] font-light tracking-wide">Salon Life</p>
               <p className="text-white/50 text-[11px] font-light mt-0.5">Rose & Stone</p>

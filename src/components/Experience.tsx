@@ -1,6 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
+import AutoPlayVideo from "@/components/AutoPlayVideo";
 
 export default function Experience() {
   return (
@@ -49,7 +50,7 @@ export default function Experience() {
             </div>
           </motion.div>
 
-          {/* Right video — VISIBLE ON ALL SCREENS */}
+          {/* Right video */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -57,17 +58,11 @@ export default function Experience() {
             transition={{ duration: 0.9, delay: 0.15 }}
             className="relative rounded-2xl overflow-hidden aspect-[3/4] max-h-[500px] lg:max-h-[600px] order-1 lg:order-2"
           >
-            <video
-              autoPlay
-              muted
-              loop
-              playsInline
-              preload="auto"
+            <AutoPlayVideo
+              src="/videos/reel-betty-2.mp4"
               poster="/videos/reel-betty-2-poster.jpg"
               className="absolute inset-0 w-full h-full object-cover"
-            >
-              <source src="/videos/reel-betty-2.mp4" type="video/mp4" />
-            </video>
+            />
             <div className="absolute inset-0 bg-gradient-to-t from-charcoal/10 via-transparent to-transparent" />
           </motion.div>
         </div>
