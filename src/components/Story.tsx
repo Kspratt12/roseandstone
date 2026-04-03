@@ -5,7 +5,7 @@ import { motion } from "framer-motion";
 export default function Story() {
   return (
     <section id="story" className="py-20 md:py-28 bg-white">
-      <div className="max-w-5xl mx-auto px-6">
+      <div className="w-full max-w-[1120px] mx-auto px-6 lg:px-10">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 items-center">
           {/* Image Side */}
           <motion.div

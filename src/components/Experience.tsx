@@ -22,7 +22,7 @@ export default function Experience() {
       style={{ backgroundColor: bgColor }}
       className="py-20 md:py-28 overflow-hidden"
     >
-      <div className="max-w-4xl mx-auto px-6 text-center">
+      <div className="w-full max-w-[780px] mx-auto px-6 text-center">
         <motion.h2
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}

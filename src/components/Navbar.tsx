@@ -43,21 +43,21 @@ export default function Navbar({ onBookClick }: NavbarProps) {
             : "bg-transparent py-4"
         }`}
       >
-        <div className="max-w-6xl mx-auto px-6 flex items-center justify-between">
-          <a href="#" className="flex items-center gap-3">
+        <div className="w-full max-w-[1120px] mx-auto px-6 lg:px-10 flex items-center justify-between">
+          <a href="#" className="relative shrink-0">
             <Image
               src="/images/logo.jpeg"
               alt="Rose & Stone Salon"
               width={120}
               height={48}
-              className={`h-9 md:h-11 w-auto transition-opacity duration-500 ${
+              className={`h-9 md:h-10 w-auto transition-opacity duration-500 ${
                 scrolled ? "opacity-100" : "opacity-0"
               }`}
               priority
             />
             <span
               className={`font-serif text-xl md:text-2xl font-light tracking-wide transition-all duration-500 leading-none ${
-                scrolled ? "opacity-0 absolute" : "text-white opacity-100"
+                scrolled ? "opacity-0 absolute top-0 left-0 pointer-events-none" : "text-white opacity-100"
               }`}
             >
               Rose & Stone
@@ -68,12 +68,12 @@ export default function Navbar({ onBookClick }: NavbarProps) {
           </a>
 
           {/* Desktop */}
-          <div className="hidden lg:flex items-center gap-7">
+          <div className="hidden lg:flex items-center gap-6 shrink-0">
             {navLinks.map((link) => (
               <a
                 key={link.label}
                 href={link.href}
-                className={`text-[12px] tracking-wider uppercase font-light transition-colors duration-300 hover:text-blush ${
+                className={`text-[11px] tracking-[0.12em] uppercase font-light transition-colors duration-300 hover:text-blush whitespace-nowrap ${
                   scrolled ? "text-charcoal/70" : "text-white/70"
                 }`}
               >
@@ -82,7 +82,7 @@ export default function Navbar({ onBookClick }: NavbarProps) {
             ))}
             <button
               onClick={onBookClick}
-              className="ml-3 px-6 py-2.5 bg-blush text-white text-[12px] tracking-wider uppercase rounded-full hover:bg-blush-dark transition-all duration-300 active:scale-[0.97] cursor-pointer"
+              className="ml-2 px-5 py-2 bg-blush text-white text-[11px] tracking-[0.12em] uppercase rounded-full hover:bg-blush-dark transition-all duration-300 active:scale-[0.97] cursor-pointer whitespace-nowrap"
             >
               Book Now
             </button>
@@ -115,25 +115,15 @@ export default function Navbar({ onBookClick }: NavbarProps) {
           >
             <Image src="/images/logo.jpeg" alt="Rose & Stone Salon" width={130} height={52} className="h-12 w-auto mb-4" />
             {navLinks.map((link, i) => (
-              <motion.a
-                key={link.label}
-                href={link.href}
-                onClick={() => setMobileOpen(false)}
-                initial={{ opacity: 0, y: 14 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ delay: 0.05 + i * 0.05, duration: 0.3 }}
-                className="text-2xl font-serif text-charcoal tracking-wider hover:text-blush transition-colors"
-              >
+              <motion.a key={link.label} href={link.href} onClick={() => setMobileOpen(false)}
+                initial={{ opacity: 0, y: 14 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.05 + i * 0.05, duration: 0.3 }}
+                className="text-2xl font-serif text-charcoal tracking-wider hover:text-blush transition-colors">
                 {link.label}
               </motion.a>
             ))}
-            <motion.button
-              onClick={() => { setMobileOpen(false); onBookClick(); }}
-              initial={{ opacity: 0, y: 14 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.3, duration: 0.3 }}
-              className="mt-2 px-8 py-3.5 bg-blush text-white text-base tracking-wider rounded-full hover:bg-blush-dark transition-colors active:scale-[0.97] cursor-pointer"
-            >
+            <motion.button onClick={() => { setMobileOpen(false); onBookClick(); }}
+              initial={{ opacity: 0, y: 14 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.3, duration: 0.3 }}
+              className="mt-2 px-8 py-3.5 bg-blush text-white text-base tracking-wider rounded-full hover:bg-blush-dark transition-colors active:scale-[0.97] cursor-pointer">
               Book Now
             </motion.button>
           </motion.div>

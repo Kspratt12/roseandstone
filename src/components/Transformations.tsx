@@ -4,27 +4,27 @@ import { motion } from "framer-motion";
 
 const transformations = [
   {
-    caption: "She came in with brassy, uneven color and wanted something cooler and brighter. We created a soft dimensional blonde that felt clean, modern, and completely natural on her.",
+    caption: "This client had been coloring at home for a while and her blonde had gotten really brassy. She showed me a photo of what she wanted and honestly, we nailed it. We went in with a full custom blonding session and brought her back to a cool, clean, dimensional blonde she could actually maintain.",
     stylist: "Betty",
   },
   {
-    caption: "Two years of box dye had left her color flat and damaged. After a full corrective session, she walked out with a rich, healthy brunette full of depth and movement.",
+    caption: "She came in really frustrated. Years of box dye had left her hair flat and the color was pulling in a way she didn't love. We did a corrective session to lift out the old color, then built in warmth and depth. She literally teared up when she saw the final result.",
     stylist: "Bree",
   },
   {
-    caption: "She wanted highlights that looked like she just came back from vacation. We used hand-painted balayage to build warmth gradually, with a result that feels effortless and sun-kissed.",
+    caption: "All she said was \"I want to look like I just got back from the beach.\" So we did a hand-painted balayage, kept it really soft and natural, and blended everything together. She keeps texting me photos because she can't stop looking at it. That's the best feeling.",
     stylist: "Betty",
   },
   {
-    caption: "A first-time color client who was nervous about making a big change. We started with warm copper tones she never knew she could pull off, and she left absolutely glowing.",
+    caption: "First time color client, super nervous. We talked through everything during the consultation and decided on a warm copper that would complement her skin tone. When I turned her around in the chair, she couldn't believe it was her. Those are the moments I love most about this job.",
     stylist: "Bree",
   },
 ];
 
 export default function Transformations() {
   return (
-    <section className="py-20 md:py-28 bg-beige/30">
-      <div className="max-w-5xl mx-auto px-6">
+    <section className="py-20 md:py-28 bg-beige/25">
+      <div className="w-full max-w-[1120px] mx-auto px-6 lg:px-10">
         <motion.div
           initial={{ opacity: 0, y: 16 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -40,7 +40,7 @@ export default function Transformations() {
           </h2>
         </motion.div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
           {transformations.map((t, i) => (
             <motion.div
               key={i}
@@ -50,34 +50,30 @@ export default function Transformations() {
               transition={{ duration: 0.5, delay: i * 0.08 }}
             >
               {/* Before/After Container */}
-              <div className="relative rounded-xl overflow-hidden">
+              <div className="relative rounded-2xl overflow-hidden">
                 <div className="flex">
                   <div className="w-1/2 relative">
                     {/* Replace with real before photo from Betty/Bree Instagram */}
-                    <div className="aspect-[3/4] bg-stone-light/15">
+                    <div className="aspect-[3/4] bg-stone/8">
                       <div className="absolute inset-0 flex items-center justify-center">
-                        <span className="font-serif text-xl text-stone/12">Before</span>
+                        <span className="font-serif text-lg text-stone/10 italic">Before</span>
                       </div>
                     </div>
-                    <div className="absolute top-2.5 left-2.5 px-2 py-0.5 bg-white/70 backdrop-blur-sm text-[10px] tracking-wider text-charcoal rounded">
+                    <div className="absolute top-3 left-3 px-2.5 py-0.5 bg-white/75 backdrop-blur-sm text-[9px] tracking-[0.15em] uppercase text-charcoal/60 rounded-full">
                       Before
                     </div>
                   </div>
 
-                  <div className="w-[2px] bg-white relative z-10">
-                    <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-6 h-6 rounded-full bg-white shadow-sm flex items-center justify-center">
-                      <span className="text-gold text-[8px]">&#10022;</span>
-                    </div>
-                  </div>
+                  <div className="w-[1px] bg-white/80 relative z-10" />
 
                   <div className="w-1/2 relative">
                     {/* Replace with real after photo from Betty/Bree Instagram */}
-                    <div className="aspect-[3/4] bg-blush/6">
+                    <div className="aspect-[3/4] bg-blush/4">
                       <div className="absolute inset-0 flex items-center justify-center">
-                        <span className="font-serif text-xl text-blush/12">After</span>
+                        <span className="font-serif text-lg text-blush/10 italic">After</span>
                       </div>
                     </div>
-                    <div className="absolute top-2.5 right-2.5 px-2 py-0.5 bg-blush/60 backdrop-blur-sm text-[10px] tracking-wider text-white rounded">
+                    <div className="absolute top-3 right-3 px-2.5 py-0.5 bg-blush/50 backdrop-blur-sm text-[9px] tracking-[0.15em] uppercase text-white rounded-full">
                       After
                     </div>
                   </div>
@@ -85,12 +81,12 @@ export default function Transformations() {
               </div>
 
               {/* Caption */}
-              <div className="mt-3 px-1">
-                <p className="text-charcoal/80 text-sm font-light leading-relaxed">
-                  {t.caption}
+              <div className="mt-4 px-1">
+                <p className="text-stone text-[14px] font-light leading-[1.7]">
+                  &ldquo;{t.caption}&rdquo;
                 </p>
-                <p className="text-gold/60 text-[11px] tracking-wider mt-1.5 font-light italic">
-                  By {t.stylist}
+                <p className="text-gold/50 text-[11px] tracking-wider mt-2 font-light">
+                  {t.stylist === "Betty" ? "Betty V." : "Bree S."}
                 </p>
               </div>
             </motion.div>
