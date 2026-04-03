@@ -52,7 +52,7 @@ function StylistCard({ stylist, index }: { stylist: typeof stylists[0]; index: n
             quality={95}
             sizes="(max-width: 768px) 80vw, 420px"
             className="object-cover group-hover:scale-[1.02] transition-transform duration-700"
-            priority={index === 0}
+            loading="lazy"
           />
           <div className="absolute inset-0 bg-gradient-to-t from-charcoal/12 via-transparent to-transparent" />
         </div>

@@ -57,6 +57,7 @@ export default function Experience() {
             className="relative rounded-2xl overflow-hidden aspect-[3/4] max-h-[600px] hidden lg:block"
           >
             <video
+              preload="none"
               autoPlay
               muted
               loop

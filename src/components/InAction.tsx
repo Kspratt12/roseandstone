@@ -33,6 +33,7 @@ export default function InAction() {
             className="relative rounded-2xl overflow-hidden aspect-[9/16] max-h-[580px] bg-charcoal group"
           >
             <video
+              preload="none"
               autoPlay
               muted
               loop
@@ -55,6 +56,7 @@ export default function InAction() {
             className="relative rounded-2xl overflow-hidden aspect-[9/16] max-h-[580px] bg-charcoal group"
           >
             <video
+              preload="none"
               autoPlay
               muted
               loop

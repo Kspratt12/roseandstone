@@ -8,23 +8,24 @@ export default function Products() {
     <section className="py-16 md:py-24 bg-[#e8dff5]/15">
       <div className="w-full max-w-[1280px] mx-auto px-6">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 md:gap-16 items-center">
-          {/* Left — hero product photo */}
+          {/* Left — product video reel */}
           <motion.div
             initial={{ opacity: 0, y: 16 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.8 }}
-            className="relative rounded-2xl overflow-hidden bg-[#c4b0e0]/20 mx-auto w-full max-w-lg"
+            className="relative rounded-2xl overflow-hidden bg-[#c4b0e0]/20 mx-auto w-full max-w-lg aspect-[9/16] max-h-[640px]"
           >
-            <Image
-              src="/purpleproduct2.png"
-              alt="Milkshake Silver Shine Shampoo"
-              width={800}
-              height={800}
-              quality={95}
-              className="w-full h-auto"
-              priority
-            />
+            <video
+              autoPlay
+              muted
+              loop
+              playsInline
+              preload="none"
+              className="absolute inset-0 w-full h-full object-cover"
+            >
+              <source src="/videos/reel-product-1.mp4" type="video/mp4" />
+            </video>
           </motion.div>
 
           {/* Right — info + lineup */}
