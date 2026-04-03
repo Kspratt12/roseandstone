@@ -33,11 +33,12 @@ export default function InAction() {
             className="relative rounded-2xl overflow-hidden aspect-[9/16] max-h-[580px] bg-charcoal group"
           >
             <video
-              preload="metadata"
               autoPlay
               muted
               loop
               playsInline
+              preload="auto"
+              poster="/videos/reel-betty-1-poster.jpg"
               className="absolute inset-0 w-full h-full object-cover group-hover:scale-[1.02] transition-transform duration-700"
             >
               <source src="/videos/reel-betty-1.mp4" type="video/mp4" />
@@ -56,11 +57,12 @@ export default function InAction() {
             className="relative rounded-2xl overflow-hidden aspect-[9/16] max-h-[580px] bg-charcoal group"
           >
             <video
-              preload="metadata"
               autoPlay
               muted
               loop
               playsInline
+              preload="auto"
+              poster="/videos/reel-salon-poster.jpg"
               className="absolute inset-0 w-full h-full object-cover group-hover:scale-[1.02] transition-transform duration-700"
             >
               <source src="/videos/reel-salon.mp4" type="video/mp4" />

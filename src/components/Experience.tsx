@@ -62,7 +62,8 @@ export default function Experience() {
               muted
               loop
               playsInline
-              preload="metadata"
+              preload="auto"
+              poster="/videos/reel-betty-2-poster.jpg"
               className="absolute inset-0 w-full h-full object-cover"
             >
               <source src="/videos/reel-betty-2.mp4" type="video/mp4" />

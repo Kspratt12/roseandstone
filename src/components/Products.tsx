@@ -21,7 +21,8 @@ export default function Products() {
               muted
               loop
               playsInline
-              preload="metadata"
+              preload="auto"
+              poster="/videos/reel-product-1-poster.jpg"
               className="absolute inset-0 w-full h-full object-cover"
             >
               <source src="/videos/reel-product-1.mp4" type="video/mp4" />
