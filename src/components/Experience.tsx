@@ -6,13 +6,14 @@ export default function Experience() {
   return (
     <section className="py-16 md:py-24 bg-white overflow-hidden">
       <div className="w-full max-w-[1280px] mx-auto px-6">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 md:gap-20 items-center">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 md:gap-20 items-center">
           {/* Left text */}
           <motion.div
             initial={{ opacity: 0, y: 16 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.9 }}
+            className="order-2 lg:order-1"
           >
             <h2 className="font-serif text-3xl md:text-5xl lg:text-[3.2rem] font-light text-charcoal leading-tight tracking-tight max-w-[500px]">
               This isn&apos;t just a haircut.
@@ -48,20 +49,20 @@ export default function Experience() {
             </div>
           </motion.div>
 
-          {/* Right video */}
+          {/* Right video — VISIBLE ON ALL SCREENS */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.9, delay: 0.15 }}
-            className="relative rounded-2xl overflow-hidden aspect-[3/4] max-h-[600px] hidden lg:block"
+            className="relative rounded-2xl overflow-hidden aspect-[3/4] max-h-[500px] lg:max-h-[600px] order-1 lg:order-2"
           >
             <video
-              preload="none"
               autoPlay
               muted
               loop
               playsInline
+              preload="metadata"
               className="absolute inset-0 w-full h-full object-cover"
             >
               <source src="/videos/reel-betty-2.mp4" type="video/mp4" />
