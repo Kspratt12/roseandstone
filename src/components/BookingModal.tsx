@@ -188,7 +188,7 @@ export default function BookingModal({ isOpen, onClose }: BookingModalProps) {
                       </p>
 
                       <a
-                        href="https://www.colourmebree.com/"
+                        href="https://book.squareup.com/appointments/wt3tmkx142a5b5/location/LS00H08XWN7XA/services?buttonTextColor=000000&color=e8b4b8&locale=en&referrer=so"
                         target="_blank"
                         rel="noopener noreferrer"
                         className="w-full max-w-xs py-3.5 bg-blush text-white text-center text-sm tracking-wider uppercase rounded-full hover:bg-blush-dark transition-colors active:scale-[0.97] shadow-sm shadow-blush/15 block"
