@@ -23,59 +23,55 @@
   --font-sans: "Outfit", "Helvetica Neue", sans-serif;
 }
 
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
+@layer base {
+  html {
+    scroll-behavior: smooth;
+    overflow-x: hidden;
+    -webkit-overflow-scrolling: touch;
+  }
 
-html {
-  scroll-behavior: smooth;
-  overflow-x: hidden;
-  -webkit-overflow-scrolling: touch;
-}
+  body {
+    background: var(--color-cream);
+    color: var(--color-charcoal);
+    font-family: var(--font-sans);
+    overflow-x: hidden;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
 
-body {
-  background: var(--color-cream);
-  color: var(--color-charcoal);
-  font-family: var(--font-sans);
-  overflow-x: hidden;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-}
+  ::selection {
+    background-color: var(--color-blush);
+    color: white;
+  }
 
-::selection {
-  background-color: var(--color-blush);
-  color: white;
-}
+  [id] {
+    scroll-margin-top: 80px;
+  }
 
-[id] {
-  scroll-margin-top: 80px;
-}
+  a, button {
+    -webkit-tap-highlight-color: transparent;
+  }
 
-a, button {
-  -webkit-tap-highlight-color: transparent;
-}
+  ::-webkit-scrollbar {
+    width: 5px;
+  }
 
-::-webkit-scrollbar {
-  width: 5px;
-}
+  ::-webkit-scrollbar-track {
+    background: var(--color-cream);
+  }
 
-::-webkit-scrollbar-track {
-  background: var(--color-cream);
-}
+  ::-webkit-scrollbar-thumb {
+    background: var(--color-blush-light);
+    border-radius: 3px;
+  }
 
-::-webkit-scrollbar-thumb {
-  background: var(--color-blush-light);
-  border-radius: 3px;
-}
+  ::-webkit-scrollbar-thumb:hover {
+    background: var(--color-blush);
+  }
 
-::-webkit-scrollbar-thumb:hover {
-  background: var(--color-blush);
-}
-
-.safe-area-pb {
-  padding-bottom: max(12px, env(safe-area-inset-bottom));
+  .safe-area-pb {
+    padding-bottom: max(12px, env(safe-area-inset-bottom));
+  }
 }
 
 /* Container widths are applied via inline Tailwind classes:
