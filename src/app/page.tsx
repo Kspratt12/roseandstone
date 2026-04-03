@@ -5,6 +5,7 @@ import Experience from "@/components/Experience";
 import Story from "@/components/Story";
 import Stylists from "@/components/Stylists";
 import Services from "@/components/Services";
+import Policies from "@/components/Policies";
 import Transformations from "@/components/Transformations";
 import Testimonials from "@/components/Testimonials";
 import Booking from "@/components/Booking";
@@ -25,6 +26,7 @@ export default function Home() {
       <Story />
       <Stylists />
       <Services />
+      <Policies />
       <Transformations />
       <Testimonials />
       <Booking />

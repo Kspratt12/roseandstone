@@ -33,31 +33,31 @@ export default function Story() {
             transition={{ duration: 0.9, delay: 0.15, ease: "easeOut" }}
           >
             <p className="text-blush text-xs tracking-[0.3em] uppercase mb-4">
-              Our Story
+              The Rose & Stone Story
             </p>
             <h2 className="font-serif text-3xl md:text-4xl lg:text-5xl font-light text-charcoal leading-tight mb-8">
-              We built the salon
+              A dream brought to life
               <br />
-              <span className="italic">we always wished existed.</span>
+              <span className="italic">by two girls with a love of hair.</span>
             </h2>
 
             <div className="space-y-5 text-stone font-light leading-[1.8] text-[15px]">
               <p>
-                Betty and Bree met doing what they love — and realized they
-                shared the same frustration. Every salon felt rushed.
-                Impersonal. Like a factory with better lighting.
+                Rose & Stone Salon was a dream brought to life by two girls
+                with a love of hair. With years of experience in the industry,
+                we&apos;re highly trained in the latest trends and techniques,
+                and we strive for excellence in every service we provide.
               </p>
               <p>
-                So they built something different. Betty brought years of
-                blonding expertise. Bree brought NYC-trained color mastery and
-                a L&apos;Or&eacute;al certification. Together, they opened Rose &
-                Stone — a private, two-chair studio in Cary where every
-                client gets their full attention.
+                Our goal is simple: leave your stresses at the door while we
+                transform your look to the next level. This is a private,
+                boutique space in Cary where every detail is intentional — from
+                the warm lighting to the personalized consultations, from the
+                premium products to the genuine conversations.
               </p>
-              <p>
-                There&apos;s no front desk. No waiting room full of strangers.
-                Just warm light, good conversation, and two stylists who treat
-                your hair like it matters — because it does.
+              <p className="font-serif text-xl text-charcoal italic leading-relaxed">
+                &ldquo;Come relax in our oasis while we bring your hair dreams
+                to life.&rdquo;
               </p>
             </div>
 

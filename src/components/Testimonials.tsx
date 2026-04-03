@@ -5,29 +5,34 @@ import { useState, useEffect, useCallback } from "react";
 
 const testimonials = [
   {
-    text: "I showed Betty a Pinterest photo I was honestly embarrassed to share — like, is this even possible? She looked at it, looked at my hair, and said 'absolutely.' Three hours later, I looked better than the photo. I almost cried in the chair.",
-    name: "Sarah M.",
-    detail: "Blonding client for 2 years",
+    text: "I love Rose and Stone Salon. It has such a spa feel, and at the same time a feel of visiting with friends. Betty has been doing wonders with my hair style for almost 4 years. She is awesome and so super sweet. So treat yourself to a relaxing experience.",
+    name: "Betsy B.",
+    detail: "Client",
   },
   {
-    text: "I'd been to six salons trying to fix a bad box dye job. Every one made it worse. Bree didn't judge me — she just sat down, explained exactly what we'd do, and got to work. I finally have hair I don't want to hide.",
-    name: "Ashley R.",
-    detail: "Color correction with Bree",
+    text: "Brianna's a true master of her craft, she's been doing my hair for years and I wouldn't trust anyone else. So excited to see her at her own salon and it's absolutely beautiful!",
+    name: "Lacey R.",
+    detail: "Client",
   },
   {
-    text: "It's the little things. They remember my name. They remember my kids' names. I don't have to re-explain what I want every time. After years of feeling like a number, Rose & Stone feels like coming home.",
-    name: "Jordan T.",
-    detail: "Regular client since 2022",
+    text: "As a long-time client of the owner, Betty, I can attest to her skill and customer service. If it's a trim or a full day's worth of color, she's always high energy and excited to meet with her clients. I can't recommend this salon or Betty as a stylist enough.",
+    name: "Gem G.",
+    detail: "Client",
   },
   {
-    text: "I started losing hair after my second pregnancy and was terrified to talk to anyone about it. Bree made me feel so safe. She explained options I didn't even know existed. I left with more hair AND more confidence.",
-    name: "Michelle K.",
-    detail: "Hair loss care with Bree",
+    text: "Absolutely my favorite salon. Small, private, adorable & incredibly welcoming, it's a true vibe and the stylists are beyond professional. They take the time to actually listen to your vision and work with you to bring that to life.",
+    name: "Hannah J.",
+    detail: "Client",
   },
   {
-    text: "My Brazilian Blowout with Betty literally changed my mornings. I went from 45 minutes of fighting my hair to 10 minutes and done. My husband asked if I got a new haircut — I told him I got my life back.",
-    name: "Lauren P.",
-    detail: "Brazilian Blowout client",
+    text: "I absolutely love Brianna and Betty! Their salon is clean and very welcoming. Both ladies are super professional and do great work. Betty is fabulous with blondes and highlights. Will be back for sure!",
+    name: "Rachel A.",
+    detail: "Client",
+  },
+  {
+    text: "Amazing experience overall!! Best customer service, quality, atmosphere and everything else. I can't recommend Rose & Stone enough. They go out of their way to make you feel comfortable and leave feeling so confident and happy.",
+    name: "Emily K.",
+    detail: "Client",
   },
 ];
 
@@ -56,7 +61,7 @@ export default function Testimonials() {
           className="text-center mb-12"
         >
           <p className="text-blush text-xs tracking-[0.3em] uppercase mb-4">
-            From Our Clients
+            Testimonials
           </p>
           <h2 className="font-serif text-3xl md:text-5xl font-light text-charcoal">
             Don&apos;t take our word for it
@@ -65,7 +70,7 @@ export default function Testimonials() {
 
         {/* Testimonial */}
         <div
-          className="relative min-h-[300px] md:min-h-[240px] flex items-center"
+          className="relative min-h-[280px] md:min-h-[220px] flex items-center"
           onMouseEnter={() => setIsPaused(true)}
           onMouseLeave={() => setIsPaused(false)}
           onTouchStart={() => setIsPaused(true)}

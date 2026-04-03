@@ -6,11 +6,9 @@ const stylists = [
   {
     name: "Betty Vandivier",
     title: "Owner + Blonding Specialist",
-    specialties: ["Blonding", "Balayage", "Brazilian Blowout", "Dimensional Color"],
+    specialties: ["Blonding", "Balayage", "Brazilian Blowout", "Extensions"],
     description:
-      "If you've ever shown a stylist a photo of the blonde you wanted and left with something… not that — Betty is who you've been looking for. She's spent years perfecting dimensional, lived-in blondes that actually look like the inspiration photo. Whether it's icy platinum or warm honey balayage, she'll get you there.",
-    personality:
-      "The kind of stylist who remembers your coffee order and texts you aftercare tips at 9pm.",
+      "I'm Betty & I'm the owner of Rose & Stone Salon! I was born & raised in North Carolina and couldn't imagine living anywhere else. I'm a boy mom and love everything that comes along with that! After years of working as a receptionist in a hair salon, I decided I wanted to be the one behind the chair. Over the last 10+ years of my career, I've spent countless hours continuing my education & perfecting my craft. Whether it be highlights or balayage, my passion & specialty is all things BLONDING! I love helping clients achieve natural lived-in color. I'm certified in Brazilian Blowout as well as various methods of extensions that can be customized to suit your individual needs.",
     instagram: "@bettywiththegoodhair_",
     bookingUrl:
       "https://book.squareup.com/appointments/lq9qhwhra4o0tn/location/LVTJWVE2XE4QF?buttonTextColor=000000&color=bd959f&locale=en&referrer=so",
@@ -21,9 +19,7 @@ const stylists = [
     title: "Owner + Color Expert",
     specialties: ["Color Transformations", "Highlights", "Dry Cutting", "Hair Loss Care"],
     description:
-      "Bree trained under some of the best colorists in New York City and became a certified L'Oréal color expert — but what sets her apart is how she makes you feel. She's specially trained in hair loss care, and she approaches every client with the kind of warmth that makes you forget you're in a salon chair.",
-    personality:
-      "A book lover, beach person, and animal mom of four — she'll feel like a friend by the end of your first visit.",
+      "My name is Bree and I am the owner of Rose & Stone Salon. Throughout my 12 years in the beauty industry, I have diligently trained in many different areas. From studying in NYC, where I mastered the drycut and became a L'Oréal color expert, to learning how to care for clients who suffer from different forms of hair loss — I've taken cues from all aspects of my career to fine-tune my techniques. When I'm not at the salon, I enjoy getting lost in a good book or soaking up some sunshine. Weekend trips to the beach and spending time with my daughter bring me happiness. I'm also an avid animal lover, with 4 pets of my own that keep life interesting in the best way possible.",
     instagram: "@colourmebree",
     bookingUrl: "https://www.colourmebree.com/",
     bookingLabel: "Book with Bree",
@@ -97,11 +93,8 @@ export default function Stylists() {
               <p className="text-blush text-xs tracking-[0.15em] uppercase mb-4">
                 {stylist.title}
               </p>
-              <p className="text-stone font-light leading-[1.75] text-[15px] mb-3">
+              <p className="text-stone font-light leading-[1.75] text-[15px] mb-6">
                 {stylist.description}
-              </p>
-              <p className="text-blush-dark/80 text-sm italic mb-6">
-                {stylist.personality}
               </p>
 
               <div className="flex flex-col sm:flex-row gap-2.5">

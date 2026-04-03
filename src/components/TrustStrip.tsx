@@ -3,7 +3,7 @@
 import { motion } from "framer-motion";
 
 const trustItems = [
-  "12+ years behind the chair",
+  "10+ years behind the chair",
   "Blonding & color specialists",
   "Private boutique studio",
   "Hundreds of loyal clients",
