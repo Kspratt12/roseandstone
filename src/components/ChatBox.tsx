@@ -59,11 +59,11 @@ export default function ChatBox() {
       {/* Chat Button */}
       <motion.button
         onClick={() => setIsOpen(!isOpen)}
-        className="fixed bottom-[4.5rem] lg:bottom-6 right-4 z-50 flex items-center justify-center bg-blush/90 text-white rounded-full shadow-md shadow-blush/15 hover:bg-blush transition-all duration-300"
+        className="fixed bottom-[4.5rem] lg:bottom-6 right-6 z-50 flex items-center justify-center bg-blush/80 text-white rounded-full shadow-md shadow-blush/10 hover:bg-blush transition-all duration-300"
         whileHover={{ scale: 1.05 }}
         whileTap={{ scale: 0.95 }}
         aria-label={isOpen ? "Close chat" : "Open chat"}
-        style={{ width: 46, height: 46, minWidth: 46, minHeight: 46 }}
+        style={{ width: 42, height: 42, minWidth: 42, minHeight: 42 }}
       >
         <AnimatePresence mode="wait">
           {isOpen ? (
@@ -86,7 +86,7 @@ export default function ChatBox() {
             animate={{ opacity: 1, y: 0, scale: 1 }}
             exit={{ opacity: 0, y: 10, scale: 0.97 }}
             transition={{ duration: 0.25, ease: "easeOut" }}
-            className="fixed bottom-[7rem] lg:bottom-[4.5rem] right-4 z-50 w-[calc(100vw-2rem)] max-w-[340px] bg-white rounded-2xl shadow-xl shadow-charcoal/8 border border-beige/40 overflow-hidden flex flex-col"
+            className="fixed bottom-[7rem] lg:bottom-[4.5rem] right-6 z-50 w-[calc(100vw-3rem)] max-w-[340px] bg-white rounded-2xl shadow-xl shadow-charcoal/8 border border-beige/40 overflow-hidden flex flex-col"
             style={{ maxHeight: "min(440px, calc(100vh - 10rem))" }}
           >
             <div className="bg-gradient-to-r from-blush to-blush-dark/85 px-5 py-3 shrink-0">

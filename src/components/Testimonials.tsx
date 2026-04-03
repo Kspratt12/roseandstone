@@ -45,26 +45,26 @@ export default function Testimonials() {
   }, [isPaused, next]);
 
   return (
-    <section id="testimonials" className="py-20 md:py-28 bg-cream">
-      <div className="w-full max-w-[680px] mx-auto px-8">
+    <section id="testimonials" className="py-16 md:py-20 lg:py-28 bg-cream">
+      <div className="w-full max-w-[1280px] mx-auto px-6">
         <motion.div
           initial={{ opacity: 0, y: 16 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.8 }}
-          className="text-center mb-14"
+          className="text-center mb-16"
         >
           <p className="text-gold text-[11px] tracking-[0.3em] uppercase mb-4 font-light">
             Testimonials
           </p>
-          <h2 className="font-serif text-3xl md:text-5xl font-light text-charcoal">
+          <h2 className="font-serif text-3xl md:text-5xl font-light text-charcoal tracking-tight max-w-[800px] mx-auto">
             What our clients say
           </h2>
         </motion.div>
 
         {/* Testimonial */}
         <div
-          className="relative min-h-[260px] md:min-h-[200px] flex items-center"
+          className="relative min-h-[260px] md:min-h-[200px] flex items-center max-w-[800px] mx-auto"
           onMouseEnter={() => setIsPaused(true)}
           onMouseLeave={() => setIsPaused(false)}
           onTouchStart={() => setIsPaused(true)}
@@ -79,7 +79,7 @@ export default function Testimonials() {
               transition={{ duration: 0.5 }}
               className="text-center w-full"
             >
-              <p className="font-serif text-lg md:text-[1.4rem] text-charcoal font-light leading-[1.7] italic max-w-2xl mx-auto">
+              <p className="font-serif text-lg md:text-[1.4rem] text-charcoal font-light leading-[1.7] italic max-w-[680px] mx-auto">
                 &ldquo;{testimonials[current].text}&rdquo;
               </p>
 
@@ -97,7 +97,7 @@ export default function Testimonials() {
         </div>
 
         {/* Dots */}
-        <div className="flex justify-center gap-2.5 mt-8">
+        <div className="flex justify-center gap-2.5 mt-10">
           {testimonials.map((_, i) => (
             <button
               key={i}

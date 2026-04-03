@@ -20,15 +20,15 @@ export default function Experience() {
     <motion.section
       ref={ref}
       style={{ backgroundColor: bgColor }}
-      className="py-20 md:py-28 overflow-hidden"
+      className="py-16 md:py-20 lg:py-28 overflow-hidden"
     >
-      <div className="w-full max-w-[680px] mx-auto px-8 text-center">
+      <div className="w-full max-w-[1280px] mx-auto px-6 text-center">
         <motion.h2
           initial={{ opacity: 0, y: 16 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: "-50px" }}
           transition={{ duration: 0.9, ease: "easeOut" }}
-          className="font-serif text-3xl md:text-5xl lg:text-[3.2rem] font-light text-charcoal leading-tight text-center"
+          className="font-serif text-3xl md:text-5xl lg:text-[3.2rem] font-light text-charcoal leading-tight tracking-tight max-w-[800px] mx-auto"
         >
           This isn&apos;t just a haircut.
         </motion.h2>
@@ -38,7 +38,7 @@ export default function Experience() {
           whileInView={{ opacity: 1 }}
           viewport={{ once: true, margin: "-50px" }}
           transition={{ duration: 0.9, delay: 0.2 }}
-          className="mt-3 font-serif text-xl md:text-2xl italic text-blush-dark/70 font-light text-center"
+          className="mt-3 font-serif text-xl md:text-2xl italic text-blush-dark/70 font-light max-w-[680px] mx-auto"
         >
           It&apos;s the best part of your week.
         </motion.p>
@@ -48,16 +48,16 @@ export default function Experience() {
           whileInView={{ opacity: 1 }}
           viewport={{ once: true, margin: "-50px" }}
           transition={{ duration: 0.9, delay: 0.4 }}
-          className="mt-8 text-stone text-[15px] md:text-base font-light leading-[1.8] text-center max-w-lg mx-auto"
+          className="mt-8 text-stone text-[15px] md:text-base font-light leading-relaxed max-w-[600px] mx-auto"
         >
           The moment you walk in, everything slows down. Warm light, quiet
           music, and a stylist who already knows how you take your coffee. No
           rush. No assembly line. Just an hour that&apos;s entirely yours.
         </motion.p>
 
-        <div className="w-12 h-[1px] bg-gold/25 mx-auto mt-12" />
+        <div className="w-12 h-[1px] bg-gold/25 mx-auto mt-14" />
 
-        <div className="mt-12 grid grid-cols-1 md:grid-cols-3 gap-8">
+        <div className="mt-14 grid grid-cols-1 md:grid-cols-3 gap-10 md:gap-16 max-w-[960px] mx-auto">
           {[
             {
               title: "Personalized",
@@ -80,8 +80,8 @@ export default function Experience() {
               transition={{ duration: 0.5, delay: 0.1 + i * 0.08 }}
               className="text-center"
             >
-              <h3 className="font-serif text-lg text-charcoal mb-2">{item.title}</h3>
-              <p className="text-stone text-[13px] font-light leading-relaxed">{item.text}</p>
+              <h3 className="font-serif text-lg md:text-xl text-charcoal mb-3 tracking-wide">{item.title}</h3>
+              <p className="text-stone text-[13px] md:text-[14px] font-light leading-relaxed max-w-[280px] mx-auto">{item.text}</p>
             </motion.div>
           ))}
         </div>

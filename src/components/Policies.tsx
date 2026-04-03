@@ -23,40 +23,42 @@ const policies = [
 
 export default function Policies() {
   return (
-    <section className="py-16 md:py-20 bg-cream">
-      <div className="w-full max-w-[680px] mx-auto px-8">
-        <motion.div
-          initial={{ opacity: 0, y: 16 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.8 }}
-          className="text-center mb-10"
-        >
-          <p className="text-gold text-[11px] tracking-[0.3em] uppercase mb-4 font-light">
-            Good to Know
-          </p>
-          <h2 className="font-serif text-2xl md:text-3xl font-light text-charcoal">
-            Salon Policies
-          </h2>
-        </motion.div>
+    <section className="py-12 md:py-16 lg:py-20 bg-cream">
+      <div className="w-full max-w-[1280px] mx-auto px-6">
+        <div className="max-w-[720px] mx-auto">
+          <motion.div
+            initial={{ opacity: 0, y: 16 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.8 }}
+            className="text-center mb-12"
+          >
+            <p className="text-gold text-[11px] tracking-[0.3em] uppercase mb-4 font-light">
+              Good to Know
+            </p>
+            <h2 className="font-serif text-2xl md:text-3xl font-light text-charcoal tracking-tight">
+              Salon Policies
+            </h2>
+          </motion.div>
 
-        <div className="space-y-6">
-          {policies.map((policy, i) => (
-            <motion.div
-              key={policy.title}
-              initial={{ opacity: 0, y: 12 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.5, delay: i * 0.06 }}
-            >
-              <h3 className="font-serif text-lg text-charcoal mb-1.5">
-                {policy.title}
-              </h3>
-              <p className="text-stone text-sm font-light leading-relaxed">
-                {policy.text}
-              </p>
-            </motion.div>
-          ))}
+          <div className="space-y-8">
+            {policies.map((policy, i) => (
+              <motion.div
+                key={policy.title}
+                initial={{ opacity: 0, y: 12 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.5, delay: i * 0.06 }}
+              >
+                <h3 className="font-serif text-lg text-charcoal mb-2 tracking-wide">
+                  {policy.title}
+                </h3>
+                <p className="text-stone text-sm font-light leading-relaxed">
+                  {policy.text}
+                </p>
+              </motion.div>
+            ))}
+          </div>
         </div>
       </div>
     </section>

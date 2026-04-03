@@ -5,10 +5,10 @@ import Image from "next/image";
 
 export default function Story() {
   return (
-    <section id="story" className="py-20 md:py-28 bg-white">
-      <div className="w-full max-w-[960px] mx-auto px-8">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center">
-          {/* Image Side - use Betty's portrait instead of empty placeholder */}
+    <section id="story" className="py-16 md:py-20 lg:py-28 bg-white">
+      <div className="w-full max-w-[1280px] mx-auto px-6">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 md:gap-20 items-center">
+          {/* Image Side */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -35,16 +35,17 @@ export default function Story() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, margin: "-80px" }}
             transition={{ duration: 0.9, delay: 0.1, ease: "easeOut" }}
+            className="max-w-[540px] lg:max-w-none"
           >
             <p className="text-gold text-[11px] tracking-[0.3em] uppercase mb-4 font-light">
               The Rose & Stone Story
             </p>
-            <h2 className="font-serif text-3xl md:text-4xl lg:text-[2.6rem] font-light text-charcoal leading-[1.15] mb-8">
+            <h2 className="font-serif text-3xl md:text-4xl lg:text-[2.6rem] font-light text-charcoal leading-[1.15] mb-8 tracking-tight max-w-[520px]">
               A dream brought to life by two girls with a{" "}
               <span className="italic">love of hair.</span>
             </h2>
 
-            <div className="space-y-5 text-stone font-light leading-[1.8] text-[15px]">
+            <div className="space-y-5 text-stone font-light leading-relaxed text-[15px] max-w-[520px]">
               <p>
                 Rose & Stone Salon was born when two stylists realized they
                 shared the same frustration. Every salon felt rushed. Impersonal.
