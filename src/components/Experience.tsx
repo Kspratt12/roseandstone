@@ -1,91 +1,74 @@
 "use client";
 
-import { motion, useScroll, useTransform } from "framer-motion";
-import { useRef } from "react";
+import { motion } from "framer-motion";
 
 export default function Experience() {
-  const ref = useRef<HTMLDivElement>(null);
-  const { scrollYProgress } = useScroll({
-    target: ref,
-    offset: ["start end", "end start"],
-  });
-
-  const bgColor = useTransform(
-    scrollYProgress,
-    [0, 0.5, 1],
-    ["#FAF7F5", "#f5e6e0", "#f0e6df"]
-  );
-
   return (
-    <motion.section
-      ref={ref}
-      style={{ backgroundColor: bgColor }}
-      className="py-16 md:py-24 overflow-hidden"
-    >
-      <div className="w-full max-w-[1280px] mx-auto px-6 text-center">
-        <motion.h2
-          initial={{ opacity: 0, y: 16 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, margin: "-50px" }}
-          transition={{ duration: 0.9, ease: "easeOut" }}
-          className="font-serif text-3xl md:text-5xl lg:text-[3.2rem] font-light text-charcoal leading-tight tracking-tight max-w-[800px] mx-auto"
-        >
-          This isn&apos;t just a haircut.
-        </motion.h2>
+    <section className="py-16 md:py-24 bg-white overflow-hidden">
+      <div className="w-full max-w-[1280px] mx-auto px-6">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 md:gap-20 items-center">
+          {/* Left text */}
+          <motion.div
+            initial={{ opacity: 0, y: 16 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.9 }}
+          >
+            <h2 className="font-serif text-3xl md:text-5xl lg:text-[3.2rem] font-light text-charcoal leading-tight tracking-tight max-w-[500px]">
+              This isn&apos;t just a haircut.
+            </h2>
+            <p className="mt-3 font-serif text-xl md:text-2xl italic text-blush-dark/70 font-light">
+              It&apos;s the best part of your week.
+            </p>
+            <p className="mt-8 text-stone text-[15px] font-light leading-relaxed max-w-[480px]">
+              The moment you walk in, everything slows down. Warm light, quiet
+              music, and a stylist who already knows how you take your coffee. No
+              rush. No assembly line. Just an hour that&apos;s entirely yours.
+            </p>
 
-        <motion.p
-          initial={{ opacity: 0 }}
-          whileInView={{ opacity: 1 }}
-          viewport={{ once: true, margin: "-50px" }}
-          transition={{ duration: 0.9, delay: 0.2 }}
-          className="mt-3 font-serif text-xl md:text-2xl italic text-blush-dark/70 font-light max-w-[680px] mx-auto"
-        >
-          It&apos;s the best part of your week.
-        </motion.p>
+            <div className="w-12 h-[1px] bg-gold/25 mt-10" />
 
-        <motion.p
-          initial={{ opacity: 0 }}
-          whileInView={{ opacity: 1 }}
-          viewport={{ once: true, margin: "-50px" }}
-          transition={{ duration: 0.9, delay: 0.4 }}
-          className="mt-8 text-stone text-[15px] md:text-base font-light leading-relaxed max-w-[600px] mx-auto"
-        >
-          The moment you walk in, everything slows down. Warm light, quiet
-          music, and a stylist who already knows how you take your coffee. No
-          rush. No assembly line. Just an hour that&apos;s entirely yours.
-        </motion.p>
+            <div className="mt-10 grid grid-cols-1 sm:grid-cols-3 gap-8">
+              {[
+                { title: "Personalized", text: "Built around your hair, your goals, and your life." },
+                { title: "Unhurried", text: "We never double-book. Your time is yours." },
+                { title: "Intentional", text: "Every product chosen specifically for you." },
+              ].map((item, i) => (
+                <motion.div
+                  key={item.title}
+                  initial={{ opacity: 0, y: 12 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.5, delay: 0.1 + i * 0.08 }}
+                >
+                  <h3 className="font-serif text-lg text-charcoal mb-2 tracking-wide">{item.title}</h3>
+                  <p className="text-stone text-[13px] font-light leading-relaxed">{item.text}</p>
+                </motion.div>
+              ))}
+            </div>
+          </motion.div>
 
-        <div className="w-12 h-[1px] bg-gold/25 mx-auto mt-14" />
-
-        <div className="mt-14 grid grid-cols-1 md:grid-cols-3 gap-10 md:gap-16 max-w-[960px] mx-auto">
-          {[
-            {
-              title: "Personalized",
-              text: "Your appointment is built around your hair, your goals, and how you actually live your life.",
-            },
-            {
-              title: "Unhurried",
-              text: "We never double-book. Your time slot is yours, with no rushing and no shortcuts.",
-            },
-            {
-              title: "Intentional",
-              text: "Every product and technique is chosen for your specific hair. Nothing generic, nothing guessed.",
-            },
-          ].map((item, i) => (
-            <motion.div
-              key={item.title}
-              initial={{ opacity: 0, y: 12 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.5, delay: 0.1 + i * 0.08 }}
-              className="text-center"
+          {/* Right video */}
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.9, delay: 0.15 }}
+            className="relative rounded-2xl overflow-hidden aspect-[3/4] max-h-[600px] hidden lg:block"
+          >
+            <video
+              autoPlay
+              muted
+              loop
+              playsInline
+              className="absolute inset-0 w-full h-full object-cover"
             >
-              <h3 className="font-serif text-lg md:text-xl text-charcoal mb-3 tracking-wide">{item.title}</h3>
-              <p className="text-stone text-[13px] md:text-[14px] font-light leading-relaxed max-w-[280px] mx-auto">{item.text}</p>
-            </motion.div>
-          ))}
+              <source src="/videos/reel-betty-2.mp4" type="video/mp4" />
+            </video>
+            <div className="absolute inset-0 bg-gradient-to-t from-charcoal/10 via-transparent to-transparent" />
+          </motion.div>
         </div>
       </div>
-    </motion.section>
+    </section>
   );
 }

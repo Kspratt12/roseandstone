@@ -67,10 +67,10 @@ export default function Story() {
               </p>
               <p>
                 So Betty and Bree built something different. With over a decade of
-                combined experience — from advanced blonding techniques to
-                L&apos;Oréal color certification to specialized training in NYC —
-                they created a private, boutique space where every client gets
-                their full, undivided attention.
+                combined experience, advanced blonding training, L&apos;Oréal color
+                certification, and specialized education in NYC, they created a
+                private, boutique space where every client gets their full,
+                undivided attention.
               </p>
               <p>
                 Their goal is simple: leave your stresses at the door while they

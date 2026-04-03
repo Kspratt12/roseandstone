@@ -12,8 +12,8 @@ export default function Hero({ onBookClick }: HeroProps) {
     <section className="relative min-h-[100svh] w-full overflow-hidden">
       {/* Background - crystal clear hair shot */}
       <Image
-        src="/hair15.png"
-        alt="Rose & Stone Salon — Blonde Balayage"
+        src="/hero2.png"
+        alt="Rose & Stone Salon — Luxury Hair Experience"
         fill
         priority
         quality={90}

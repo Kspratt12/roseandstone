@@ -6,15 +6,19 @@ export default function Footer() {
   return (
     <footer className="bg-soft-black py-16 md:py-24">
       <div className="w-full max-w-[1280px] mx-auto px-6">
-        {/* Top row: Logo centered */}
+        {/* Top row: Rose icon + brand */}
         <div className="text-center mb-12">
-          <Image
-            src="/images/logo.jpeg"
-            alt="Rose & Stone Salon"
-            width={100}
-            height={40}
-            className="h-8 w-auto mx-auto mb-3 brightness-200 opacity-70"
-          />
+          {/* Pink rose SVG icon */}
+          <div className="mx-auto mb-4 w-12 h-12 flex items-center justify-center">
+            <svg viewBox="0 0 48 48" fill="none" className="w-10 h-10">
+              <path d="M24 4c-2 4-8 8-8 14 0 6 3.6 10 8 10s8-4 8-10c0-6-6-10-8-14z" fill="#bd959f" opacity="0.8"/>
+              <path d="M24 8c-1.5 3-6 6.5-6 11 0 4.5 2.7 7.5 6 7.5s6-3 6-7.5c0-4.5-4.5-8-6-11z" fill="#d4b5bc" opacity="0.6"/>
+              <path d="M24 12c-1 2-4 4.5-4 8 0 3 1.8 5 4 5s4-2 4-5c0-3.5-3-6-4-8z" fill="#e8cdd3" opacity="0.5"/>
+              <path d="M24 28c-0.5 0-1 0.2-1 0.5V44h2V28.5c0-0.3-0.5-0.5-1-0.5z" fill="#8c7e76" opacity="0.4"/>
+              <path d="M23 34c-3-1-5-0.5-6 1 1.5 0 3.5 0.5 5 1.5" fill="#8c7e76" opacity="0.25"/>
+              <path d="M25 36c2.5-1.5 4.5-1 5.5 0.5-1.5-0.2-3.5 0.3-5 1" fill="#8c7e76" opacity="0.25"/>
+            </svg>
+          </div>
           <p className="text-white/25 text-sm font-light max-w-xs mx-auto leading-relaxed">
             A boutique salon in Cary, North Carolina where your hair gets the attention it deserves.
           </p>
