@@ -2,7 +2,7 @@
 
 import { useState, useEffect } from "react";
 import { AnimatePresence, motion } from "framer-motion";
-import Image from "next/image"; // used in mobile menu
+// Image import removed — using text logo only
 
 const navLinks = [
   { label: "Our Story", href: "#story" },
@@ -103,7 +103,10 @@ export default function Navbar({ onBookClick }: NavbarProps) {
             transition={{ duration: 0.25 }}
             className="fixed inset-0 z-40 bg-cream flex flex-col items-center justify-center gap-7 lg:hidden"
           >
-            <Image src="/images/logo.jpeg" alt="Rose & Stone Salon" width={130} height={52} className="h-12 w-auto mb-4" />
+            <div className="mb-6 text-center">
+              <span className="font-serif text-3xl font-light tracking-wide text-charcoal">Rose & Stone</span>
+              <span className="block text-[10px] tracking-[0.3em] uppercase font-light mt-1 text-stone-light">Salon</span>
+            </div>
             {navLinks.map((link, i) => (
               <motion.a key={link.label} href={link.href} onClick={() => setMobileOpen(false)}
                 initial={{ opacity: 0, y: 14 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.05 + i * 0.05, duration: 0.3 }}

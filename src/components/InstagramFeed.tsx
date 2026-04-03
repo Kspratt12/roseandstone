@@ -50,7 +50,7 @@ export default function InstagramFeed() {
                   fill
                   className="object-cover group-hover:scale-[1.03] transition-transform duration-500"
                   sizes="(max-width: 768px) 50vw, 25vw"
-                  quality={85}
+                  quality={95}
                 />
                 <div className="absolute inset-0 bg-charcoal/0 group-hover:bg-charcoal/10 transition-all duration-500" />
               </div>

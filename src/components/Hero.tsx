@@ -16,7 +16,7 @@ export default function Hero({ onBookClick }: HeroProps) {
         alt="Rose & Stone Salon — Luxury Hair Experience"
         fill
         priority
-        quality={90}
+        quality={95}
         sizes="100vw"
         className="object-cover object-center"
       />

@@ -59,7 +59,7 @@ export default function Products() {
                   src="/purplelineup.png"
                   alt="Milkshake Silver Shine & Icy Blond lineup"
                   fill
-                  quality={90}
+                  quality={95}
                   sizes="(max-width: 1024px) 100vw, 50vw"
                   className="object-cover"
                 />

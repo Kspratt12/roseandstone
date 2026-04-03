@@ -15,7 +15,7 @@ export default function FinalCTA({ onBookClick }: FinalCTAProps) {
         src="/fun.png"
         alt=""
         fill
-        quality={80}
+        quality={95}
         sizes="100vw"
         className="object-cover"
         aria-hidden="true"

@@ -63,7 +63,7 @@ export default function BookNow() {
                   src={s.image}
                   alt={s.fullName}
                   fill
-                  quality={85}
+                  quality={95}
                   sizes="(max-width: 768px) 100vw, 400px"
                   className="object-cover object-top group-hover:scale-[1.03] transition-transform duration-700"
                 />

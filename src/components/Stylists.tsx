@@ -49,7 +49,7 @@ function StylistCard({ stylist, index }: { stylist: typeof stylists[0]; index: n
             src={stylist.image}
             alt={stylist.name}
             fill
-            quality={85}
+            quality={95}
             sizes="(max-width: 768px) 80vw, 420px"
             className="object-cover group-hover:scale-[1.02] transition-transform duration-700"
             priority={index === 0}

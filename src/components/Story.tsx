@@ -29,7 +29,7 @@ export default function Story() {
                   src="/fun5.png"
                   alt="Betty and Bree celebrating 4 years at Rose & Stone Salon"
                   fill
-                  quality={85}
+                  quality={95}
                   sizes="(max-width: 1024px) 80vw, 40vw"
                   className="object-cover"
                 />

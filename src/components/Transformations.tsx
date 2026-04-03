@@ -48,7 +48,7 @@ export default function Transformations() {
                 src={img.src}
                 alt={img.alt}
                 fill
-                quality={85}
+                quality={95}
                 sizes="(max-width: 768px) 50vw, 25vw"
                 className="object-cover group-hover:scale-[1.03] transition-transform duration-700"
               />
@@ -74,7 +74,7 @@ export default function Transformations() {
               alt="Milkshake Silver Shine — before and after results"
               width={800}
               height={800}
-              quality={90}
+              quality={95}
               className="w-full h-auto"
             />
           </div>
