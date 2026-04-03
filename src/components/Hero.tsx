@@ -1,6 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
+import Image from "next/image";
 
 interface HeroProps {
   onBookClick: () => void;
@@ -9,8 +10,16 @@ interface HeroProps {
 export default function Hero({ onBookClick }: HeroProps) {
   return (
     <section className="relative min-h-[100svh] w-full overflow-hidden">
-      {/* Background layers */}
-      <div className="absolute inset-0 bg-[url('/images/betty.jpg')] bg-cover bg-center bg-no-repeat scale-105" />
+      {/* Background image — Next.js optimized */}
+      <Image
+        src="/images/hero-bg.jpg"
+        alt="Rose & Stone Salon"
+        fill
+        priority
+        quality={85}
+        sizes="100vw"
+        className="object-cover scale-105"
+      />
       <div className="absolute inset-0 bg-gradient-to-b from-charcoal/50 via-charcoal/35 to-charcoal/60" />
 
       {/* Content */}

@@ -67,8 +67,10 @@ export default function Stylists() {
                     src={stylist.image}
                     alt={stylist.name}
                     fill
+                    quality={85}
                     sizes="(max-width: 1024px) 100vw, 50vw"
                     className="object-cover group-hover:scale-[1.02] transition-transform duration-700"
+                    priority={i === 0}
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-charcoal/20 via-transparent to-transparent" />
                 </div>

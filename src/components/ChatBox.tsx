@@ -41,7 +41,7 @@ export default function ChatBox() {
   const [messages, setMessages] = useState<Message[]>([
     {
       type: "bot",
-      text: "Hey there! 👋 Welcome to Rose & Stone. What can we help you with?",
+      text: "Hey there! Welcome to Rose & Stone. What can we help you with?",
     },
   ]);
   const [showOptions, setShowOptions] = useState(true);
@@ -67,14 +67,14 @@ export default function ChatBox() {
 
   return (
     <>
-      {/* Chat Button — positioned above mobile book bar */}
+      {/* Chat Button — above mobile book bar with proper spacing */}
       <motion.button
         onClick={() => setIsOpen(!isOpen)}
-        className="fixed bottom-20 lg:bottom-6 right-5 z-50 w-13 h-13 bg-blush text-white rounded-full shadow-lg shadow-blush/20 hover:bg-blush-dark transition-all duration-300 flex items-center justify-center"
+        className="fixed bottom-[4.5rem] lg:bottom-6 right-4 z-50 flex items-center justify-center bg-blush text-white rounded-full shadow-lg shadow-blush/20 hover:bg-blush-dark transition-all duration-300"
         whileHover={{ scale: 1.05 }}
         whileTap={{ scale: 0.95 }}
         aria-label={isOpen ? "Close chat" : "Open chat"}
-        style={{ width: 52, height: 52 }}
+        style={{ width: 48, height: 48, minWidth: 48, minHeight: 48 }}
       >
         <AnimatePresence mode="wait">
           {isOpen ? (
@@ -84,8 +84,8 @@ export default function ChatBox() {
               animate={{ rotate: 0, opacity: 1 }}
               exit={{ rotate: 90, opacity: 0 }}
               transition={{ duration: 0.2 }}
-              width="18"
-              height="18"
+              width="16"
+              height="16"
               viewBox="0 0 24 24"
               fill="none"
               stroke="currentColor"
@@ -101,8 +101,8 @@ export default function ChatBox() {
               animate={{ scale: 1 }}
               exit={{ scale: 0 }}
               transition={{ duration: 0.2 }}
-              width="20"
-              height="20"
+              width="18"
+              height="18"
               viewBox="0 0 24 24"
               fill="none"
               stroke="currentColor"
@@ -122,8 +122,8 @@ export default function ChatBox() {
             animate={{ opacity: 1, y: 0, scale: 1 }}
             exit={{ opacity: 0, y: 12, scale: 0.97 }}
             transition={{ duration: 0.25, ease: "easeOut" }}
-            className="fixed bottom-[7rem] lg:bottom-[4.5rem] right-5 z-50 w-[calc(100vw-2.5rem)] max-w-[360px] bg-white rounded-2xl shadow-2xl shadow-charcoal/10 border border-beige/60 overflow-hidden flex flex-col"
-            style={{ maxHeight: "min(480px, calc(100vh - 10rem))" }}
+            className="fixed bottom-[7.5rem] lg:bottom-[4.5rem] right-4 z-50 w-[calc(100vw-2rem)] max-w-[360px] bg-white rounded-2xl shadow-2xl shadow-charcoal/10 border border-beige/60 overflow-hidden flex flex-col"
+            style={{ maxHeight: "min(460px, calc(100vh - 10rem))" }}
           >
             {/* Header */}
             <div className="bg-gradient-to-r from-blush to-blush-dark/90 px-5 py-3.5 shrink-0">
@@ -165,7 +165,7 @@ export default function ChatBox() {
                           href="https://book.squareup.com/appointments/lq9qhwhra4o0tn/location/LVTJWVE2XE4QF?buttonTextColor=000000&color=bd959f&locale=en&referrer=so"
                           target="_blank"
                           rel="noopener noreferrer"
-                          className="block w-full py-2 bg-blush text-white text-center text-[11px] tracking-wider rounded-full hover:bg-blush-dark transition-colors active:scale-[0.97]"
+                          className="flex items-center justify-center w-full py-2.5 bg-blush text-white text-center text-[11px] tracking-wider rounded-full hover:bg-blush-dark transition-colors active:scale-[0.97] min-h-[40px]"
                         >
                           Betty — Blonding Specialist
                         </a>
@@ -173,7 +173,7 @@ export default function ChatBox() {
                           href="https://www.colourmebree.com/"
                           target="_blank"
                           rel="noopener noreferrer"
-                          className="block w-full py-2 bg-blush text-white text-center text-[11px] tracking-wider rounded-full hover:bg-blush-dark transition-colors active:scale-[0.97]"
+                          className="flex items-center justify-center w-full py-2.5 bg-blush text-white text-center text-[11px] tracking-wider rounded-full hover:bg-blush-dark transition-colors active:scale-[0.97] min-h-[40px]"
                         >
                           Bree — Color Expert
                         </a>
@@ -185,7 +185,7 @@ export default function ChatBox() {
               <div ref={messagesEndRef} />
             </div>
 
-            {/* Quick Options */}
+            {/* Quick Options — larger touch targets */}
             <AnimatePresence>
               {showOptions && (
                 <motion.div
@@ -200,7 +200,7 @@ export default function ChatBox() {
                       <button
                         key={option.label}
                         onClick={() => handleOption(option)}
-                        className="px-3 py-1.5 bg-cream border border-beige/60 text-charcoal text-[11px] tracking-wider rounded-full hover:border-blush/40 hover:text-blush transition-colors duration-200 active:scale-[0.97]"
+                        className="px-3.5 py-2 bg-cream border border-beige/60 text-charcoal text-[11px] tracking-wider rounded-full hover:border-blush/40 hover:text-blush transition-colors duration-200 active:scale-[0.97] min-h-[36px]"
                       >
                         {option.label}
                       </button>

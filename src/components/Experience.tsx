@@ -56,8 +56,8 @@ export default function Experience() {
         </motion.p>
 
         <motion.div
-          initial={{ opacity: 0, scaleX: 0 }}
-          whileInView={{ opacity: 1, scaleX: 1 }}
+          initial={{ opacity: 0 }}
+          whileInView={{ opacity: 1 }}
           viewport={{ once: true }}
           transition={{ duration: 0.8, delay: 0.6 }}
           className="mt-12 mx-auto w-16 h-[1px] bg-blush-light/60"

@@ -72,6 +72,7 @@ export default function Booking({ onBookClick }: BookingProps) {
                     alt={option.name}
                     width={80}
                     height={80}
+                    quality={85}
                     className="w-full h-full object-cover"
                   />
                 </div>

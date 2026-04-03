@@ -43,7 +43,7 @@ export default function BookingModal({ isOpen, onClose }: BookingModalProps) {
             {/* Close button */}
             <button
               onClick={handleClose}
-              className="absolute top-4 right-4 z-10 w-8 h-8 flex items-center justify-center rounded-full bg-cream hover:bg-beige transition-colors"
+              className="absolute top-4 right-4 z-10 w-10 h-10 flex items-center justify-center rounded-full bg-cream hover:bg-beige transition-colors"
               aria-label="Close booking"
             >
               <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" className="text-charcoal">
@@ -78,6 +78,7 @@ export default function BookingModal({ isOpen, onClose }: BookingModalProps) {
                         alt="Betty Vandivier"
                         width={64}
                         height={64}
+                        quality={85}
                         className="w-full h-full object-cover"
                       />
                     </div>
@@ -108,6 +109,7 @@ export default function BookingModal({ isOpen, onClose }: BookingModalProps) {
                         alt="Bree Szalkowski"
                         width={64}
                         height={64}
+                        quality={85}
                         className="w-full h-full object-cover"
                       />
                     </div>
