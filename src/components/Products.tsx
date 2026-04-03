@@ -5,125 +5,84 @@ import Image from "next/image";
 
 export default function Products() {
   return (
-    <section className="py-16 md:py-24 bg-beige/20">
+    <section className="py-16 md:py-24 bg-[#e8dff5]/15">
       <div className="w-full max-w-[1280px] mx-auto px-6">
-        <motion.div
-          initial={{ opacity: 0, y: 16 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.8 }}
-          className="text-center mb-16"
-        >
-          <p className="text-gold text-[11px] tracking-[0.3em] uppercase mb-4 font-light">
-            In Our Chair & On Your Shelf
-          </p>
-          <h2 className="font-serif text-3xl md:text-5xl font-light text-charcoal tracking-tight max-w-[800px] mx-auto">
-            Products we{" "}
-            <span className="italic">swear by.</span>
-          </h2>
-        </motion.div>
-
-        {/* Video + Product Grid */}
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 md:gap-8 mb-10">
-          {/* Product video — the star */}
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 md:gap-16 items-center">
+          {/* Left — hero product photo */}
           <motion.div
             initial={{ opacity: 0, y: 16 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            transition={{ duration: 0.6 }}
-            className="relative rounded-2xl overflow-hidden bg-charcoal aspect-[9/16] md:aspect-[4/5] max-h-[600px]"
+            transition={{ duration: 0.8 }}
+            className="relative rounded-2xl overflow-hidden bg-[#c4b0e0]/20 mx-auto w-full max-w-lg"
           >
-            <video
-              autoPlay
-              muted
-              loop
-              playsInline
-              className="absolute inset-0 w-full h-full object-cover"
-            >
-              <source src="/videos/reel-product-1.mp4" type="video/mp4" />
-            </video>
+            <Image
+              src="/purpleproduct2.png"
+              alt="Milkshake Silver Shine Shampoo"
+              width={800}
+              height={800}
+              quality={95}
+              className="w-full h-auto"
+              priority
+            />
           </motion.div>
 
-          {/* Right side — product info + second video */}
-          <div className="flex flex-col gap-6">
-            {/* Product lineup image */}
-            <motion.div
-              initial={{ opacity: 0, y: 16 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.6, delay: 0.1 }}
-              className="relative rounded-2xl overflow-hidden bg-[#d8eaf0]"
-            >
-              <div className="relative aspect-[16/9]">
+          {/* Right — info + lineup */}
+          <motion.div
+            initial={{ opacity: 0, y: 16 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.8, delay: 0.1 }}
+          >
+            <p className="text-gold text-[11px] tracking-[0.3em] uppercase mb-4 font-light">
+              In Our Chair & On Your Shelf
+            </p>
+            <h2 className="font-serif text-3xl md:text-4xl font-light text-charcoal leading-tight tracking-tight mb-6 max-w-[450px]">
+              Products we{" "}
+              <span className="italic">swear by.</span>
+            </h2>
+            <p className="text-stone font-light text-[15px] leading-relaxed mb-8 max-w-[440px]">
+              We only use and recommend products we&apos;d put in our own hair.
+              Milkshake Silver Shine keeps your blonde cool, bright, and
+              brass-free between visits. Available in-salon.
+            </p>
+
+            <ul className="space-y-3 mb-8">
+              {[
+                "Tones unwanted brassiness",
+                "Safe for grey, white & blonde hair",
+                "Organic blueberry extract & milk proteins",
+                "Paraben-free, SLES-free",
+                "Available in-salon",
+              ].map((item) => (
+                <li key={item} className="flex items-center gap-3 text-stone text-[14px] font-light">
+                  <span className="text-blush text-sm">&#10003;</span>
+                  {item}
+                </li>
+              ))}
+            </ul>
+
+            {/* Product lineup */}
+            <div className="relative rounded-xl overflow-hidden bg-[#d8eaf0] mb-6">
+              <div className="relative aspect-[16/7]">
                 <Image
                   src="/purplelineup.png"
-                  alt="Milkshake Silver Shine & Icy Blond lineup"
+                  alt="Milkshake Silver Shine & Icy Blond full lineup"
                   fill
                   quality={95}
                   sizes="(max-width: 1024px) 100vw, 50vw"
                   className="object-cover"
                 />
               </div>
-            </motion.div>
+            </div>
 
-            {/* Product info card */}
-            <motion.div
-              initial={{ opacity: 0, y: 16 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.6, delay: 0.15 }}
-              className="bg-white rounded-2xl p-8 border border-beige/30 flex-1"
+            <a
+              href="#contact"
+              className="inline-flex items-center px-8 py-3.5 bg-blush text-white text-[12px] tracking-[0.12em] uppercase rounded-full hover:bg-blush-dark hover:scale-[1.03] transition-all duration-300 active:scale-[0.97]"
             >
-              <h3 className="font-serif text-xl text-charcoal tracking-tight mb-3">
-                Milkshake Silver Shine
-              </h3>
-              <p className="text-stone font-light text-[14px] leading-relaxed mb-5">
-                The toning system that keeps your blonde cool, bright, and brass-free between visits.
-              </p>
-              <ul className="space-y-2 mb-6">
-                {["Tones unwanted brassiness", "Safe for grey, white & blonde", "Milk protein enriched", "Available in-salon"].map((item) => (
-                  <li key={item} className="flex items-center gap-2 text-stone text-[13px] font-light">
-                    <span className="text-blush text-xs">&#10003;</span>
-                    {item}
-                  </li>
-                ))}
-              </ul>
-              <a href="#contact" className="inline-flex items-center px-7 py-3 bg-blush text-white text-[12px] tracking-[0.12em] uppercase rounded-full hover:bg-blush-dark hover:scale-[1.03] transition-all duration-300">
-                Ask About Products
-              </a>
-            </motion.div>
-          </div>
-        </div>
-
-        {/* Second video row — Betty's work reels */}
-        <div className="grid grid-cols-2 md:grid-cols-3 gap-4">
-          {[
-            { src: "/videos/reel-product-2.mp4", label: "Product Demo" },
-            { src: "/videos/reel-betty-1.mp4", label: "Behind the Chair" },
-            { src: "/videos/reel-salon.mp4", label: "Salon Life" },
-          ].map((v, i) => (
-            <motion.div
-              key={i}
-              initial={{ opacity: 0, y: 12 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.5, delay: i * 0.08 }}
-              className="relative rounded-xl overflow-hidden aspect-[9/16] max-h-[400px] bg-charcoal group"
-            >
-              <video
-                autoPlay
-                muted
-                loop
-                playsInline
-                className="absolute inset-0 w-full h-full object-cover group-hover:scale-[1.02] transition-transform duration-700"
-              >
-                <source src={v.src} type="video/mp4" />
-              </video>
-              <div className="absolute bottom-0 left-0 right-0 p-3 bg-gradient-to-t from-charcoal/60 to-transparent">
-                <p className="text-white/80 text-[11px] tracking-wider font-light">{v.label}</p>
-              </div>
-            </motion.div>
-          ))}
+              Ask About Products
+            </a>
+          </motion.div>
         </div>
       </div>
     </section>

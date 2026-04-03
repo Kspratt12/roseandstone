@@ -9,13 +9,13 @@ interface FinalCTAProps {
 
 export default function FinalCTA({ onBookClick }: FinalCTAProps) {
   return (
-    <section className="relative py-20 md:py-28 overflow-hidden">
+    <section className="relative py-16 md:py-20 overflow-hidden">
       {/* Background image — salon vibes */}
       <Image
         src="/fun.png"
         alt=""
         fill
-        quality={95}
+        quality={100}
         sizes="100vw"
         className="object-cover"
         aria-hidden="true"

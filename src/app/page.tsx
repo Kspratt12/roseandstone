@@ -12,8 +12,8 @@ import Services from "@/components/Services";
 import Policies from "@/components/Policies";
 import Transformations from "@/components/Transformations";
 import Products from "@/components/Products";
+import InAction from "@/components/InAction";
 import Testimonials from "@/components/Testimonials";
-// Booking replaced by BookNow (Haven-style)
 import InstagramFeed from "@/components/InstagramFeed";
 import Contact from "@/components/Contact";
 import FinalCTA from "@/components/FinalCTA";
@@ -38,8 +38,8 @@ export default function Home() {
       <Policies />
       <Transformations />
       <Products />
+      <InAction />
       <Testimonials />
-      {/* Old Booking removed — BookNow handles this above */}
       <InstagramFeed />
       <Contact />
       <FinalCTA onBookClick={() => setBookingOpen(true)} />

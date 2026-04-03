@@ -60,45 +60,7 @@ export default function Transformations() {
           ))}
         </div>
 
-        {/* Product showcase underneath */}
-        <motion.div
-          initial={{ opacity: 0, y: 16 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.8 }}
-          className="mt-20 grid grid-cols-1 lg:grid-cols-2 gap-12 md:gap-20 items-center"
-        >
-          <div className="relative rounded-2xl overflow-hidden mx-auto max-w-lg w-full">
-            <Image
-              src="/product-before-after.png"
-              alt="Milkshake Silver Shine — before and after results"
-              width={800}
-              height={800}
-              quality={95}
-              className="w-full h-auto"
-            />
-          </div>
-          <div className="max-w-md">
-            <p className="text-gold text-[11px] tracking-[0.3em] uppercase mb-4 font-light">
-              The Products We Trust
-            </p>
-            <h3 className="font-serif text-2xl md:text-3xl font-light text-charcoal leading-tight tracking-tight mb-6">
-              Salon-grade results,{" "}
-              <span className="italic">between visits.</span>
-            </h3>
-            <p className="text-stone font-light text-[15px] leading-relaxed mb-6">
-              We use and recommend Milkshake Silver Shine — a professional toning system
-              that keeps brassiness at bay and maintains that cool, icy tone between
-              your appointments. Real results, no filters.
-            </p>
-            <a
-              href="#contact"
-              className="inline-flex items-center px-7 py-3 bg-blush text-white text-[12px] tracking-[0.12em] uppercase rounded-full hover:bg-blush-dark hover:scale-[1.03] transition-all duration-300 active:scale-[0.97]"
-            >
-              Ask About Products
-            </a>
-          </div>
-        </motion.div>
+        {/* Product before/after removed — moved to Products section */}
       </div>
     </section>
   );
