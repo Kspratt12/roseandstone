@@ -12,7 +12,7 @@ export default function Hero({ onBookClick }: HeroProps) {
     <section className="relative min-h-[100svh] w-full overflow-hidden">
       {/* Background - Bree's photo as hero (different from stylist cards) */}
       <Image
-        src="/images/hero-bg.jpg"
+        src="/hero.png"
         alt="Rose & Stone Salon"
         fill
         priority

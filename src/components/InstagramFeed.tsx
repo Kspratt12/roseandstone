@@ -1,16 +1,17 @@
 "use client";
 
 import { motion } from "framer-motion";
+import Image from "next/image";
 
 const feedItems = [
-  "Icy Blonde",
-  "Honey Balayage",
-  "Dimensional Color",
-  "Platinum",
-  "Lived-In Blonde",
-  "Smoothing Treatment",
-  "Color Correction",
-  "Bridal Styling",
+  { src: "/hair2.png", alt: "Platinum blonde waves" },
+  { src: "/hair5.png", alt: "Honey blonde balayage" },
+  { src: "/hair7.png", alt: "Icy blonde layers" },
+  { src: "/hair10.png", alt: "Dimensional blonde highlights" },
+  { src: "/hair11.png", alt: "Lived-in color" },
+  { src: "/hair12.png", alt: "Natural blonde blend" },
+  { src: "/hair13.png", alt: "Warm blonde waves" },
+  { src: "/hair16.png", alt: "Bright blonde finish" },
 ];
 
 export default function InstagramFeed() {
@@ -43,12 +44,15 @@ export default function InstagramFeed() {
               className="group cursor-pointer"
             >
               <div className="relative aspect-square rounded-lg overflow-hidden bg-beige/40 hover:shadow-lg hover:shadow-charcoal/5 transition-all duration-300">
-                <div className="absolute inset-0 flex items-center justify-center">
-                  <span className="font-serif text-sm text-blush/20 group-hover:text-blush/35 transition-colors duration-500 text-center px-2">
-                    {item}
-                  </span>
-                </div>
-                <div className="absolute inset-0 bg-charcoal/0 group-hover:bg-charcoal/8 transition-all duration-500" />
+                <Image
+                  src={item.src}
+                  alt={item.alt}
+                  fill
+                  className="object-cover group-hover:scale-[1.03] transition-transform duration-500"
+                  sizes="(max-width: 768px) 50vw, 25vw"
+                  quality={85}
+                />
+                <div className="absolute inset-0 bg-charcoal/0 group-hover:bg-charcoal/10 transition-all duration-500" />
               </div>
             </motion.div>
           ))}
