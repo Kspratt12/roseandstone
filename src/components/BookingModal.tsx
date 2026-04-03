@@ -72,8 +72,8 @@ export default function BookingModal({ isOpen, onClose }: BookingModalProps) {
                     onClick={() => setSelected("betty")}
                     className="group text-left bg-cream rounded-xl p-5 border border-beige hover:border-blush-light transition-all duration-300 active:scale-[0.98]"
                   >
-                    <div className="w-16 h-16 rounded-full mb-4 mx-auto ring-2 ring-beige group-hover:ring-blush-light transition-colors bg-blush/10 flex items-center justify-center">
-                      <span className="font-serif text-lg text-blush/60">BV</span>
+                    <div className="w-16 h-16 rounded-full overflow-hidden mb-4 mx-auto ring-2 ring-beige group-hover:ring-blush-light transition-colors">
+                      <Image src="/images/betty.jpg" alt="Betty Vandivier" width={64} height={64} quality={85} className="w-full h-full object-cover" />
                     </div>
                     <h4 className="font-serif text-xl text-charcoal text-center mb-0.5">
                       Betty Vandivier
@@ -96,8 +96,8 @@ export default function BookingModal({ isOpen, onClose }: BookingModalProps) {
                     onClick={() => setSelected("bree")}
                     className="group text-left bg-cream rounded-xl p-5 border border-beige hover:border-blush-light transition-all duration-300 active:scale-[0.98]"
                   >
-                    <div className="w-16 h-16 rounded-full mb-4 mx-auto ring-2 ring-beige group-hover:ring-blush-light transition-colors bg-blush/10 flex items-center justify-center">
-                      <span className="font-serif text-lg text-blush/60">BS</span>
+                    <div className="w-16 h-16 rounded-full overflow-hidden mb-4 mx-auto ring-2 ring-beige group-hover:ring-blush-light transition-colors">
+                      <Image src="/images/bree.jpg" alt="Bree Szalkowski" width={64} height={64} quality={85} className="w-full h-full object-cover" />
                     </div>
                     <h4 className="font-serif text-xl text-charcoal text-center mb-0.5">
                       Bree Szalkowski

@@ -3,6 +3,7 @@
 import { useState } from "react";
 import Navbar from "@/components/Navbar";
 import Hero from "@/components/Hero";
+import BookNow from "@/components/BookNow";
 import TrustStrip from "@/components/TrustStrip";
 import Experience from "@/components/Experience";
 import Story from "@/components/Story";
@@ -12,7 +13,7 @@ import Policies from "@/components/Policies";
 import Transformations from "@/components/Transformations";
 import Products from "@/components/Products";
 import Testimonials from "@/components/Testimonials";
-import BookNow from "@/components/BookNow";
+import Booking from "@/components/Booking";
 import InstagramFeed from "@/components/InstagramFeed";
 import Contact from "@/components/Contact";
 import FinalCTA from "@/components/FinalCTA";
@@ -28,6 +29,7 @@ export default function Home() {
     <main>
       <Navbar onBookClick={() => setBookingOpen(true)} />
       <Hero onBookClick={() => setBookingOpen(true)} />
+      <BookNow />
       <TrustStrip />
       <Experience />
       <Story />
@@ -37,7 +39,7 @@ export default function Home() {
       <Transformations />
       <Products />
       <Testimonials />
-      <BookNow />
+      <Booking onBookClick={() => setBookingOpen(true)} />
       <InstagramFeed />
       <Contact />
       <FinalCTA onBookClick={() => setBookingOpen(true)} />
