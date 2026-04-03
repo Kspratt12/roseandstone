@@ -1,44 +1,47 @@
 "use client";
 
 import { motion } from "framer-motion";
+import Image from "next/image";
 
 export default function Story() {
   return (
     <section id="story" className="py-20 md:py-28 bg-white">
-      <div className="w-full max-w-[1120px] mx-auto px-6 lg:px-10">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 items-center">
-          {/* Image Side */}
+      <div className="w-full max-w-[1060px] mx-auto px-8 lg:px-12">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center">
+          {/* Image Side - use Betty's portrait instead of empty placeholder */}
           <motion.div
-            initial={{ opacity: 0, x: -20 }}
-            whileInView={{ opacity: 1, x: 0 }}
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, margin: "-80px" }}
             transition={{ duration: 0.9, ease: "easeOut" }}
-            className="relative"
+            className="relative mx-auto w-full max-w-md lg:max-w-none"
           >
-            <div className="aspect-[4/5] bg-beige rounded-2xl overflow-hidden relative">
-              <div className="absolute inset-0 bg-gradient-to-br from-blush/12 to-rose-gold/12" />
-              <div className="absolute inset-0 flex items-center justify-center">
-                <span className="font-serif text-6xl text-blush/15">R&S</span>
-              </div>
-              {/* Replace with real salon interior photo */}
-              <div className="absolute bottom-0 left-0 right-0 h-1/4 bg-gradient-to-t from-charcoal/10 to-transparent" />
+            <div className="aspect-[4/5] rounded-2xl overflow-hidden relative bg-beige">
+              <Image
+                src="/images/betty.jpg"
+                alt="Betty at Rose & Stone Salon"
+                fill
+                quality={85}
+                sizes="(max-width: 1024px) 80vw, 40vw"
+                className="object-cover"
+              />
+              <div className="absolute bottom-0 left-0 right-0 h-1/3 bg-gradient-to-t from-charcoal/10 to-transparent" />
             </div>
-            <div className="absolute -bottom-3 -right-3 w-24 h-24 bg-gold/5 rounded-2xl -z-10" />
           </motion.div>
 
           {/* Text Side */}
           <motion.div
-            initial={{ opacity: 0, x: 20 }}
-            whileInView={{ opacity: 1, x: 0 }}
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, margin: "-80px" }}
             transition={{ duration: 0.9, delay: 0.1, ease: "easeOut" }}
           >
             <p className="text-gold text-[11px] tracking-[0.3em] uppercase mb-4 font-light">
               The Rose & Stone Story
             </p>
-            <h2 className="font-serif text-3xl md:text-4xl lg:text-[2.8rem] font-light text-charcoal leading-tight mb-8">
-              A dream brought to life by two girls
-              with a <span className="italic">love of hair.</span>
+            <h2 className="font-serif text-3xl md:text-4xl lg:text-[2.6rem] font-light text-charcoal leading-[1.15] mb-8">
+              A dream brought to life by two girls with a{" "}
+              <span className="italic">love of hair.</span>
             </h2>
 
             <div className="space-y-5 text-stone font-light leading-[1.8] text-[15px]">
@@ -59,24 +62,18 @@ export default function Story() {
                 boutique space in Cary where every client gets their full
                 attention, every single time.
               </p>
-              <p className="font-serif text-xl text-charcoal italic leading-relaxed">
+              <p className="font-serif text-lg text-charcoal/80 italic leading-relaxed">
                 &ldquo;Come relax in our oasis while we bring your hair dreams
                 to life.&rdquo;
               </p>
             </div>
 
-            <motion.div
-              initial={{ opacity: 0 }}
-              whileInView={{ opacity: 1 }}
-              viewport={{ once: true }}
-              transition={{ delay: 0.4 }}
-              className="mt-8 flex items-center gap-4"
-            >
-              <div className="w-10 h-[1px] bg-gold/40" />
+            <div className="mt-8 flex items-center gap-4">
+              <div className="w-10 h-[1px] bg-gold/30" />
               <span className="text-taupe text-sm tracking-wider font-light italic">
                 Betty & Bree
               </span>
-            </motion.div>
+            </div>
           </motion.div>
         </div>
       </div>

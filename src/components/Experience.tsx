@@ -22,13 +22,13 @@ export default function Experience() {
       style={{ backgroundColor: bgColor }}
       className="py-20 md:py-28 overflow-hidden"
     >
-      <div className="w-full max-w-[780px] mx-auto px-6 text-center">
+      <div className="w-full max-w-[680px] mx-auto px-8 text-center">
         <motion.h2
-          initial={{ opacity: 0, y: 20 }}
+          initial={{ opacity: 0, y: 16 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: "-50px" }}
           transition={{ duration: 0.9, ease: "easeOut" }}
-          className="font-serif text-3xl md:text-5xl lg:text-[3.5rem] font-light text-charcoal leading-tight"
+          className="font-serif text-3xl md:text-5xl lg:text-[3.2rem] font-light text-charcoal leading-tight text-center"
         >
           This isn&apos;t just a haircut.
         </motion.h2>
@@ -38,7 +38,7 @@ export default function Experience() {
           whileInView={{ opacity: 1 }}
           viewport={{ once: true, margin: "-50px" }}
           transition={{ duration: 0.9, delay: 0.2 }}
-          className="mt-4 font-serif text-2xl md:text-3xl italic text-blush-dark/80 font-light"
+          className="mt-3 font-serif text-xl md:text-2xl italic text-blush-dark/70 font-light text-center"
         >
           It&apos;s the best part of your week.
         </motion.p>
@@ -48,22 +48,16 @@ export default function Experience() {
           whileInView={{ opacity: 1 }}
           viewport={{ once: true, margin: "-50px" }}
           transition={{ duration: 0.9, delay: 0.4 }}
-          className="mt-8 text-stone text-base md:text-lg max-w-xl mx-auto font-light leading-[1.8]"
+          className="mt-8 text-stone text-[15px] md:text-base font-light leading-[1.8] text-center max-w-lg mx-auto"
         >
           The moment you walk in, everything slows down. Warm light, quiet
           music, and a stylist who already knows how you take your coffee. No
           rush. No assembly line. Just an hour that&apos;s entirely yours.
         </motion.p>
 
-        <motion.div
-          initial={{ opacity: 0 }}
-          whileInView={{ opacity: 1 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.8, delay: 0.5 }}
-          className="mt-12 mx-auto w-16 h-[1px] bg-gold/30"
-        />
+        <div className="w-12 h-[1px] bg-gold/25 mx-auto mt-12" />
 
-        <div className="mt-12 grid grid-cols-1 md:grid-cols-3 gap-10 max-w-3xl mx-auto">
+        <div className="mt-12 grid grid-cols-1 md:grid-cols-3 gap-8">
           {[
             {
               title: "Personalized",
@@ -80,18 +74,14 @@ export default function Experience() {
           ].map((item, i) => (
             <motion.div
               key={item.title}
-              initial={{ opacity: 0, y: 16 }}
+              initial={{ opacity: 0, y: 12 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              transition={{ duration: 0.6, delay: 0.15 + i * 0.1 }}
+              transition={{ duration: 0.5, delay: 0.1 + i * 0.08 }}
               className="text-center"
             >
-              <h3 className="font-serif text-lg text-charcoal mb-2">
-                {item.title}
-              </h3>
-              <p className="text-stone text-sm font-light leading-relaxed">
-                {item.text}
-              </p>
+              <h3 className="font-serif text-lg text-charcoal mb-2">{item.title}</h3>
+              <p className="text-stone text-[13px] font-light leading-relaxed">{item.text}</p>
             </motion.div>
           ))}
         </div>

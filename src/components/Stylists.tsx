@@ -42,40 +42,39 @@ function StylistCard({ stylist, index }: { stylist: typeof stylists[0]; index: n
       transition={{ duration: 0.8, delay: index * 0.12, ease: "easeOut" }}
       className="group text-center"
     >
-      {/* Portrait */}
-      <div className="relative mb-6 overflow-hidden rounded-2xl mx-auto max-w-md">
+      {/* Portrait - properly constrained */}
+      <div className="relative mb-6 overflow-hidden rounded-2xl mx-auto" style={{ maxWidth: "380px" }}>
         <div className="aspect-[3/4] relative overflow-hidden bg-beige">
           <Image
             src={stylist.image}
             alt={stylist.name}
             fill
             quality={85}
-            sizes="(max-width: 1024px) 90vw, 45vw"
+            sizes="380px"
             className="object-cover group-hover:scale-[1.02] transition-transform duration-700"
             priority={index === 0}
           />
-          <div className="absolute inset-0 bg-gradient-to-t from-charcoal/15 via-transparent to-transparent" />
+          <div className="absolute inset-0 bg-gradient-to-t from-charcoal/12 via-transparent to-transparent" />
         </div>
         <div className="absolute bottom-3 left-3 right-3 flex flex-wrap justify-center gap-1.5">
           {stylist.specialties.map((s) => (
-            <span key={s} className="px-3 py-1 bg-white/85 backdrop-blur-sm text-charcoal text-[10px] tracking-wider rounded-full">
+            <span key={s} className="px-2.5 py-0.5 bg-white/80 backdrop-blur-sm text-charcoal text-[9px] tracking-wider rounded-full">
               {s}
             </span>
           ))}
         </div>
       </div>
 
-      {/* Info */}
-      <h3 className="font-serif text-2xl md:text-3xl text-charcoal mb-1">{stylist.name}</h3>
-      <p className="text-gold text-[11px] tracking-[0.15em] uppercase mb-5 font-light">{stylist.title}</p>
+      <h3 className="font-serif text-2xl text-charcoal mb-1">{stylist.name}</h3>
+      <p className="text-gold text-[10px] tracking-[0.15em] uppercase mb-4 font-light">{stylist.title}</p>
 
-      <div className="max-w-sm mx-auto">
-        <p className="text-stone font-light leading-[1.75] text-[15px]">
+      <div className="max-w-xs mx-auto">
+        <p className="text-stone font-light leading-[1.7] text-[14px]">
           {stylist.bio}
           {!expanded && (
             <button
               onClick={() => setExpanded(true)}
-              className="ml-1.5 text-blush hover:text-blush-dark text-[15px] font-normal transition-colors cursor-pointer underline underline-offset-2 decoration-blush/30"
+              className="ml-1.5 text-blush hover:text-blush-dark text-[14px] font-normal transition-colors cursor-pointer underline underline-offset-2 decoration-blush/30"
             >
               Read more
             </button>
@@ -83,26 +82,21 @@ function StylistCard({ stylist, index }: { stylist: typeof stylists[0]; index: n
         </p>
         {expanded && (
           <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ duration: 0.3 }}>
-            <p className="text-stone font-light leading-[1.75] text-[15px] mt-3">
-              {stylist.extended}
-            </p>
-            <button
-              onClick={() => setExpanded(false)}
-              className="mt-2 text-stone-light hover:text-blush text-xs font-light transition-colors cursor-pointer"
-            >
+            <p className="text-stone font-light leading-[1.7] text-[14px] mt-3">{stylist.extended}</p>
+            <button onClick={() => setExpanded(false)} className="mt-2 text-stone-light hover:text-blush text-xs font-light transition-colors cursor-pointer">
               Show less
             </button>
           </motion.div>
         )}
       </div>
 
-      <div className="flex flex-col sm:flex-row justify-center gap-2.5 mt-6">
+      <div className="flex flex-col sm:flex-row justify-center gap-2 mt-6">
         <a href={stylist.bookingUrl} target="_blank" rel="noopener noreferrer"
-          className="inline-flex items-center justify-center px-7 py-3 bg-blush text-white text-sm tracking-wider uppercase rounded-full hover:bg-blush-dark transition-all duration-300 active:scale-[0.97]">
+          className="inline-flex items-center justify-center px-6 py-2.5 bg-blush text-white text-[12px] tracking-wider uppercase rounded-full hover:bg-blush-dark transition-all duration-300 active:scale-[0.97]">
           {stylist.bookingLabel}
         </a>
         <a href={stylist.instagramUrl} target="_blank" rel="noopener noreferrer"
-          className="inline-flex items-center justify-center px-7 py-3 border border-beige text-stone text-sm tracking-wider rounded-full hover:border-blush-light hover:text-blush-dark transition-all duration-300">
+          className="inline-flex items-center justify-center px-6 py-2.5 border border-beige text-stone text-[12px] tracking-wider rounded-full hover:border-blush-light hover:text-blush-dark transition-all duration-300">
           {stylist.instagram}
         </a>
       </div>
@@ -113,19 +107,19 @@ function StylistCard({ stylist, index }: { stylist: typeof stylists[0]; index: n
 export default function Stylists() {
   return (
     <section id="stylists" className="py-20 md:py-28 bg-cream">
-      <div className="w-full max-w-[1120px] mx-auto px-6 lg:px-10">
+      <div className="w-full max-w-[900px] mx-auto px-8">
         <motion.div
           initial={{ opacity: 0, y: 16 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.8 }}
-          className="text-center mb-16"
+          className="text-center mb-14"
         >
           <p className="text-gold text-[11px] tracking-[0.3em] uppercase mb-4 font-light">Your Stylists</p>
           <h2 className="font-serif text-3xl md:text-5xl font-light text-charcoal">Two stylists. Your full attention.</h2>
         </motion.div>
 
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-12 md:gap-10">
           {stylists.map((stylist, i) => (
             <StylistCard key={stylist.name} stylist={stylist} index={i} />
           ))}
