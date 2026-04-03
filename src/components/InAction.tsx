@@ -25,7 +25,7 @@ export default function InAction() {
           </p>
         </motion.div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-[900px] mx-auto">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-[320px] md:max-w-[900px] mx-auto">
           <motion.div
             initial={{ opacity: 0, y: 16 }}
             whileInView={{ opacity: 1, y: 0 }}
