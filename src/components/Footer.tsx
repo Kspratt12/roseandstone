@@ -6,84 +6,72 @@ export default function Footer() {
   return (
     <footer className="bg-soft-black py-14 md:py-16">
       <div className="section-container">
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-10 md:gap-8">
-          {/* Brand */}
-          <div>
-            <Image
-              src="/images/logo.jpeg"
-              alt="Rose & Stone Salon"
-              width={110}
-              height={44}
-              className="h-9 w-auto mb-4 brightness-200 opacity-80"
-            />
-            <p className="text-white/30 text-sm font-light leading-relaxed max-w-xs">
-              A boutique salon in Cary, North Carolina where your hair gets the attention it deserves.
-            </p>
-          </div>
+        {/* Top row: Logo centered */}
+        <div className="text-center mb-10">
+          <Image
+            src="/images/logo.jpeg"
+            alt="Rose & Stone Salon"
+            width={100}
+            height={40}
+            className="h-8 w-auto mx-auto mb-3 brightness-200 opacity-70"
+          />
+          <p className="text-white/25 text-sm font-light max-w-xs mx-auto">
+            A boutique salon in Cary, North Carolina where your hair gets the attention it deserves.
+          </p>
+        </div>
 
-          {/* Navigation + Booking */}
+        {/* Links row */}
+        <div className="grid grid-cols-2 md:grid-cols-4 gap-8 text-center mb-10">
           <div>
-            <h4 className="text-white/40 text-[11px] tracking-wider uppercase mb-3">Navigate</h4>
-            <div className="space-y-1.5 mb-6">
-              {[
-                { label: "Our Story", href: "#story" },
-                { label: "Stylists", href: "#stylists" },
-                { label: "Services", href: "#services" },
-                { label: "Reviews", href: "#testimonials" },
-                { label: "Contact", href: "#contact" },
-              ].map((link) => (
-                <a key={link.label} href={link.href} className="block text-white/25 text-sm font-light hover:text-blush-light transition-colors">
-                  {link.label}
+            <h4 className="text-white/35 text-[10px] tracking-[0.15em] uppercase mb-2">Navigate</h4>
+            <div className="space-y-1">
+              {["Our Story", "Stylists", "Services", "Reviews", "Contact"].map((label) => (
+                <a key={label} href={`#${label.toLowerCase().replace(" ", "")}`} className="block text-white/20 text-[13px] font-light hover:text-blush-light transition-colors">
+                  {label === "Our Story" ? <a href="#story">Our Story</a> : label}
                 </a>
               ))}
             </div>
+          </div>
 
-            <h4 className="text-white/40 text-[11px] tracking-wider uppercase mb-3">Book Online</h4>
-            <div className="space-y-1.5">
-              <a href="https://book.squareup.com/appointments/lq9qhwhra4o0tn/location/LVTJWVE2XE4QF?buttonTextColor=000000&color=bd959f&locale=en&referrer=so" target="_blank" rel="noopener noreferrer" className="block text-white/25 text-sm font-light hover:text-blush-light transition-colors">
-                Book with Betty (Square)
+          <div>
+            <h4 className="text-white/35 text-[10px] tracking-[0.15em] uppercase mb-2">Book</h4>
+            <div className="space-y-1">
+              <a href="https://book.squareup.com/appointments/lq9qhwhra4o0tn/location/LVTJWVE2XE4QF?buttonTextColor=000000&color=bd959f&locale=en&referrer=so" target="_blank" rel="noopener noreferrer" className="block text-white/20 text-[13px] font-light hover:text-blush-light transition-colors">
+                Betty (Square)
               </a>
-              <a href="https://www.colourmebree.com/" target="_blank" rel="noopener noreferrer" className="block text-white/25 text-sm font-light hover:text-blush-light transition-colors">
-                Book with Bree (ColourMeBree.com)
+              <a href="https://www.colourmebree.com/" target="_blank" rel="noopener noreferrer" className="block text-white/20 text-[13px] font-light hover:text-blush-light transition-colors">
+                Bree (ColourMeBree)
               </a>
             </div>
           </div>
 
-          {/* Contact */}
           <div>
-            <h4 className="text-white/40 text-[11px] tracking-wider uppercase mb-3">Visit Us</h4>
-            <div className="text-white/25 text-sm font-light leading-relaxed mb-5">
-              <p>1340 SE Maynard Rd, Suite 101</p>
-              <p className="text-white/15 text-xs">(around the back of the building)</p>
-              <p>Cary, NC 27511</p>
+            <h4 className="text-white/35 text-[10px] tracking-[0.15em] uppercase mb-2">Betty</h4>
+            <div className="space-y-1 text-[13px] font-light">
+              <a href="tel:9196510004" className="block text-white/20 hover:text-blush-light transition-colors">(919) 651-0004</a>
+              <a href="mailto:betty@roseandstonesalon.com" className="block text-white/15 text-[11px] hover:text-blush-light transition-colors break-all">betty@roseandstone<wbr />salon.com</a>
+              <a href="https://www.instagram.com/bettywiththegoodhair_/" target="_blank" rel="noopener noreferrer" className="block text-white/15 text-[11px] hover:text-blush-light transition-colors">@bettywiththegoodhair_</a>
             </div>
+          </div>
 
-            <div className="grid grid-cols-2 gap-4 mb-5">
-              <div>
-                <p className="text-white/35 text-[11px] tracking-wider uppercase mb-1">Betty</p>
-                <a href="tel:9196510004" className="block text-white/25 text-sm font-light hover:text-blush-light transition-colors">(919) 651-0004</a>
-                <a href="mailto:betty@roseandstonesalon.com" className="block text-white/20 text-xs font-light hover:text-blush-light transition-colors mt-0.5">betty@roseandstonesalon.com</a>
-              </div>
-              <div>
-                <p className="text-white/35 text-[11px] tracking-wider uppercase mb-1">Bree</p>
-                <a href="tel:9847770699" className="block text-white/25 text-sm font-light hover:text-blush-light transition-colors">(984) 777-0699</a>
-                <a href="mailto:colourmebree@gmail.com" className="block text-white/20 text-xs font-light hover:text-blush-light transition-colors mt-0.5">colourmebree@gmail.com</a>
-              </div>
-            </div>
-
-            <div className="flex flex-wrap gap-x-4 gap-y-1">
-              <a href="https://www.instagram.com/bettywiththegoodhair_/" target="_blank" rel="noopener noreferrer" className="text-white/15 hover:text-blush-light transition-colors text-xs font-light">Instagram (Betty)</a>
-              <a href="https://www.instagram.com/colourmebree/" target="_blank" rel="noopener noreferrer" className="text-white/15 hover:text-blush-light transition-colors text-xs font-light">Instagram (Bree)</a>
-              <a href="https://www.facebook.com/ColourMeBree/" target="_blank" rel="noopener noreferrer" className="text-white/15 hover:text-blush-light transition-colors text-xs font-light">Facebook</a>
+          <div>
+            <h4 className="text-white/35 text-[10px] tracking-[0.15em] uppercase mb-2">Bree</h4>
+            <div className="space-y-1 text-[13px] font-light">
+              <a href="tel:9847770699" className="block text-white/20 hover:text-blush-light transition-colors">(984) 777-0699</a>
+              <a href="mailto:colourmebree@gmail.com" className="block text-white/15 text-[11px] hover:text-blush-light transition-colors">colourmebree@gmail.com</a>
+              <a href="https://www.instagram.com/colourmebree/" target="_blank" rel="noopener noreferrer" className="block text-white/15 text-[11px] hover:text-blush-light transition-colors">@colourmebree</a>
             </div>
           </div>
         </div>
 
-        <div className="mt-12 pt-6 border-t border-white/5 flex flex-col md:flex-row items-center justify-between gap-2">
-          <p className="text-white/10 text-xs font-light">
-            &copy; {new Date().getFullYear()} Rose & Stone Salon. All rights reserved.
-          </p>
-          <p className="text-white/10 text-xs font-light">Cary, North Carolina</p>
+        {/* Address */}
+        <div className="text-center text-white/15 text-[12px] font-light mb-8">
+          1340 SE Maynard Rd, Suite 101 · Cary, NC 27511
+        </div>
+
+        <div className="pt-6 border-t border-white/5 flex flex-col md:flex-row items-center justify-between gap-2">
+          <p className="text-white/10 text-[11px] font-light">&copy; {new Date().getFullYear()} Rose & Stone Salon</p>
+          <p className="text-white/10 text-[11px] font-light">Cary, North Carolina</p>
         </div>
       </div>
     </footer>
