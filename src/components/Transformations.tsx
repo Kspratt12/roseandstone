@@ -70,7 +70,7 @@ const transformations = [
 ];
 
 function TransformationCard({ t, i }: { t: typeof transformations[0]; i: number }) {
-  const hasImages = false; // Set to true once real images are added
+  const hasImages = true;
 
   return (
     <motion.div
