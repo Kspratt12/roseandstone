@@ -6,7 +6,7 @@ import Image from "next/image";
 export default function Story() {
   return (
     <section id="story" className="py-20 md:py-28 bg-white">
-      <div className="w-full max-w-[1060px] mx-auto px-8 lg:px-12">
+      <div className="section-container">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center">
           {/* Image Side - use Betty's portrait instead of empty placeholder */}
           <motion.div

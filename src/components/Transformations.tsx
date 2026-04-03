@@ -24,7 +24,7 @@ const transformations = [
 export default function Transformations() {
   return (
     <section className="py-20 md:py-28 bg-beige/25">
-      <div className="w-full max-w-[900px] mx-auto px-8">
+      <div className="section-container">
         <motion.div
           initial={{ opacity: 0, y: 16 }}
           whileInView={{ opacity: 1, y: 0 }}

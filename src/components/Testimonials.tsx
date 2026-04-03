@@ -46,7 +46,7 @@ export default function Testimonials() {
 
   return (
     <section id="testimonials" className="py-20 md:py-28 bg-cream">
-      <div className="w-full max-w-[720px] mx-auto px-6">
+      <div className="section-container-narrow">
         <motion.div
           initial={{ opacity: 0, y: 16 }}
           whileInView={{ opacity: 1, y: 0 }}
