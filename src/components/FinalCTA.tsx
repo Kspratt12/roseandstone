@@ -4,31 +4,20 @@ import { motion } from "framer-motion";
 
 export default function FinalCTA() {
   return (
-    <section className="py-24 md:py-36 bg-charcoal relative overflow-hidden">
-      {/* Subtle gradient overlay */}
-      <div className="absolute inset-0 bg-gradient-to-br from-charcoal via-soft-black to-charcoal" />
+    <section className="py-24 md:py-32 bg-charcoal relative overflow-hidden">
+      <div className="absolute inset-0 bg-gradient-to-br from-charcoal via-soft-black/90 to-charcoal" />
 
-      {/* Decorative elements */}
-      <div className="absolute top-0 left-0 w-64 h-64 bg-blush/5 rounded-full blur-3xl" />
-      <div className="absolute bottom-0 right-0 w-96 h-96 bg-rose-gold/5 rounded-full blur-3xl" />
+      {/* Soft glow accents */}
+      <div className="absolute top-0 left-1/4 w-72 h-72 bg-blush/4 rounded-full blur-[100px]" />
+      <div className="absolute bottom-0 right-1/4 w-96 h-96 bg-rose-gold/4 rounded-full blur-[120px]" />
 
-      <div className="relative z-10 max-w-3xl mx-auto px-6 text-center">
-        <motion.p
+      <div className="relative z-10 max-w-2xl mx-auto px-6 text-center">
+        <motion.h2
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          transition={{ duration: 0.8 }}
-          className="text-blush-light text-sm tracking-[0.3em] uppercase mb-6"
-        >
-          Your Next Chapter
-        </motion.p>
-
-        <motion.h2
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.8, delay: 0.2 }}
-          className="font-serif text-3xl md:text-5xl lg:text-6xl text-white font-light leading-tight"
+          transition={{ duration: 0.9 }}
+          className="font-serif text-3xl md:text-5xl lg:text-[3.5rem] text-white font-light leading-tight"
         >
           Ready to feel like
           <br />
@@ -36,25 +25,25 @@ export default function FinalCTA() {
         </motion.h2>
 
         <motion.p
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
+          initial={{ opacity: 0 }}
+          whileInView={{ opacity: 1 }}
           viewport={{ once: true }}
-          transition={{ duration: 0.8, delay: 0.4 }}
-          className="mt-6 text-white/50 font-light max-w-lg mx-auto"
+          transition={{ duration: 0.8, delay: 0.25 }}
+          className="mt-5 text-white/40 font-light max-w-md mx-auto text-[15px]"
         >
-          Book your appointment at Rose & Stone and experience the difference a
-          boutique salon makes.
+          Your chair is waiting. Pick your stylist and let&apos;s make it
+          happen.
         </motion.p>
 
         <motion.a
           href="#booking"
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
+          initial={{ opacity: 0 }}
+          whileInView={{ opacity: 1 }}
           viewport={{ once: true }}
-          transition={{ duration: 0.8, delay: 0.6 }}
-          whileHover={{ scale: 1.05 }}
-          whileTap={{ scale: 0.98 }}
-          className="inline-block mt-10 px-10 py-4 bg-blush text-white text-sm tracking-[0.2em] uppercase rounded-full hover:bg-blush-dark transition-colors duration-300 shadow-lg"
+          transition={{ duration: 0.6, delay: 0.4 }}
+          whileHover={{ scale: 1.03 }}
+          whileTap={{ scale: 0.97 }}
+          className="inline-block mt-9 px-10 py-4 bg-blush text-white text-sm tracking-[0.15em] uppercase rounded-full hover:bg-blush-dark transition-all duration-300 shadow-lg shadow-blush/15"
         >
           Book Your Appointment
         </motion.a>

@@ -6,86 +6,78 @@ const services = [
   {
     title: "Blonding",
     description:
-      "Dimensional, lived-in blondes tailored to your skin tone and lifestyle. From icy platinum to warm honey — this is our signature.",
-    image: "/services/blonding.jpg",
+      "Our signature. Dimensional, lived-in blondes custom-matched to your skin tone — from icy platinum to warm caramel. This is what we're known for.",
   },
   {
     title: "Balayage",
     description:
-      "Hand-painted, sun-kissed highlights that grow out beautifully. Low maintenance, high impact — the way color should be.",
-    image: "/services/balayage.jpg",
+      "Hand-painted highlights that look like you were born with them. Grows out naturally, looks incredible for months, and requires way less upkeep.",
   },
   {
     title: "Color & Highlights",
     description:
-      "Full color transformations, dimensional highlights, and corrective color. L'Oréal trained expertise for flawless results every time.",
-    image: "/services/color.jpg",
+      "Full transformations, corrective color, and dimensional highlights. Bree's L'Oréal training means your color will be rich, even, and exactly what you asked for.",
   },
   {
     title: "Brazilian Blowout",
     description:
-      "Smooth, frizz-free, and brilliantly shiny. Our smoothing treatments reduce styling time and keep your hair healthy.",
-    image: "/services/blowout.jpg",
+      "Cut your morning routine in half. Smooth, shiny, frizz-free hair that lasts for weeks — and actually keeps your hair healthier.",
   },
   {
     title: "Precision Cuts",
     description:
-      "Men's and women's cuts crafted to your face shape, hair texture, and personal style. Including Bree's signature dry cut technique.",
-    image: "/services/cuts.jpg",
+      "Shaped to your face, your texture, and how you actually style your hair day-to-day. Ask Bree about her signature dry cut — it's a game-changer.",
   },
   {
     title: "Extensions",
     description:
-      "Seamless, natural-looking volume and length. Expertly placed for a flawless blend that moves like your own hair.",
-    image: "/services/extensions.jpg",
+      "Natural-looking length and volume placed by hand. We blend them so seamlessly, nobody will know — they'll just think you have incredible hair.",
   },
 ];
 
 export default function Services() {
   return (
-    <section id="services" className="py-24 md:py-36 bg-white">
+    <section id="services" className="py-20 md:py-28 bg-white">
       <div className="max-w-6xl mx-auto px-6">
         <motion.div
-          initial={{ opacity: 0, y: 30 }}
+          initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.8 }}
-          className="text-center mb-20"
+          className="text-center mb-14"
         >
-          <p className="text-blush text-sm tracking-[0.3em] uppercase mb-4">
+          <p className="text-blush text-xs tracking-[0.3em] uppercase mb-4">
             What We Do
           </p>
           <h2 className="font-serif text-3xl md:text-5xl font-light text-charcoal">
-            Services crafted with care
+            Every service starts with a conversation
           </h2>
-          <p className="mt-4 text-stone font-light max-w-xl mx-auto">
-            Every service begins with a consultation — because understanding
-            your hair is just as important as styling it.
+          <p className="mt-4 text-stone font-light max-w-lg mx-auto text-[15px]">
+            We don&apos;t start until we understand your hair, your routine,
+            and what you actually want. No assumptions.
           </p>
         </motion.div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
           {services.map((service, i) => (
             <motion.div
               key={service.title}
-              initial={{ opacity: 0, y: 30 }}
+              initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              transition={{ duration: 0.6, delay: i * 0.1 }}
-              className="group cursor-default"
+              transition={{ duration: 0.5, delay: i * 0.08 }}
+              className="group"
             >
-              {/* Image */}
-              <div className="relative aspect-[4/3] bg-beige rounded-xl overflow-hidden mb-5">
-                <div className="absolute inset-0 bg-gradient-to-br from-blush/10 to-rose-gold/10 group-hover:from-blush/20 group-hover:to-rose-gold/20 transition-all duration-500" />
+              <div className="relative aspect-[4/3] bg-beige/60 rounded-xl overflow-hidden mb-4">
+                <div className="absolute inset-0 bg-gradient-to-br from-blush/5 to-rose-gold/5 group-hover:from-blush/12 group-hover:to-rose-gold/12 transition-all duration-700" />
                 <div className="absolute inset-0 flex items-center justify-center">
-                  <span className="font-serif text-4xl text-blush/20 group-hover:text-blush/30 transition-colors duration-500">
+                  <span className="font-serif text-4xl text-blush/15 group-hover:text-blush/25 transition-colors duration-700">
                     {service.title.charAt(0)}
                   </span>
                 </div>
-                {/* Replace with real images */}
               </div>
 
-              <h3 className="font-serif text-xl md:text-2xl text-charcoal mb-2">
+              <h3 className="font-serif text-xl text-charcoal mb-2">
                 {service.title}
               </h3>
               <p className="text-stone text-sm font-light leading-relaxed">
@@ -96,15 +88,15 @@ export default function Services() {
         </div>
 
         <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
+          initial={{ opacity: 0 }}
+          whileInView={{ opacity: 1 }}
           viewport={{ once: true }}
-          transition={{ duration: 0.6, delay: 0.4 }}
-          className="text-center mt-16"
+          transition={{ duration: 0.6, delay: 0.3 }}
+          className="text-center mt-14"
         >
           <a
             href="#booking"
-            className="inline-flex items-center gap-2 px-8 py-3 bg-blush text-white text-sm tracking-wider uppercase rounded-full hover:bg-blush-dark transition-colors duration-300"
+            className="inline-flex items-center px-8 py-3.5 bg-blush text-white text-sm tracking-wider uppercase rounded-full hover:bg-blush-dark transition-all duration-300 active:scale-[0.97]"
           >
             Book a Consultation
           </a>

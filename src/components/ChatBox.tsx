@@ -1,31 +1,31 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useRef, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 
 const quickOptions = [
   {
-    label: "Book an appointment",
+    label: "I'd like to book",
     response:
-      "We'd love to see you! Book with Betty via Square or with Bree at ColourMeBree.com. Tap below to choose your stylist.",
+      "We'd love to have you! Each stylist has their own booking link — tap below to choose who you'd like to see.",
     action: "booking",
   },
   {
-    label: "Pricing questions",
+    label: "How much does it cost?",
     response:
-      "Pricing varies based on hair length, density, and desired result. We recommend booking a consultation so your stylist can give you an accurate quote tailored to your hair goals.",
+      "Great question! Pricing depends on your hair length, density, and what you're looking for. The best way to get an accurate quote is to book a consultation — it's quick and there's no pressure.",
     action: "none",
   },
   {
-    label: "First visit info",
+    label: "First time here",
     response:
-      "Welcome! For your first visit, please arrive 10 minutes early. We'll start with a thorough consultation to understand your hair history, goals, and lifestyle. It's all about getting to know you and your hair.",
+      "Welcome! Plan to arrive about 10 minutes early so we can get to know you. We'll start with a one-on-one consultation about your hair goals, history, and daily routine — then we'll map out a plan together.",
     action: "none",
   },
   {
-    label: "Talk to a stylist",
+    label: "Contact a stylist",
     response:
-      "You can reach Betty at (919) 651-0004 or betty@roseandstonesalon.com. Reach Bree at (984) 777-0699 or colourmebree@gmail.com. We typically respond within a few hours!",
+      "Betty: (919) 651-0004 or betty@roseandstonesalon.com\n\nBree: (984) 777-0699 or colourmebree@gmail.com\n\nWe usually get back to you within a few hours!",
     action: "none",
   },
 ];
@@ -41,10 +41,15 @@ export default function ChatBox() {
   const [messages, setMessages] = useState<Message[]>([
     {
       type: "bot",
-      text: "Hey! Welcome to Rose & Stone. How can we help you today?",
+      text: "Hey there! 👋 Welcome to Rose & Stone. What can we help you with?",
     },
   ]);
   const [showOptions, setShowOptions] = useState(true);
+  const messagesEndRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    messagesEndRef.current?.scrollIntoView({ behavior: "smooth" });
+  }, [messages]);
 
   const handleOption = (option: (typeof quickOptions)[0]) => {
     setShowOptions(false);
@@ -57,41 +62,54 @@ export default function ChatBox() {
         showBooking: option.action === "booking",
       },
     ]);
-
-    setTimeout(() => setShowOptions(true), 500);
+    setTimeout(() => setShowOptions(true), 400);
   };
 
   return (
     <>
-      {/* Chat Button */}
+      {/* Chat Button — positioned above mobile book bar */}
       <motion.button
         onClick={() => setIsOpen(!isOpen)}
-        className="fixed bottom-6 right-6 z-50 w-14 h-14 bg-blush text-white rounded-full shadow-lg hover:bg-blush-dark transition-colors duration-300 flex items-center justify-center"
-        whileHover={{ scale: 1.1 }}
+        className="fixed bottom-20 lg:bottom-6 right-5 z-50 w-13 h-13 bg-blush text-white rounded-full shadow-lg shadow-blush/20 hover:bg-blush-dark transition-all duration-300 flex items-center justify-center"
+        whileHover={{ scale: 1.05 }}
         whileTap={{ scale: 0.95 }}
-        aria-label="Open chat"
+        aria-label={isOpen ? "Close chat" : "Open chat"}
+        style={{ width: 52, height: 52 }}
       >
         <AnimatePresence mode="wait">
           {isOpen ? (
-            <motion.span
+            <motion.svg
               key="close"
               initial={{ rotate: -90, opacity: 0 }}
               animate={{ rotate: 0, opacity: 1 }}
               exit={{ rotate: 90, opacity: 0 }}
-              className="text-xl"
+              transition={{ duration: 0.2 }}
+              width="18"
+              height="18"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              strokeWidth="2"
             >
-              ✕
-            </motion.span>
+              <line x1="18" y1="6" x2="6" y2="18" />
+              <line x1="6" y1="6" x2="18" y2="18" />
+            </motion.svg>
           ) : (
-            <motion.span
+            <motion.svg
               key="open"
               initial={{ scale: 0 }}
               animate={{ scale: 1 }}
               exit={{ scale: 0 }}
-              className="text-xl"
+              transition={{ duration: 0.2 }}
+              width="20"
+              height="20"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              strokeWidth="1.5"
             >
-              💬
-            </motion.span>
+              <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z" />
+            </motion.svg>
           )}
         </AnimatePresence>
       </motion.button>
@@ -100,64 +118,71 @@ export default function ChatBox() {
       <AnimatePresence>
         {isOpen && (
           <motion.div
-            initial={{ opacity: 0, y: 20, scale: 0.95 }}
+            initial={{ opacity: 0, y: 12, scale: 0.97 }}
             animate={{ opacity: 1, y: 0, scale: 1 }}
-            exit={{ opacity: 0, y: 20, scale: 0.95 }}
-            transition={{ duration: 0.3 }}
-            className="fixed bottom-24 right-6 z-50 w-[340px] md:w-[380px] max-h-[500px] bg-white rounded-2xl shadow-2xl border border-beige overflow-hidden flex flex-col"
+            exit={{ opacity: 0, y: 12, scale: 0.97 }}
+            transition={{ duration: 0.25, ease: "easeOut" }}
+            className="fixed bottom-[7rem] lg:bottom-[4.5rem] right-5 z-50 w-[calc(100vw-2.5rem)] max-w-[360px] bg-white rounded-2xl shadow-2xl shadow-charcoal/10 border border-beige/60 overflow-hidden flex flex-col"
+            style={{ maxHeight: "min(480px, calc(100vh - 10rem))" }}
           >
             {/* Header */}
-            <div className="bg-gradient-to-r from-blush to-blush-dark px-5 py-4">
-              <h3 className="text-white font-serif text-lg">Rose & Stone</h3>
-              <p className="text-white/70 text-xs">
-                We typically reply within a few hours
+            <div className="bg-gradient-to-r from-blush to-blush-dark/90 px-5 py-3.5 shrink-0">
+              <h3 className="text-white font-serif text-base">Rose & Stone</h3>
+              <p className="text-white/60 text-[11px] font-light">
+                Usually replies within a few hours
               </p>
             </div>
 
             {/* Messages */}
-            <div className="flex-1 overflow-y-auto p-4 space-y-3 max-h-[300px]">
+            <div className="flex-1 overflow-y-auto p-4 space-y-2.5 min-h-0">
               {messages.map((msg, i) => (
                 <motion.div
                   key={i}
-                  initial={{ opacity: 0, y: 10 }}
+                  initial={{ opacity: 0, y: 8 }}
                   animate={{ opacity: 1, y: 0 }}
-                  transition={{ delay: i * 0.1 }}
+                  transition={{ delay: msg.type === "bot" && i > 0 ? 0.2 : 0, duration: 0.3 }}
                   className={`flex ${
                     msg.type === "user" ? "justify-end" : "justify-start"
                   }`}
                 >
                   <div
-                    className={`max-w-[85%] px-4 py-2.5 rounded-2xl text-sm font-light leading-relaxed ${
+                    className={`max-w-[85%] px-3.5 py-2.5 text-[13px] font-light leading-relaxed ${
                       msg.type === "user"
-                        ? "bg-blush text-white rounded-br-md"
-                        : "bg-cream text-charcoal rounded-bl-md"
+                        ? "bg-blush text-white rounded-2xl rounded-br-sm"
+                        : "bg-cream text-charcoal rounded-2xl rounded-bl-sm"
                     }`}
                   >
-                    {msg.text}
+                    {msg.text.split("\n").map((line, j) => (
+                      <span key={j}>
+                        {line}
+                        {j < msg.text.split("\n").length - 1 && <br />}
+                      </span>
+                    ))}
 
                     {msg.showBooking && (
-                      <div className="mt-3 space-y-2">
+                      <div className="mt-3 space-y-1.5">
                         <a
                           href="https://book.squareup.com/appointments/lq9qhwhra4o0tn/location/LVTJWVE2XE4QF?buttonTextColor=000000&color=bd959f&locale=en&referrer=so"
                           target="_blank"
                           rel="noopener noreferrer"
-                          className="block w-full py-2 bg-blush text-white text-center text-xs tracking-wider rounded-full hover:bg-blush-dark transition-colors"
+                          className="block w-full py-2 bg-blush text-white text-center text-[11px] tracking-wider rounded-full hover:bg-blush-dark transition-colors active:scale-[0.97]"
                         >
-                          Book with Betty
+                          Betty — Blonding Specialist
                         </a>
                         <a
                           href="https://www.colourmebree.com/"
                           target="_blank"
                           rel="noopener noreferrer"
-                          className="block w-full py-2 bg-blush text-white text-center text-xs tracking-wider rounded-full hover:bg-blush-dark transition-colors"
+                          className="block w-full py-2 bg-blush text-white text-center text-[11px] tracking-wider rounded-full hover:bg-blush-dark transition-colors active:scale-[0.97]"
                         >
-                          Book with Bree
+                          Bree — Color Expert
                         </a>
                       </div>
                     )}
                   </div>
                 </motion.div>
               ))}
+              <div ref={messagesEndRef} />
             </div>
 
             {/* Quick Options */}
@@ -167,14 +192,15 @@ export default function ChatBox() {
                   initial={{ opacity: 0 }}
                   animate={{ opacity: 1 }}
                   exit={{ opacity: 0 }}
-                  className="px-4 pb-4"
+                  transition={{ duration: 0.2 }}
+                  className="px-3.5 pb-3.5 shrink-0"
                 >
-                  <div className="flex flex-wrap gap-2">
+                  <div className="flex flex-wrap gap-1.5">
                     {quickOptions.map((option) => (
                       <button
                         key={option.label}
                         onClick={() => handleOption(option)}
-                        className="px-3 py-1.5 bg-cream border border-beige text-charcoal text-xs tracking-wider rounded-full hover:border-blush hover:text-blush transition-colors duration-200"
+                        className="px-3 py-1.5 bg-cream border border-beige/60 text-charcoal text-[11px] tracking-wider rounded-full hover:border-blush/40 hover:text-blush transition-colors duration-200 active:scale-[0.97]"
                       >
                         {option.label}
                       </button>

@@ -3,43 +3,29 @@
 import { motion } from "framer-motion";
 
 const trustItems = [
-  {
-    icon: "✦",
-    label: "12+ Years Experience",
-  },
-  {
-    icon: "✦",
-    label: "Blonding Specialists",
-  },
-  {
-    icon: "✦",
-    label: "Private Boutique Salon",
-  },
-  {
-    icon: "✦",
-    label: "Hundreds of Happy Clients",
-  },
+  "12+ years behind the chair",
+  "Blonding & color specialists",
+  "Private boutique studio",
+  "Hundreds of loyal clients",
 ];
 
 export default function TrustStrip() {
   return (
-    <section className="bg-white py-8 md:py-10 border-b border-beige">
-      <div className="max-w-6xl mx-auto px-6">
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-6 md:gap-4">
+    <section className="bg-white py-6 md:py-8 border-b border-beige/60">
+      <div className="max-w-5xl mx-auto px-6">
+        <div className="flex flex-wrap justify-center gap-x-8 gap-y-3 md:gap-x-12">
           {trustItems.map((item, i) => (
-            <motion.div
-              key={item.label}
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
+            <motion.span
+              key={item}
+              initial={{ opacity: 0 }}
+              whileInView={{ opacity: 1 }}
               viewport={{ once: true }}
-              transition={{ duration: 0.6, delay: i * 0.1 }}
-              className="flex flex-col items-center text-center gap-2"
+              transition={{ duration: 0.5, delay: i * 0.08 }}
+              className="text-stone text-xs md:text-sm font-light tracking-wide flex items-center gap-2"
             >
-              <span className="text-blush text-lg">{item.icon}</span>
-              <span className="text-charcoal text-sm md:text-base font-light tracking-wide">
-                {item.label}
-              </span>
-            </motion.div>
+              <span className="text-blush/60 text-[10px]">&#10022;</span>
+              {item}
+            </motion.span>
           ))}
         </div>
       </div>

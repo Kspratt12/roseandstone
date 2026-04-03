@@ -1,124 +1,99 @@
 "use client";
 
-import { motion } from "framer-motion";
-
 export default function Footer() {
   return (
-    <footer className="bg-soft-black py-16 md:py-20">
+    <footer className="bg-soft-black py-14 md:py-16">
       <div className="max-w-6xl mx-auto px-6">
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-12 md:gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-10 md:gap-8">
           {/* Brand */}
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6 }}
-          >
-            <h3 className="font-serif text-2xl text-white mb-1">
+          <div>
+            <h3 className="font-serif text-xl text-white mb-0.5">
               Rose & Stone
             </h3>
-            <p className="text-white/30 text-xs tracking-[0.3em] uppercase mb-4">
+            <p className="text-white/25 text-[10px] tracking-[0.3em] uppercase mb-3">
               Salon
             </p>
-            <p className="text-white/50 text-sm font-light leading-relaxed">
-              A calm, personalized boutique salon experience in Cary, North
-              Carolina.
+            <p className="text-white/35 text-sm font-light leading-relaxed max-w-xs">
+              A boutique salon in Cary, North Carolina — where your hair gets
+              the attention it deserves.
             </p>
-          </motion.div>
+          </div>
 
-          {/* Quick Links */}
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6, delay: 0.1 }}
-          >
-            <h4 className="text-white/70 text-sm tracking-wider uppercase mb-4">
-              Quick Links
+          {/* Links */}
+          <div>
+            <h4 className="text-white/50 text-xs tracking-wider uppercase mb-3">
+              Navigate
             </h4>
-            <div className="space-y-2">
+            <div className="space-y-1.5">
               {[
                 { label: "Our Story", href: "#story" },
                 { label: "Stylists", href: "#stylists" },
                 { label: "Services", href: "#services" },
-                { label: "Testimonials", href: "#testimonials" },
+                { label: "Reviews", href: "#testimonials" },
                 { label: "Book Now", href: "#booking" },
                 { label: "Contact", href: "#contact" },
               ].map((link) => (
                 <a
                   key={link.label}
                   href={link.href}
-                  className="block text-white/40 text-sm font-light hover:text-blush-light transition-colors"
+                  className="block text-white/30 text-sm font-light hover:text-blush-light transition-colors"
                 >
                   {link.label}
                 </a>
               ))}
             </div>
-          </motion.div>
+          </div>
 
           {/* Contact */}
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6, delay: 0.2 }}
-          >
-            <h4 className="text-white/70 text-sm tracking-wider uppercase mb-4">
+          <div>
+            <h4 className="text-white/50 text-xs tracking-wider uppercase mb-3">
               Visit Us
             </h4>
-            <div className="space-y-3 text-white/40 text-sm font-light">
+            <div className="space-y-2.5 text-white/30 text-sm font-light">
               <p>
                 1340 SE Maynard Rd, Suite 101
                 <br />
                 Cary, NC 27511
               </p>
               <p>
-                <a
-                  href="tel:9196510004"
-                  className="hover:text-blush-light transition-colors"
-                >
+                <a href="tel:9196510004" className="hover:text-blush-light transition-colors">
                   (919) 651-0004
                 </a>
-              </p>
-              <p>
-                <a
-                  href="mailto:betty@roseandstonesalon.com"
-                  className="hover:text-blush-light transition-colors"
-                >
-                  betty@roseandstonesalon.com
+                {" · "}
+                <a href="tel:9847770699" className="hover:text-blush-light transition-colors">
+                  (984) 777-0699
                 </a>
               </p>
             </div>
 
-            {/* Social */}
-            <div className="mt-6 flex gap-4">
+            <div className="mt-4 flex gap-4">
               <a
                 href="https://www.instagram.com/bettywiththegoodhair_/"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="text-white/30 hover:text-blush-light transition-colors text-sm"
+                className="text-white/20 hover:text-blush-light transition-colors text-sm font-light"
               >
-                Instagram (Betty)
+                @bettywiththegoodhair_
               </a>
+            </div>
+            <div className="mt-1">
               <a
                 href="https://www.instagram.com/colourmebree/"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="text-white/30 hover:text-blush-light transition-colors text-sm"
+                className="text-white/20 hover:text-blush-light transition-colors text-sm font-light"
               >
-                Instagram (Bree)
+                @colourmebree
               </a>
             </div>
-          </motion.div>
+          </div>
         </div>
 
-        {/* Bottom */}
-        <div className="mt-16 pt-8 border-t border-white/10 flex flex-col md:flex-row items-center justify-between gap-4">
-          <p className="text-white/20 text-xs">
-            &copy; {new Date().getFullYear()} Rose & Stone Salon. All rights
-            reserved.
+        <div className="mt-12 pt-6 border-t border-white/6 flex flex-col md:flex-row items-center justify-between gap-2">
+          <p className="text-white/15 text-xs font-light">
+            &copy; {new Date().getFullYear()} Rose & Stone Salon
           </p>
-          <p className="text-white/20 text-xs">
+          <p className="text-white/15 text-xs font-light">
             Cary, North Carolina
           </p>
         </div>

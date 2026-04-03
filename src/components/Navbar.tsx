@@ -7,7 +7,7 @@ const navLinks = [
   { label: "Our Story", href: "#story" },
   { label: "Stylists", href: "#stylists" },
   { label: "Services", href: "#services" },
-  { label: "Testimonials", href: "#testimonials" },
+  { label: "Reviews", href: "#testimonials" },
   { label: "Contact", href: "#contact" },
 ];
 
@@ -16,35 +16,41 @@ export default function Navbar() {
   const [mobileOpen, setMobileOpen] = useState(false);
 
   useEffect(() => {
-    const handleScroll = () => setScrolled(window.scrollY > 50);
-    window.addEventListener("scroll", handleScroll);
+    const handleScroll = () => setScrolled(window.scrollY > 60);
+    window.addEventListener("scroll", handleScroll, { passive: true });
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
+
+  // Lock body scroll when mobile menu is open
+  useEffect(() => {
+    document.body.style.overflow = mobileOpen ? "hidden" : "";
+    return () => { document.body.style.overflow = ""; };
+  }, [mobileOpen]);
 
   return (
     <>
       <motion.nav
-        initial={{ y: -100 }}
+        initial={{ y: -80 }}
         animate={{ y: 0 }}
-        transition={{ duration: 0.8, ease: "easeOut" }}
+        transition={{ duration: 0.7, ease: "easeOut" }}
         className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
           scrolled
-            ? "bg-cream/95 backdrop-blur-md shadow-sm py-3"
+            ? "bg-cream/95 backdrop-blur-md shadow-[0_1px_0_rgba(0,0,0,0.04)] py-3"
             : "bg-transparent py-5"
         }`}
       >
         <div className="max-w-7xl mx-auto px-6 flex items-center justify-between">
-          <a href="#" className="flex flex-col items-start">
+          <a href="#" className="flex flex-col items-start leading-none">
             <span
-              className={`font-serif text-2xl md:text-3xl font-light tracking-wide transition-colors duration-500 ${
+              className={`font-serif text-2xl md:text-[1.7rem] font-light tracking-wide transition-colors duration-500 ${
                 scrolled ? "text-charcoal" : "text-white"
               }`}
             >
               Rose & Stone
             </span>
             <span
-              className={`text-[10px] md:text-xs tracking-[0.3em] uppercase font-light transition-colors duration-500 ${
-                scrolled ? "text-stone" : "text-white/70"
+              className={`text-[9px] md:text-[10px] tracking-[0.3em] uppercase font-light transition-colors duration-500 mt-0.5 ${
+                scrolled ? "text-stone-light" : "text-white/50"
               }`}
             >
               Salon
@@ -52,13 +58,13 @@ export default function Navbar() {
           </a>
 
           {/* Desktop Nav */}
-          <div className="hidden lg:flex items-center gap-8">
+          <div className="hidden lg:flex items-center gap-7">
             {navLinks.map((link) => (
               <a
                 key={link.label}
                 href={link.href}
-                className={`text-sm tracking-wider uppercase font-light transition-colors duration-300 hover:text-blush ${
-                  scrolled ? "text-charcoal" : "text-white"
+                className={`text-[13px] tracking-wider uppercase font-light transition-colors duration-300 hover:text-blush ${
+                  scrolled ? "text-charcoal/80" : "text-white/80"
                 }`}
               >
                 {link.label}
@@ -66,7 +72,7 @@ export default function Navbar() {
             ))}
             <a
               href="#booking"
-              className="ml-4 px-6 py-2.5 bg-blush text-white text-sm tracking-wider uppercase rounded-full hover:bg-blush-dark transition-colors duration-300"
+              className="ml-3 px-6 py-2.5 bg-blush text-white text-[13px] tracking-wider uppercase rounded-full hover:bg-blush-dark transition-all duration-300 active:scale-[0.97]"
             >
               Book Now
             </a>
@@ -75,29 +81,38 @@ export default function Navbar() {
           {/* Mobile Toggle */}
           <button
             onClick={() => setMobileOpen(!mobileOpen)}
-            className={`lg:hidden flex flex-col gap-1.5 p-2 ${
-              scrolled ? "text-charcoal" : "text-white"
-            }`}
+            className="lg:hidden p-2 -mr-2"
             aria-label="Toggle menu"
           >
-            <span
-              className={`block w-6 h-[1.5px] transition-all duration-300 ${
-                mobileOpen
-                  ? "rotate-45 translate-y-[4.5px] bg-charcoal"
-                  : scrolled
-                  ? "bg-charcoal"
-                  : "bg-white"
-              }`}
-            />
-            <span
-              className={`block w-6 h-[1.5px] transition-all duration-300 ${
-                mobileOpen
-                  ? "-rotate-45 -translate-y-[4.5px] bg-charcoal"
-                  : scrolled
-                  ? "bg-charcoal"
-                  : "bg-white"
-              }`}
-            />
+            <div className="w-6 h-5 relative flex flex-col justify-between">
+              <span
+                className={`block w-6 h-[1.5px] transition-all duration-300 origin-center ${
+                  mobileOpen
+                    ? "rotate-45 translate-y-[9px] bg-charcoal"
+                    : scrolled
+                    ? "bg-charcoal"
+                    : "bg-white"
+                }`}
+              />
+              <span
+                className={`block w-6 h-[1.5px] transition-all duration-200 ${
+                  mobileOpen
+                    ? "opacity-0"
+                    : scrolled
+                    ? "bg-charcoal"
+                    : "bg-white"
+                }`}
+              />
+              <span
+                className={`block w-6 h-[1.5px] transition-all duration-300 origin-center ${
+                  mobileOpen
+                    ? "-rotate-45 -translate-y-[9px] bg-charcoal"
+                    : scrolled
+                    ? "bg-charcoal"
+                    : "bg-white"
+                }`}
+              />
+            </div>
           </button>
         </div>
       </motion.nav>
@@ -106,20 +121,20 @@ export default function Navbar() {
       <AnimatePresence>
         {mobileOpen && (
           <motion.div
-            initial={{ opacity: 0, y: -20 }}
-            animate={{ opacity: 1, y: 0 }}
-            exit={{ opacity: 0, y: -20 }}
-            transition={{ duration: 0.3 }}
-            className="fixed inset-0 z-40 bg-cream/98 backdrop-blur-lg flex flex-col items-center justify-center gap-8 lg:hidden"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            transition={{ duration: 0.25 }}
+            className="fixed inset-0 z-40 bg-cream flex flex-col items-center justify-center gap-7 lg:hidden"
           >
             {navLinks.map((link, i) => (
               <motion.a
                 key={link.label}
                 href={link.href}
                 onClick={() => setMobileOpen(false)}
-                initial={{ opacity: 0, y: 20 }}
+                initial={{ opacity: 0, y: 16 }}
                 animate={{ opacity: 1, y: 0 }}
-                transition={{ delay: i * 0.1 }}
+                transition={{ delay: 0.05 + i * 0.06, duration: 0.3 }}
                 className="text-2xl font-serif text-charcoal tracking-wider hover:text-blush transition-colors"
               >
                 {link.label}
@@ -128,10 +143,10 @@ export default function Navbar() {
             <motion.a
               href="#booking"
               onClick={() => setMobileOpen(false)}
-              initial={{ opacity: 0, y: 20 }}
+              initial={{ opacity: 0, y: 16 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.5 }}
-              className="mt-4 px-8 py-3 bg-blush text-white text-lg tracking-wider rounded-full hover:bg-blush-dark transition-colors"
+              transition={{ delay: 0.35, duration: 0.3 }}
+              className="mt-2 px-8 py-3.5 bg-blush text-white text-base tracking-wider rounded-full hover:bg-blush-dark transition-colors active:scale-[0.97]"
             >
               Book Now
             </motion.a>

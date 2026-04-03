@@ -1,91 +1,95 @@
 "use client";
 
 import { motion, AnimatePresence } from "framer-motion";
-import { useState, useEffect } from "react";
+import { useState, useEffect, useCallback } from "react";
 
 const testimonials = [
   {
-    text: "I've never felt more like myself walking out of a salon. Betty understood exactly what I wanted before I could even explain it. The blonde is perfect — dimensional, natural, and so easy to maintain.",
+    text: "I showed Betty a Pinterest photo I was honestly embarrassed to share — like, is this even possible? She looked at it, looked at my hair, and said 'absolutely.' Three hours later, I looked better than the photo. I almost cried in the chair.",
     name: "Sarah M.",
-    service: "Blonding with Betty",
+    detail: "Blonding client for 2 years",
   },
   {
-    text: "Bree is a true artist. She took my hair from damaged box dye to the most beautiful brunette I've ever had. The dry cut technique is a game-changer — my hair has never moved this well.",
+    text: "I'd been to six salons trying to fix a bad box dye job. Every one made it worse. Bree didn't judge me — she just sat down, explained exactly what we'd do, and got to work. I finally have hair I don't want to hide.",
     name: "Ashley R.",
-    service: "Color Correction with Bree",
+    detail: "Color correction with Bree",
   },
   {
-    text: "This salon is different. You feel it the moment you walk in — it's calm, it's warm, it's yours. After years of big-box salons, Rose & Stone feels like a secret I don't want to share.",
+    text: "It's the little things. They remember my name. They remember my kids' names. I don't have to re-explain what I want every time. After years of feeling like a number, Rose & Stone feels like coming home.",
     name: "Jordan T.",
-    service: "Balayage with Betty",
+    detail: "Regular client since 2022",
   },
   {
-    text: "I came to Bree after losing confidence due to hair thinning. She was so compassionate and knowledgeable. I left feeling beautiful for the first time in months. I cried happy tears in the car.",
+    text: "I started losing hair after my second pregnancy and was terrified to talk to anyone about it. Bree made me feel so safe. She explained options I didn't even know existed. I left with more hair AND more confidence.",
     name: "Michelle K.",
-    service: "Hair Loss Consultation with Bree",
+    detail: "Hair loss care with Bree",
   },
   {
-    text: "The Brazilian Blowout changed my morning routine completely. My hair is smooth, shiny, and I actually look forward to getting ready now. Betty is a miracle worker.",
+    text: "My Brazilian Blowout with Betty literally changed my mornings. I went from 45 minutes of fighting my hair to 10 minutes and done. My husband asked if I got a new haircut — I told him I got my life back.",
     name: "Lauren P.",
-    service: "Brazilian Blowout with Betty",
+    detail: "Brazilian Blowout client",
   },
 ];
 
 export default function Testimonials() {
   const [current, setCurrent] = useState(0);
+  const [isPaused, setIsPaused] = useState(false);
 
-  useEffect(() => {
-    const timer = setInterval(() => {
-      setCurrent((c) => (c + 1) % testimonials.length);
-    }, 6000);
-    return () => clearInterval(timer);
+  const next = useCallback(() => {
+    setCurrent((c) => (c + 1) % testimonials.length);
   }, []);
 
+  useEffect(() => {
+    if (isPaused) return;
+    const timer = setInterval(next, 7000);
+    return () => clearInterval(timer);
+  }, [isPaused, next]);
+
   return (
-    <section id="testimonials" className="py-24 md:py-36 bg-cream">
-      <div className="max-w-4xl mx-auto px-6">
+    <section id="testimonials" className="py-20 md:py-28 bg-cream">
+      <div className="max-w-3xl mx-auto px-6">
         <motion.div
-          initial={{ opacity: 0, y: 30 }}
+          initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.8 }}
-          className="text-center mb-16"
+          className="text-center mb-12"
         >
-          <p className="text-blush text-sm tracking-[0.3em] uppercase mb-4">
-            Kind Words
+          <p className="text-blush text-xs tracking-[0.3em] uppercase mb-4">
+            From Our Clients
           </p>
           <h2 className="font-serif text-3xl md:text-5xl font-light text-charcoal">
-            What our clients say
+            Don&apos;t take our word for it
           </h2>
         </motion.div>
 
-        {/* Testimonial Carousel */}
-        <div className="relative min-h-[280px] md:min-h-[220px]">
+        {/* Testimonial */}
+        <div
+          className="relative min-h-[300px] md:min-h-[240px] flex items-center"
+          onMouseEnter={() => setIsPaused(true)}
+          onMouseLeave={() => setIsPaused(false)}
+          onTouchStart={() => setIsPaused(true)}
+          onTouchEnd={() => setIsPaused(false)}
+        >
           <AnimatePresence mode="wait">
             <motion.div
               key={current}
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              exit={{ opacity: 0, y: -20 }}
-              transition={{ duration: 0.6 }}
-              className="text-center"
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              exit={{ opacity: 0 }}
+              transition={{ duration: 0.5 }}
+              className="text-center w-full"
             >
-              <div className="mb-8">
-                <span className="font-serif text-5xl text-blush/30">
-                  &ldquo;
-                </span>
-              </div>
-
-              <p className="font-serif text-xl md:text-2xl lg:text-3xl text-charcoal font-light leading-relaxed italic max-w-3xl mx-auto">
-                {testimonials[current].text}
+              <p className="font-serif text-lg md:text-2xl text-charcoal font-light leading-[1.7] italic max-w-2xl mx-auto">
+                &ldquo;{testimonials[current].text}&rdquo;
               </p>
 
               <div className="mt-8">
-                <p className="text-charcoal font-medium">
+                <p className="text-charcoal text-sm font-medium tracking-wide">
                   {testimonials[current].name}
                 </p>
-                <p className="text-blush text-sm tracking-wider mt-1">
-                  {testimonials[current].service}
+                <p className="text-stone text-xs tracking-wider mt-1 font-light">
+                  {testimonials[current].detail}
                 </p>
               </div>
             </motion.div>
@@ -93,15 +97,15 @@ export default function Testimonials() {
         </div>
 
         {/* Dots */}
-        <div className="flex justify-center gap-2 mt-10">
+        <div className="flex justify-center gap-2.5 mt-8">
           {testimonials.map((_, i) => (
             <button
               key={i}
               onClick={() => setCurrent(i)}
-              className={`w-2 h-2 rounded-full transition-all duration-300 ${
+              className={`h-1.5 rounded-full transition-all duration-500 ${
                 i === current
-                  ? "bg-blush w-6"
-                  : "bg-blush/30 hover:bg-blush/50"
+                  ? "bg-blush w-8"
+                  : "bg-blush/20 w-1.5 hover:bg-blush/40"
               }`}
               aria-label={`View testimonial ${i + 1}`}
             />

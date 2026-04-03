@@ -4,56 +4,51 @@ import { motion } from "framer-motion";
 
 export default function Hero() {
   return (
-    <section className="relative h-screen w-full overflow-hidden">
-      {/* Background — gradient overlay on a warm tone */}
-      <div className="absolute inset-0 bg-gradient-to-b from-soft-black/60 via-soft-black/40 to-soft-black/70" />
-
-      {/* Ambient background with soft movement */}
-      <div className="absolute inset-0 bg-[url('/hero-bg.jpg')] bg-cover bg-center bg-no-repeat" />
-      <div className="absolute inset-0 bg-gradient-to-b from-charcoal/50 via-charcoal/30 to-charcoal/60" />
+    <section className="relative min-h-[100svh] w-full overflow-hidden">
+      {/* Background layers */}
+      <div className="absolute inset-0 bg-[url('/hero-bg.jpg')] bg-cover bg-center bg-no-repeat scale-105" />
+      <div className="absolute inset-0 bg-gradient-to-b from-charcoal/40 via-charcoal/25 to-charcoal/55" />
 
       {/* Content */}
-      <div className="relative z-10 h-full flex flex-col items-center justify-center text-center px-6">
+      <div className="relative z-10 min-h-[100svh] flex flex-col items-center justify-center text-center px-6 py-20">
         <motion.p
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 1, delay: 0.3 }}
-          className="text-white/60 text-sm md:text-base tracking-[0.3em] uppercase mb-6 font-light"
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ duration: 1.2, delay: 0.2 }}
+          className="text-white/50 text-xs md:text-sm tracking-[0.35em] uppercase mb-8 font-light"
         >
-          Cary, North Carolina
+          A boutique salon in Cary, North Carolina
         </motion.p>
 
         <motion.h1
-          initial={{ opacity: 0, y: 30 }}
+          initial={{ opacity: 0, y: 24 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 1, delay: 0.6 }}
-          className="font-serif text-4xl md:text-6xl lg:text-7xl text-white font-light leading-tight max-w-4xl"
+          transition={{ duration: 1.2, delay: 0.5, ease: "easeOut" }}
+          className="font-serif text-[2.5rem] md:text-6xl lg:text-7xl text-white font-light leading-[1.15] max-w-4xl"
         >
-          Walk in stressed.
+          You deserve a stylist
           <br />
-          <span className="italic text-blush-light">
-            Leave feeling like you again.
-          </span>
+          who actually{" "}
+          <span className="italic text-blush-light">listens.</span>
         </motion.h1>
 
         <motion.p
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 1, delay: 0.9 }}
-          className="mt-6 text-white/70 text-base md:text-lg max-w-xl font-light leading-relaxed"
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ duration: 1.2, delay: 0.9 }}
+          className="mt-7 text-white/60 text-base md:text-lg max-w-md font-light leading-relaxed"
         >
-          A calm, personalized salon experience — where every detail is about
-          you.
+          Walk in stressed. Leave feeling like you again.
         </motion.p>
 
         <motion.a
           href="#booking"
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 1, delay: 1.2 }}
-          whileHover={{ scale: 1.05 }}
-          whileTap={{ scale: 0.98 }}
-          className="mt-10 px-10 py-4 bg-blush text-white text-sm tracking-[0.2em] uppercase rounded-full hover:bg-blush-dark transition-colors duration-300 shadow-lg"
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ duration: 0.8, delay: 1.3 }}
+          whileHover={{ scale: 1.03 }}
+          whileTap={{ scale: 0.97 }}
+          className="mt-10 px-10 py-4 bg-blush text-white text-sm tracking-[0.15em] uppercase rounded-full hover:bg-blush-dark transition-all duration-400 shadow-lg shadow-blush/20"
         >
           Book Your Appointment
         </motion.a>
@@ -62,16 +57,13 @@ export default function Hero() {
         <motion.div
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
-          transition={{ delay: 2 }}
-          className="absolute bottom-10 flex flex-col items-center gap-2"
+          transition={{ delay: 2.5, duration: 1 }}
+          className="absolute bottom-8 md:bottom-12 flex flex-col items-center gap-3"
         >
-          <span className="text-white/40 text-xs tracking-[0.2em] uppercase">
-            Scroll
-          </span>
           <motion.div
-            animate={{ y: [0, 8, 0] }}
-            transition={{ repeat: Infinity, duration: 2 }}
-            className="w-[1px] h-8 bg-gradient-to-b from-white/40 to-transparent"
+            animate={{ y: [0, 6, 0] }}
+            transition={{ repeat: Infinity, duration: 2.5, ease: "easeInOut" }}
+            className="w-[1px] h-10 bg-gradient-to-b from-white/30 to-transparent"
           />
         </motion.div>
       </div>

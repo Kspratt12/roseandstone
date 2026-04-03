@@ -1,23 +1,37 @@
 "use client";
 
-import { motion } from "framer-motion";
+import { useState, useEffect } from "react";
+import { motion, AnimatePresence } from "framer-motion";
 
 export default function MobileBookButton() {
+  const [visible, setVisible] = useState(false);
+
+  useEffect(() => {
+    const handleScroll = () => setVisible(window.scrollY > 400);
+    window.addEventListener("scroll", handleScroll, { passive: true });
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
+
   return (
-    <motion.div
-      initial={{ y: 100 }}
-      animate={{ y: 0 }}
-      transition={{ delay: 1, duration: 0.5 }}
-      className="fixed bottom-0 left-0 right-0 z-40 lg:hidden"
-    >
-      <div className="bg-white/95 backdrop-blur-md border-t border-beige px-4 py-3 safe-area-pb">
-        <a
-          href="#booking"
-          className="block w-full py-3.5 bg-blush text-white text-center text-sm tracking-[0.2em] uppercase rounded-full hover:bg-blush-dark transition-colors duration-300 shadow-md"
+    <AnimatePresence>
+      {visible && (
+        <motion.div
+          initial={{ y: 80 }}
+          animate={{ y: 0 }}
+          exit={{ y: 80 }}
+          transition={{ duration: 0.3, ease: "easeOut" }}
+          className="fixed bottom-0 left-0 right-0 z-40 lg:hidden"
         >
-          Book Your Appointment
-        </a>
-      </div>
-    </motion.div>
+          <div className="bg-white/95 backdrop-blur-md border-t border-beige/40 px-4 py-3 safe-area-pb">
+            <a
+              href="#booking"
+              className="block w-full py-3.5 bg-blush text-white text-center text-sm tracking-[0.15em] uppercase rounded-full hover:bg-blush-dark transition-all duration-300 active:scale-[0.97] shadow-sm shadow-blush/15"
+            >
+              Book Your Appointment
+            </a>
+          </div>
+        </motion.div>
+      )}
+    </AnimatePresence>
   );
 }
