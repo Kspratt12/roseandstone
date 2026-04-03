@@ -1,8 +1,10 @@
 "use client";
 
 import { motion } from "framer-motion";
+import { useState } from "react";
 
 export default function Contact() {
+  const [submitted, setSubmitted] = useState(false);
   return (
     <section id="contact" className="py-20 md:py-28 bg-white">
       <div className="w-full max-w-[960px] mx-auto px-8">
@@ -63,7 +65,13 @@ export default function Contact() {
             transition={{ duration: 0.8 }}
             className="lg:col-span-3"
           >
-            <form className="space-y-4 bg-cream/60 p-6 md:p-8 rounded-2xl border border-beige/30">
+            <form
+              onSubmit={(e) => {
+                e.preventDefault();
+                setSubmitted(true);
+              }}
+              className="space-y-4 bg-cream/60 p-6 md:p-8 rounded-2xl border border-beige/30"
+            >
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                 <div>
                   <label className="block text-[10px] text-charcoal/40 tracking-[0.12em] uppercase mb-1 font-light">First Name</label>
@@ -89,8 +97,13 @@ export default function Contact() {
                 <textarea rows={4} className="w-full px-4 py-2.5 bg-white border border-beige/40 rounded-lg focus:outline-none focus:border-blush/40 transition-all text-charcoal font-light text-[14px] resize-none" placeholder="Tell us about your hair goals..." />
               </div>
               <button type="submit" className="w-full py-3 bg-blush text-white text-[12px] tracking-wider uppercase rounded-full hover:bg-blush-dark transition-all duration-300 active:scale-[0.97] cursor-pointer">
-                Send Message
+                {submitted ? "Message Sent!" : "Send Message"}
               </button>
+              {submitted && (
+                <p className="text-center text-blush text-[13px] font-light mt-2">
+                  Thank you! We&apos;ll get back to you within a few hours.
+                </p>
+              )}
             </form>
           </motion.div>
 
