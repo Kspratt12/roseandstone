@@ -43,7 +43,7 @@ export default function Navbar({ onBookClick }: NavbarProps) {
             : "bg-transparent py-4"
         }`}
       >
-        <div className="section-container flex items-center justify-between">
+        <div className="w-full max-w-[960px] mx-auto px-8 flex items-center justify-between">
           <a href="#" className="relative shrink-0">
             <Image
               src="/images/logo.jpeg"

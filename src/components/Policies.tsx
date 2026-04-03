@@ -24,7 +24,7 @@ const policies = [
 export default function Policies() {
   return (
     <section className="py-16 md:py-20 bg-cream">
-      <div className="section-container-narrow">
+      <div className="w-full max-w-[680px] mx-auto px-8">
         <motion.div
           initial={{ opacity: 0, y: 16 }}
           whileInView={{ opacity: 1, y: 0 }}

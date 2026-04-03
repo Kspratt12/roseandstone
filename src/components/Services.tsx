@@ -60,7 +60,7 @@ export default function Services({ onBookClick }: ServicesProps) {
 
   return (
     <section id="services" className="py-20 md:py-28 bg-white">
-      <div className="section-container-narrow">
+      <div className="w-full max-w-[680px] mx-auto px-8">
         <motion.div
           initial={{ opacity: 0, y: 16 }}
           whileInView={{ opacity: 1, y: 0 }}

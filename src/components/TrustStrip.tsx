@@ -12,7 +12,7 @@ const trustItems = [
 export default function TrustStrip() {
   return (
     <section className="bg-white py-5 md:py-6 border-b border-beige/50">
-      <div className="section-container">
+      <div className="w-full max-w-[960px] mx-auto px-8">
         <div className="flex flex-wrap items-center justify-center gap-x-6 gap-y-2 md:gap-x-10">
           {trustItems.map((item, i) => (
             <motion.span

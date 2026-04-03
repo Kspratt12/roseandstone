@@ -24,7 +24,7 @@ export default function Hero({ onBookClick }: HeroProps) {
       <div className="absolute inset-0 bg-gradient-to-b from-charcoal/55 via-charcoal/40 to-charcoal/65" />
 
       {/* Content - properly centered */}
-      <div className="relative z-10 min-h-[100svh] flex flex-col items-center justify-center text-center section-container py-24">
+      <div className="relative z-10 min-h-[100svh] flex flex-col items-center justify-center text-center w-full max-w-[960px] mx-auto px-8 py-24">
         <motion.p
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}

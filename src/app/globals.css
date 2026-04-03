@@ -86,22 +86,6 @@ a, button {
   padding-bottom: max(12px, env(safe-area-inset-bottom));
 }
 
-/* Unified section container */
-.section-container {
-  width: 100%;
-  max-width: 960px;
-  margin-left: auto;
-  margin-right: auto;
-  padding-left: 2rem;
-  padding-right: 2rem;
-}
-
-/* Narrow variant for text-heavy sections */
-.section-container-narrow {
-  width: 100%;
-  max-width: 680px;
-  margin-left: auto;
-  margin-right: auto;
-  padding-left: 2rem;
-  padding-right: 2rem;
-}
+/* Container widths are applied via inline Tailwind classes:
+   Wide: w-full max-w-[960px] mx-auto px-8
+   Narrow: w-full max-w-[680px] mx-auto px-8 */

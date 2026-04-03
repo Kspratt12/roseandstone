@@ -13,7 +13,7 @@ export default function FinalCTA({ onBookClick }: FinalCTAProps) {
       <div className="absolute top-0 left-1/4 w-72 h-72 bg-blush/3 rounded-full blur-[100px]" />
       <div className="absolute bottom-0 right-1/4 w-96 h-96 bg-gold/3 rounded-full blur-[120px]" />
 
-      <div className="relative z-10 section-container-narrow text-center">
+      <div className="relative z-10 w-full max-w-[680px] mx-auto px-8 text-center">
         <motion.h2
           initial={{ opacity: 0, y: 16 }}
           whileInView={{ opacity: 1, y: 0 }}
