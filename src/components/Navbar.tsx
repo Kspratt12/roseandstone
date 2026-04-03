@@ -1,8 +1,8 @@
 "use client";
 
 import { useState, useEffect } from "react";
-import { motion, AnimatePresence } from "framer-motion";
-import Image from "next/image";
+import { AnimatePresence, motion } from "framer-motion";
+import Image from "next/image"; // used in mobile menu
 
 const navLinks = [
   { label: "Our Story", href: "#story" },
@@ -41,27 +41,17 @@ export default function Navbar({ onBookClick }: NavbarProps) {
         }`}
       >
         <div className="w-full max-w-[1280px] mx-auto px-6 flex items-center justify-between">
-          {/* Logo - fixed height container prevents layout shift */}
+          {/* Logo - text only, color changes on scroll. No image swap = zero layout shift */}
           <a href="#" className="relative shrink-0 h-10 flex items-center">
-            {/* Logo image - always rendered, opacity toggled */}
-            <Image
-              src="/images/logo.jpeg"
-              alt="Rose & Stone Salon"
-              width={120}
-              height={40}
-              className={`h-9 w-auto transition-opacity duration-500 ${
-                scrolled ? "opacity-100" : "opacity-0"
-              }`}
-              priority
-            />
-            {/* Text logo - absolutely positioned over the same space */}
             <span
-              className={`absolute left-0 top-1/2 -translate-y-1/2 font-serif text-xl md:text-2xl font-light tracking-wide leading-none whitespace-nowrap transition-opacity duration-500 ${
-                scrolled ? "opacity-0 pointer-events-none" : "text-white opacity-100"
+              className={`font-serif text-xl md:text-2xl font-light tracking-wide leading-none whitespace-nowrap transition-colors duration-500 ${
+                scrolled ? "text-charcoal" : "text-white"
               }`}
             >
               Rose & Stone
-              <span className="block text-[9px] tracking-[0.3em] uppercase font-light mt-0.5 text-white/40">
+              <span className={`block text-[9px] tracking-[0.3em] uppercase font-light mt-0.5 transition-colors duration-500 ${
+                scrolled ? "text-stone-light" : "text-white/40"
+              }`}>
                 Salon
               </span>
             </span>

@@ -1,7 +1,6 @@
 "use client";
 
 import { motion } from "framer-motion";
-import Image from "next/image";
 
 interface BookingProps {
   onBookClick: () => void;
@@ -17,7 +16,7 @@ const bookingOptions = [
     url: "https://book.squareup.com/appointments/lq9qhwhra4o0tn/location/LVTJWVE2XE4QF?buttonTextColor=000000&color=bd959f&locale=en&referrer=so",
     buttonText: "Book with Betty",
     note: "Books through Square Appointments",
-    image: "/images/betty.jpg",
+    initials: "BV",
   },
   {
     name: "Bree Szalkowski",
@@ -28,7 +27,7 @@ const bookingOptions = [
     url: "https://www.colourmebree.com/",
     buttonText: "Book with Bree",
     note: "Books through ColourMeBree.com",
-    image: "/images/bree.jpg",
+    initials: "BS",
   },
 ];
 
@@ -60,8 +59,8 @@ export default function Booking({ onBookClick }: BookingProps) {
             >
               {/* Centered content */}
               <div className="flex flex-col items-center text-center">
-                <div className="w-[72px] h-[72px] rounded-full overflow-hidden mb-5 ring-2 ring-beige/50">
-                  <Image src={option.image} alt={option.name} width={72} height={72} quality={85} className="w-full h-full object-cover" />
+                <div className="w-[72px] h-[72px] rounded-full mb-5 ring-2 ring-beige/50 bg-blush/10 flex items-center justify-center">
+                  <span className="font-serif text-xl text-blush/60">{option.initials}</span>
                 </div>
 
                 <h3 className="font-serif text-xl text-charcoal tracking-tight">{option.name}</h3>

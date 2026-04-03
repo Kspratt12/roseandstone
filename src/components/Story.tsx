@@ -26,8 +26,8 @@ export default function Story() {
               {/* Main image - salon/together photo */}
               <div className="aspect-[4/5] rounded-2xl overflow-hidden relative bg-beige">
                 <Image
-                  src="/images/gold-texture.jpeg"
-                  alt="Rose & Stone Salon interior"
+                  src="/images/bree-owner.jpg"
+                  alt="Bree at Rose & Stone Salon"
                   fill
                   quality={85}
                   sizes="(max-width: 1024px) 80vw, 40vw"
